@@ -16,10 +16,6 @@ public class Pattern1 : TimeLinePattern
     [SerializeField] private float moveSpeed = 5f;
     [Inject] private PoolManagerMono _poolManager;
 
-    public Pattern1(float startTime) : base(startTime)
-    {
-    }
-
     private void OnEnable()
     {
         Injector.Instance.InjectRuntime(this);
@@ -34,15 +30,11 @@ public class Pattern1 : TimeLinePattern
     {
         for(int i = 0; i < spawnPoints.Count; i++)
         {
-            for(int j = 0; j <SpawnCount; j++)
-            {
-                NormalBullet obj = _poolManager.Pop<NormalBullet>(normalItem);
-                obj.transform.position = spawnPoints[i];
-                obj.moveSpeed += moveSpeed;
-                obj.MoveDirection = -spawnPoints[i];
-                yield return new WaitForSeconds(1.5f);
-            }
-            yield return new WaitForSeconds(2f);
+            NormalBullet obj = _poolManager.Pop<NormalBullet>(normalItem);
+            obj.transform.position = spawnPoints[i];
+            obj.moveSpeed += moveSpeed;
+            obj.MoveDirection = -spawnPoints[i];
+            yield return new WaitForSeconds(1.5f);
         }
     }
 }

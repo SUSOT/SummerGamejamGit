@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: d472e9bc4431cc34ba400b6a75a92136, type: 2}
+  moveable: 0
+  targetPosition: {x: 0, y: 0, z: 0}
   ActiveEvent:
     m_PersistentCalls:
       m_Calls:
