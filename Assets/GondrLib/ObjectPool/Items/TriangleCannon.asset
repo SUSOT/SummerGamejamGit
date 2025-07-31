@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: MissileBullet
+  m_Name: TriangleCannon
   m_EditorClassIdentifier: 
-  poolingName: MissileBullet
-  prefab: {fileID: 947688052283410805, guid: 476dd2a8541046849a5dac90b3f6e3d2, type: 3}
-  initCount: 1
+  poolingName: TriangleCannon
+  prefab: {fileID: 8111602503394388695, guid: 47d0980b4fcb60248ab99e5a6ca5cf17, type: 3}
+  initCount: 3
