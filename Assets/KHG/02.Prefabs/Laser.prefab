@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6926220831358915679
+--- !u!1 &536465149609459148
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3765337567684585790}
-  - component: {fileID: 7081102691145968794}
-  - component: {fileID: 6873685863134092834}
+  - component: {fileID: 587234724433333411}
+  - component: {fileID: 6172182731104816987}
+  - component: {fileID: 2168959913957819694}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3765337567684585790
+--- !u!4 &587234724433333411
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6926220831358915679}
+  m_GameObject: {fileID: 536465149609459148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1087774647396399902}
+  - {fileID: 8757831422516493946}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7081102691145968794
+--- !u!95 &6172182731104816987
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6926220831358915679}
+  m_GameObject: {fileID: 536465149609459148}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2daf521ef028f545b0087219ea4a608, type: 2}
+  m_Controller: {fileID: 9100000, guid: 53cc6f023e9f6a949875bc6984e3e295, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -56,20 +56,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6873685863134092834
+--- !u!114 &2168959913957819694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6926220831358915679}
+  m_GameObject: {fileID: 536465149609459148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b3781ae5388834e8919855964f118e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5545ce0ee6dd5fc4e8a050be4458fe4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explode: {fileID: 4347275266772188341}
---- !u!1 &8622891313396690469
+  laser: {fileID: 0}
+--- !u!1 &3667944653559976017
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,39 +77,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1087774647396399902}
-  - component: {fileID: 8033030057194633994}
-  - component: {fileID: 4347275266772188341}
-  - component: {fileID: 3391972625357469999}
+  - component: {fileID: 8757831422516493946}
+  - component: {fileID: 1653985462823114580}
+  - component: {fileID: 5625667586284781515}
+  - component: {fileID: 3401673395061479595}
   m_Layer: 0
-  m_Name: WarnCircle
+  m_Name: LaserBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1087774647396399902
+  m_IsActive: 1
+--- !u!4 &8757831422516493946
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622891313396690469}
+  m_GameObject: {fileID: 3667944653559976017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 80, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3765337567684585790}
+  m_Father: {fileID: 587234724433333411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8033030057194633994
+--- !u!212 &1653985462823114580
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622891313396690469}
+  m_GameObject: {fileID: 3667944653559976017}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -147,8 +147,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.34905648, b: 0.34905648, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.33333334}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,26 +158,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4347275266772188341
+--- !u!114 &5625667586284781515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622891313396690469}
+  m_GameObject: {fileID: 3667944653559976017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fd9ecd943296d4b8c2f107837bde12, type: 3}
+  m_Script: {fileID: 11500000, guid: 75ff18c64a2c3ad4ba8599da459df0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PoolingType>k__BackingField: {fileID: 11400000, guid: 7514f9544fdae0a479ddb1e71551ec14, type: 2}
---- !u!58 &3391972625357469999
-CircleCollider2D:
+  <PoolingType>k__BackingField: {fileID: 0}
+--- !u!61 &3401673395061479595
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622891313396690469}
+  m_GameObject: {fileID: 3667944653559976017}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -206,4 +206,14 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
