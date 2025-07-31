@@ -17,10 +17,6 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private PoolingItemSO laser;
         [SerializeField] private PoolingItemSO triangle;
         
-        public LCM_Pattern2(float startTime) : base(startTime)
-        {
-        }
-        
         private void OnEnable()
         {
             Injector.Instance.InjectRuntime(this);
@@ -36,32 +32,32 @@ namespace LCM._01.Scripts.Timeline
             for (int i = 0; i < 10; ++i)
             {
                 CircleWorm cw = _poolManager.Pop<CircleWorm>(wave);
-            
                 if (i < 3)
                 {
                     float xOffset = (i - 1) * 15f + 3f;
                     cw.transform.position = new Vector3(xOffset, -20f, 0);
-                    cw.transform.rotation = Quaternion.identity;
+                    //cw.transform.rotation = Quaternion.identity;
                 }
                 else if (i < 5)
                 {
                     float yOffset = (i - 3.5f) * 15f - 3f;
                     cw.transform.position = new Vector3(30f, yOffset, 0); 
-                    cw.transform.rotation = Quaternion.Euler(0, 0, 90); 
+                    //cw.transform.rotation = Quaternion.Euler(0, 0, 90); 
                 }
                 else if (i < 8)
                 {
                     float xOffset = (i - 6) * 15f - 3f;
                     cw.transform.position = new Vector3(xOffset, 20f, 0); 
-                    cw.transform.rotation = Quaternion.Euler(0, 0, 180); 
+                    //cw.transform.rotation = Quaternion.Euler(0, 0, 180); 
                 }
                 else
                 {
                     float yOffset = (i - 8.5f) * 15f + 3f;
                     cw.transform.position = new Vector3(-30f, yOffset, 0); 
-                    cw.transform.rotation = Quaternion.Euler(0, 0, 270); 
+                    //cw.transform.rotation = Quaternion.Euler(0, 0, 270); 
                 }
-                cw.rotationSpeed = Random.Range(-45f, 45f);
+
+                cw.rotationSpeed = 45f;
                 yield return new WaitForSeconds(0.4f);
             }
             
