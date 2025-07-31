@@ -11,12 +11,9 @@ namespace LCM._01.Scripts.Bullets
 
         private void FixedUpdate()
         {
+            if (_rigidbody == null) return;
+            
             _rigidbody.linearVelocity = MoveDirection * moveSpeed;
-        }
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         public override void SetUpPool(Pool pool)
@@ -26,6 +23,7 @@ namespace LCM._01.Scripts.Bullets
 
         public override void ResetItem()
         {
+            _rigidbody.linearVelocity = Vector2.zero;
         }
     }
 }

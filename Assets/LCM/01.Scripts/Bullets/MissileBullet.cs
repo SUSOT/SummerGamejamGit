@@ -17,7 +17,6 @@ namespace LCM._01.Scripts.Bullets
 
         private IEnumerator Start()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
             yield return new WaitForSeconds(missileTime);
             _isTargeting = false;
             circle.GetComponent<SpriteRenderer>().color = Color.black;
@@ -30,11 +29,16 @@ namespace LCM._01.Scripts.Bullets
 
         public override void ResetItem()
         {
-            
+            _rigidbody.linearVelocity = Vector2.zero;
+            transform.rotation = Quaternion.identity;
+            _isTargeting = true;
+            circle.GetComponent<SpriteRenderer>().color = Color.white;
         }
 
         private void FixedUpdate()
         {
+            if (_rigidbody == null) return;
+            
             if (_isTargeting)
             {
                 var player = Physics2D.OverlapCircle(transform.position, 30f, whatIsPlayer);
