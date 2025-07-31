@@ -1,10 +1,8 @@
 using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts.Bullets;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pattern1 : TimeLinePattern
@@ -30,11 +28,15 @@ public class Pattern1 : TimeLinePattern
     {
         for(int i = 0; i < spawnPoints.Count; i++)
         {
-            NormalBullet obj = _poolManager.Pop<NormalBullet>(normalItem);
-            obj.transform.position = spawnPoints[i];
-            obj.moveSpeed += moveSpeed;
-            obj.MoveDirection = -spawnPoints[i];
-            yield return new WaitForSeconds(1.5f);
+            for (int j = 0; j < SpawnCount; j++)
+            {
+                NormalBullet obj = _poolManager.Pop<NormalBullet>(normalItem);
+                obj.transform.position = spawnPoints[i];
+                obj.moveSpeed += moveSpeed;
+                obj.MoveDirection = -spawnPoints[i];
+                yield return new WaitForSeconds(0.8f);
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

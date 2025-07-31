@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 381805362631505297}
   - component: {fileID: 6209561880476533235}
   m_Layer: 0
-  m_Name: RestrictWallPattern
+  m_Name: Pattern1Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
