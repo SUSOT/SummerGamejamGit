@@ -8,6 +8,11 @@ namespace KHG.Bullets
     public class ExplodeBullet : Bullet
     {
         public event Action activeEvent;
+        public Vector3 SpawnPosition 
+        { 
+            get => transform.position;
+            set => transform.position = value; 
+        }
 
         private bool _damageable;
         private Pool _explodePool;
