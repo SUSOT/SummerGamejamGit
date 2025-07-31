@@ -3,16 +3,29 @@ using DG.Tweening;
 
 public class TitleDirection : MonoBehaviour
 {
+
+    private Sequence _seq;
+
     private void Start()
     {
-        Sequence seq = DOTween.Sequence();
-        seq.Append(gameObject.transform
+        _seq = DOTween.Sequence();
+        _seq.Append(gameObject.transform
             .DOLocalRotate(new Vector3(0, 0, 10), 0.5f, RotateMode.LocalAxisAdd));
-        seq.Join(gameObject.transform.DOScale(0.6f, 1f));
-        seq.Append(gameObject.transform
+        _seq.Join(gameObject.transform.DOScale(0.6f, 1f));
+        _seq.Append(gameObject.transform
             .DOLocalRotate(new Vector3(0, 0, -10), 0.5f, RotateMode.LocalAxisAdd));
-        seq.Join(gameObject.transform.DOScale(1, 1f));
-        seq.SetLoops(-1);
-        seq.SetEase(Ease.Linear);
+        _seq.Join(gameObject.transform.DOScale(1, 1f));
+        _seq.SetLoops(-1);
+        _seq.SetEase(Ease.Linear);
+    }
+
+    public void Pase()
+    {
+        _seq.Pause();
+    }
+
+    public void PlayTween()
+    {
+        _seq.Play();
     }
 }
