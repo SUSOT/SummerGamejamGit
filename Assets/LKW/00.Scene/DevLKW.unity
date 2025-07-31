@@ -168,12 +168,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6209561880476533235, guid: f0c65945fe7d92d448f6a86d32194439, type: 3}
+      propertyPath: initPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209561880476533235, guid: f0c65945fe7d92d448f6a86d32194439, type: 3}
       propertyPath: initPos.y
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209561880476533235, guid: f0c65945fe7d92d448f6a86d32194439, type: 3}
+      propertyPath: previewTime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7776915872398057089, guid: f0c65945fe7d92d448f6a86d32194439, type: 3}
       propertyPath: m_Name
       value: RestrictWallPattern
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776915872398057089, guid: f0c65945fe7d92d448f6a86d32194439, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

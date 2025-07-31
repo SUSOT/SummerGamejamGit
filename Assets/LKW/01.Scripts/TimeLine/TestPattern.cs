@@ -12,11 +12,6 @@ namespace LKW._01.Scripts.TimeLine
         
         private Vector3[] originalPositions; // 원래 위치 저장
 
-        
-        public TestPattern(float startTime) : base(startTime)
-        {
-        }
-
         public override void Execute()
         {
             originalPositions = new Vector3[objects.Length];

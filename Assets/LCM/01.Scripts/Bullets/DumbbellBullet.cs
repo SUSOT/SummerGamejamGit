@@ -23,6 +23,8 @@ namespace LCM._01.Scripts.Bullets
         public override void ResetItem()
         {
             _rigidbody.linearVelocity = Vector2.zero;
+            _rigidbody.angularVelocity = 0f;
+            transform.rotation = Quaternion.identity;
         }
     }
 }

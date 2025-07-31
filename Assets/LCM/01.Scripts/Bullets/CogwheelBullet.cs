@@ -5,15 +5,15 @@ namespace LCM._01.Scripts.Bullets
 {
     public class CogwheelBullet : Bullet
     {
-        [SerializeField] private Vector2 moveDirection;
+        [field:SerializeField] public Vector2 MoveDirection { get; set; }
         private Rigidbody2D _rigidbody;
         [field:SerializeField] public float MoveSpeed { get; set; }
         [field:SerializeField] public float RotationSpeed{ get; set; }
 
         private void FixedUpdate()
         {
-            _rigidbody.linearVelocity = moveDirection * MoveSpeed;
-            transform.Rotate(0f, 0f, RotationSpeed);
+            _rigidbody.linearVelocity = MoveDirection * MoveSpeed;
+            transform.Rotate(0f, 0f, -(RotationSpeed * MoveDirection.x));
         }
 
         public override void SetUpPool(Pool pool)
