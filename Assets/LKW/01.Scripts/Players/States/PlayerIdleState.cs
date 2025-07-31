@@ -1,8 +1,9 @@
 using Animation;
+using Code.Players;
 using Entities;
 using Vector2 = UnityEngine.Vector2;
 
-namespace Code.Players.States
+namespace Players
 {
     public class PlayerIdleState : EntityState
     {
