@@ -1,12 +1,13 @@
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace LCM._01.Scripts.Bullets
 {
     public class CrossLaserBullet : Bullet
     {
         private bool _isRotate = false;
-        [SerializeField] private float rotationSpeed;
+        [field:SerializeField] public float RotationSpeed { get; set; }
 
         public void StartRotate()
         {
@@ -26,7 +27,7 @@ namespace LCM._01.Scripts.Bullets
         private void FixedUpdate()
         {
             if(_isRotate)
-                transform.Rotate(0f, 0f, rotationSpeed);
+                transform.Rotate(0f, 0f, RotationSpeed);
         }
 
         public override void SetUpPool(Pool pool)
