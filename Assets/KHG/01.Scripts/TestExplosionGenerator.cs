@@ -28,7 +28,7 @@ public class TestLaserGenerator : MonoBehaviour
 
         bullet.SpawnPosition = transform.position + new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f));
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(ShootingBullet());
     }
 }

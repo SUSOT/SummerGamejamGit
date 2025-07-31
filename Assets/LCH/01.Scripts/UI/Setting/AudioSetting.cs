@@ -10,6 +10,7 @@ public class AudioSetting : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private GameEventChannelSO setting;
 
     private void OnEnable()
     {
@@ -31,7 +32,6 @@ public class AudioSetting : MonoBehaviour
             SetBgmVolume();
             SetSfxVolume();
         }
-   
     }
 
     private void LoadBgmVolume()
@@ -76,4 +76,5 @@ public class AudioSetting : MonoBehaviour
         mixer.SetFloat("SFX", volume);
         PlayerPrefs.SetFloat("SFXVolume", vol);
     }
+
 }

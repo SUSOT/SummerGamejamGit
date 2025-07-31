@@ -8,8 +8,8 @@ namespace LCM._01.Scripts.Bullets
         [field:SerializeField] public Vector2 MoveDirection { get; set; }
 
         private Rigidbody2D _rigidbody;
-        [field:SerializeField] public float moveSpeed { get; set; }
-        [SerializeField] private float rotationSpeed;
+        [field:SerializeField] public float MoveSpeed { get; set; }
+        [field: SerializeField] public float RotationSpeed{ get; set; }
 
         public override void SetUpPool(Pool pool)
         {
@@ -27,8 +27,8 @@ namespace LCM._01.Scripts.Bullets
         {
             if (_rigidbody == null) return;
             
-            _rigidbody.linearVelocity = MoveDirection * moveSpeed;
-            transform.Rotate(0f, 0f, rotationSpeed);
+            _rigidbody.linearVelocity = MoveDirection * MoveSpeed;
+            transform.Rotate(0f, 0f, RotationSpeed);
         }
     }
 }

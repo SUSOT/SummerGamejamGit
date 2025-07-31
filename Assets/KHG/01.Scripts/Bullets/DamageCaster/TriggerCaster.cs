@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class TriggerCaster : DamageableObject
+namespace KHG.Object
 {
-    public override void OnTriggerEnter2D(Collider2D collision)
+    public class TriggerCaster : DamageableObject
     {
-        base.OnTriggerEnter2D(collision);
+        public override void OnTriggerEnter2D(Collider2D collision)
+        {
+            base.OnTriggerEnter2D(collision);
+        }
     }
+
 }
