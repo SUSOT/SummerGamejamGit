@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TestLaserGenegenerator : MonoBehaviour
 {
-    [SerializeField] private PoolingItemSO explosion;
+    [SerializeField] private PoolingItemSO worm;
     [Inject] private PoolManagerMono _poolManager;
 
     private void OnEnable()
@@ -19,14 +19,14 @@ public class TestLaserGenegenerator : MonoBehaviour
     }
     private IEnumerator ShootingBullet()
     {
-        LaserBullet bullet = _poolManager.Pop<LaserBullet>(explosion);
-        if (bullet == null)
+        CircleWorm circleWOrm = _poolManager.Pop<CircleWorm>(worm);
+        if (circleWOrm == null)
         {
             Debug.LogError("풀에서 ExplodeBullet을 가져오지 못했습니다.");
             yield break;
         }
 
-        bullet.rotation = Random.Range(-90f, 90f);
+        circleWOrm.rotationSpeed = 45f;
 
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(ShootingBullet());

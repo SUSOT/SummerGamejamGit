@@ -22,6 +22,7 @@ namespace KHG.Bullets
         public void OnDamageEnd() => _damageable = false;
         public void DestroySelf()
         {
+            _damageable = false;
             if (_laserPool != null) _laserPool.Push(this);
             else Destroy(gameObject);
         }
@@ -34,6 +35,7 @@ namespace KHG.Bullets
         public override void ResetItem()
         {
             _damageable = false;
+            transform.rotation = Quaternion.identity;
         }
 
         public override void SetUpPool(Pool pool)
