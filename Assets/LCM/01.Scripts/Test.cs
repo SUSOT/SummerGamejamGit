@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
-using LCM._01.Scripts.Bullets;
 using UnityEngine;
 
 public class Test : MonoBehaviour
@@ -16,7 +15,7 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            b = _poolManager.Pop<MissileBullet>(_poolItemSO);
+            b = _poolManager.Pop<Bullet>(_poolItemSO);
             normalBullets.Add(b);
             b.transform.position = Vector2.zero;
         }
