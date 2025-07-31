@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace LKW._01.Scripts.TimeLine
@@ -8,5 +9,9 @@ namespace LKW._01.Scripts.TimeLine
         public float StartTime;
         
         public TimeLinePattern pattern;
+
+        private void OnEnable()
+        {
+        }
     }
 }

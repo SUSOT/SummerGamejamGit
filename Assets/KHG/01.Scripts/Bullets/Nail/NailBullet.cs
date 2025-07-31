@@ -10,6 +10,7 @@ namespace KHG.Bullets
     {
         [SerializeField] private GameObject warnningLine;
         [SerializeField] private Transform nail;
+        public float MoveSpeed = 10;
 
         private Vector3 SpawnPosition;
 
@@ -17,10 +18,10 @@ namespace KHG.Bullets
         private Pool _currentPool;
         private bool _moveable;
 
-        private float _moveSpeed = 10;
         private float _waitTime = 0.5f;
-        private void Start()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             _warnRenderer = warnningLine.GetComponent<SpriteRenderer>();
             StartCoroutine(Warnning());
         }
@@ -33,7 +34,7 @@ namespace KHG.Bullets
         {
             SpawnPosition = pos;
             transform.rotation = Quaternion.Euler(rotation);
-            _moveSpeed = moveSpeed;
+            MoveSpeed = moveSpeed;
             _waitTime = waitTime;
         }
         public override void SetUpPool(Pool pool) => _currentPool = pool;
@@ -49,7 +50,7 @@ namespace KHG.Bullets
 
         private void SetMovement()
         {
-            if (_moveable) nail.transform.position += nail.transform.up * _moveSpeed * Time.fixedDeltaTime;
+            if (_moveable) nail.transform.position += nail.transform.up * MoveSpeed * Time.fixedDeltaTime;
         }
 
         private IEnumerator Warnning()
@@ -61,7 +62,7 @@ namespace KHG.Bullets
             yield return new WaitForSeconds(_waitTime);
             _warnRenderer.DOFade(0, _waitTime / 2);
 
-            _currentPool.Push(this);
+            if(_currentPool != null) _currentPool.Push(this);
         }
     }
 }

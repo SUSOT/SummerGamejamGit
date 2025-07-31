@@ -27,12 +27,6 @@ namespace LKW._01.Scripts.Patterns
         private float spawnTime;
         private bool isActive = false;
         
-        public RestrictWallPattern(float startTime) : base(startTime)
-        {
-        }
-        
-
-
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Q))

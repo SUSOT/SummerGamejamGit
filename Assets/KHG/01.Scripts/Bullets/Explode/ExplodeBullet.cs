@@ -21,9 +21,10 @@ namespace KHG.Bullets
         private bool _damageable;
         private Pool _explodePool;
 
-        private void Start()
+        protected override void OnEnable()
         {
-            if(moveable) transform.DOMove(targetPosition, 1.5f);
+            if (moveable) transform.DOMove(targetPosition, 1.5f);
+            base.OnEnable();
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
@@ -34,7 +35,10 @@ namespace KHG.Bullets
         public void DamageStart() => _damageable = true;
         public void DamageEnd() => _damageable = false;
         public void OnActivated() => ActiveEvent?.Invoke();
-        public void DestroySelf() => _explodePool.Push(this);
+        public void DestroySelf()
+        {
+            if (_explodePool != null) _explodePool.Push(this);
+        }
 
         public override void SetUpPool(Pool pool)
         {
