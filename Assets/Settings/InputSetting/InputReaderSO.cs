@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 namespace Settings.InputSetting
 {
     [CreateAssetMenu(fileName = "InputReader", menuName = "SO/InputReader", order = 0)]
-    public class InputReaderSO : ScriptableObject, Controls.IPlayerActions,Controls.IUIActions
+    public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions
     {
         public Action OnDashKeyPressed;
         public event Action<Vector2> OnUINavigation;
+        public event Action<Vector2> OnUISilder;
         public event Action OnUIOnSubmitPressed;
         public event Action OnUIOnCancelPressed;
 
@@ -69,6 +70,14 @@ namespace Settings.InputSetting
                 OnUIOnCancelPressed?.Invoke();
             }
         }
+        public void OnSilder(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                Vector2 uiMovement = context.ReadValue<Vector2>().normalized;
+                OnUINavigation?.Invoke(uiMovement);
+            }
+        }
 
         public void DisablePlayerCnt()
         {
@@ -89,6 +98,7 @@ namespace Settings.InputSetting
         {
             _controls.UI.Disable();
         }
+
 
         #region Not Use
 

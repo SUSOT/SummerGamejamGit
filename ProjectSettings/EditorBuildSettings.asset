@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LCH/00.Scene/Title.unity
     guid: 8af66c028257353438ba98f66b062828
+  - enabled: 1
+    path: Assets/LCH/00.Scene/Test.unity
+    guid: 78821bd11002e1949aab0a4e98c7ed31
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

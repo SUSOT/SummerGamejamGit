@@ -1,10 +1,28 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class TitleDirection : MonoBehaviour
 {
-
+    [SerializeField] private GameEventChannelSO setting;
     private Sequence _seq;
+
+    private void OnEnable()
+    {
+        setting.AddListener<Setting>(HandleSettingOpen);
+    }
+
+    private void HandleSettingOpen(Setting evt)
+    {
+        if (evt.Open)
+        {
+            _seq.Pause();   
+        }
+        else
+        {
+            _seq.Play();
+        }
+    }
 
     private void Start()
     {
@@ -19,13 +37,8 @@ public class TitleDirection : MonoBehaviour
         _seq.SetEase(Ease.Linear);
     }
 
-    public void Pase()
+    private void OnDestroy()
     {
-        _seq.Pause();
-    }
-
-    public void PlayTween()
-    {
-        _seq.Play();
+        setting.RemoveListener<Setting>(HandleSettingOpen);
     }
 }
