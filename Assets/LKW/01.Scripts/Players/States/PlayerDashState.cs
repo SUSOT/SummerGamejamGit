@@ -1,12 +1,15 @@
 using Animation;
 using DG.Tweening;
 using Entities;
+using GondrLib.Dependencies;
+using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
 namespace Players
 {
     public class PlayerDashState : EntityState
     {
+        
         private Player _player;
         private EntityMover _mover;
 
@@ -30,6 +33,9 @@ namespace Players
             
             Vector3 destination = _player.transform.position + (Vector3)dashDirection * _dashDistance;
             float dashTime = _dashTime;
+
+            DashCircle circle = _player.poolManager.Pop<DashCircle>(_player.dashCirce);
+            circle.transform.position = _player.dashParticle.transform.position;
             
             _player.dashParticle.Play();
 
