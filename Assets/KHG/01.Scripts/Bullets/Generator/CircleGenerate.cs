@@ -13,6 +13,9 @@ public class CircleGenerate : MonoBehaviour
 
     [SerializeField] private float rotationSpeed = 0;
     [SerializeField] private float generateAngle = 60;
+    [Header("Bullet Setting")]
+    [SerializeField] private float speed = 15f;
+    [SerializeField] private float scale = 1.7f;
 
     [Inject] private PoolManagerMono _poolManager;
 
@@ -45,7 +48,8 @@ public class CircleGenerate : MonoBehaviour
 
         NormalBullet bullet = _poolManager.Pop<NormalBullet>(normalBullet);
         bullet.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-        bullet.transform.localScale = Vector3.one * 1.5f;
+        bullet.transform.localScale = Vector3.one * scale;
+        bullet.moveSpeed = speed;
         bullet.MoveDirection = bulletDirection;
     }
 }

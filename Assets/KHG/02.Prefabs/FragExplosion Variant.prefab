@@ -432,6 +432,8 @@ MonoBehaviour:
   bulletCount: 5
   rotationSpeed: 30
   generateAngle: 60
+  speed: 15
+  scale: 1.7
 --- !u!1001 &888119564925352737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,6 +483,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5191471425095076706, guid: f47ec25fda6ce3c4388e2808d3df09a9, type: 3}
+      propertyPath: <PoolingType>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fd8ab9b07251e647acb412b1b96f5c8, type: 2}
+    - target: {fileID: 5191471425095076706, guid: f47ec25fda6ce3c4388e2808d3df09a9, type: 3}
       propertyPath: ActiveEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -512,6 +518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FragExplosion Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7081102691145968794, guid: f47ec25fda6ce3c4388e2808d3df09a9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 65b3203cfd71f3747ad54a6356b27bc3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
