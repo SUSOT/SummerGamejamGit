@@ -17,7 +17,6 @@ namespace Players
         public AnimParamSO MOVE_XParam;
         public AnimParamSO MOVE_YParam;
         
-        
         [SerializeField] private LayerMask projectileLayer;
         [SerializeField] private ParticleSystem deadParticle;
         public TrailRenderer trailRenderer;
