@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DashState
   m_EditorClassIdentifier: 
   stateName: DASH
-  className: Assets/LKW/01.Scripts/Players/States/PlayerMoveState.cs
+  className: Players.PlayerDashState
   animParam: {fileID: 11400000, guid: bb6bf9e1de16d5a41b6a667859737baf, type: 2}

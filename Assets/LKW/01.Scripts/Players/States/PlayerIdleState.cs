@@ -1,5 +1,4 @@
 using Animation;
-using Code.Players;
 using Entities;
 using Vector2 = UnityEngine.Vector2;
 
@@ -18,7 +17,9 @@ namespace Players
         public override void Enter()
         {
             base.Enter();
+            _player.transform.up = Vector2.up;
             _mover.StopImmediately();
+            
         }
 
         public override void Update()

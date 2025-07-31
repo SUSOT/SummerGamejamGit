@@ -1,18 +1,24 @@
 using System;
+using Animation;
 using Code.SkillSystem;
 using Code.SkillSystem.Dash;
 using Entities;
+using LCM._01.Scripts;
 using Settings.InputSetting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-namespace Code.Players
+namespace Players
 {
-    public class Player : Entity
+    public class Player : Entity, IDamageable
     {
+        public AnimParamSO MOVE_XParam;
+        public AnimParamSO MOVE_YParam;
+        
         [SerializeField] private LayerMask projectileLayer;
-        [SerializeField] private ParticleSystem deadParticles;
+        [SerializeField] private ParticleSystem deadParticle;
         public TrailRenderer trailRenderer;
         
         public UnityEvent gameOverEvent;
@@ -22,11 +28,13 @@ namespace Code.Players
         
         private StateMachine _stateMachine;
 
+        [field: SerializeField] public int Health { get; private set; } = 3;
+
         protected override void Awake()
         {
             base.Awake();
             _stateMachine = new StateMachine(this, stateList);
-            trailRenderer = GetComponent<TrailRenderer>();
+            trailRenderer = GetComponentInChildren<TrailRenderer>();
         }
 
         private void Start()
@@ -58,14 +66,16 @@ namespace Code.Players
 
         public void ChangeState(string stateName) => _stateMachine.ChangeState(stateName);
 
-        private void OnTriggerEnter2D(Collider2D other)
+
+        public void TakeDamage()
         {
-            if (((1 << other.gameObject.layer) & projectileLayer) != 0)
+            Health--;
+
+            if (Health <= 0)
             {
-                gameOverEvent.Invoke();
-                deadParticles.transform.position = transform.position;
-                deadParticles.gameObject.SetActive(true);
-                gameObject.SetActive(false);
+                gameOverEvent?.Invoke();
+                deadParticle.transform.position = transform.position;
+                deadParticle.Play();
             }
         }
     }
