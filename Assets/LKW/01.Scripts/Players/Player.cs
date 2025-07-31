@@ -3,6 +3,8 @@ using Animation;
 using Code.SkillSystem;
 using Code.SkillSystem.Dash;
 using Entities;
+using GondrLib.Dependencies;
+using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using LKW._01.Scripts.Core;
 using Settings.InputSetting;
@@ -13,6 +15,8 @@ namespace Players
 {
     public class Player : Entity, IDamageable
     {
+        [Inject] public PoolManagerMono poolManager;
+
         public AnimParamSO MOVE_XParam;
         public AnimParamSO MOVE_YParam;
         
@@ -21,6 +25,7 @@ namespace Players
         [SerializeField] private ParticleSystem deadParticle;
         [SerializeField] public ParticleSystem trailParticle;
         [SerializeField] public ParticleSystem dashParticle;
+        [SerializeField] public PoolingItemSO dashCirce;
         
         public UnityEvent gameOverEvent;
         [field:SerializeField] public InputReaderSO inputReader{get; private set;}
