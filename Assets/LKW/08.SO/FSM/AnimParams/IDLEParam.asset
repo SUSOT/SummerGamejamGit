@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: PlayerHitImpact
+  m_Script: {fileID: 11500000, guid: c056eaeaa487dee4a83d63c5d15b6407, type: 3}
+  m_Name: IDLEParam
   m_EditorClassIdentifier: 
-  poolingName: PlayerHitImpact
-  prefab: {fileID: 8716399419119240277, guid: 55b7c9ef44de3e74eac640e846b204b7, type: 3}
-  initCount: 3
+  animName: IDLE
+  hashValue: -357476191
+  description: "\uB300\uAE30\uC0C1\uD0DC \uD30C\uB77C\uBBF8\uD130"

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef599dc11424d73bb92c3df252debb4, type: 3}
-  m_Name: PoolManager
+  m_Script: {fileID: 11500000, guid: 752be46032be4ad3b3ee4a6bee5c1dc0, type: 3}
+  m_Name: StateList
   m_EditorClassIdentifier: 
-  itemList:
-  - {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
+  states: []
