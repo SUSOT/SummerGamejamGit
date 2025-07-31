@@ -9,7 +9,6 @@ namespace Entities
         public Animator Animator {get; set;}
         
         private Entity _entity;
-
        
         public void Initialize(Entity entity)
         {

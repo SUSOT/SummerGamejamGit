@@ -1,10 +1,11 @@
 using Animation;
-using Code.Players;
 using DG.Tweening;
 using Entities;
 using UnityEngine;
 
-public class PlayerDashState : EntityState
+namespace Players
+{
+    public class PlayerDashState : EntityState
     {
         private Player _player;
         private EntityMover _mover;
@@ -21,8 +22,7 @@ public class PlayerDashState : EntityState
         {
             base.Enter();
             Vector2 playerInput = _player.inputReader.MoveDirection;
-            Vector2 dashDirection = _player.transform.up;
-
+            Vector2 dashDirection = playerInput.normalized;
             _mover.CanManualMove = true;
             _mover.StopImmediately();
             
@@ -43,11 +43,11 @@ public class PlayerDashState : EntityState
                 ;
                 dashTime =  _dashDistance * _dashTime / _dashDistance;
             }
-            _player.gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
+            //_player.gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
             _player.trailRenderer.enabled = true;
             _player.transform.DOMove(destination, dashTime).SetEase(Ease.OutQuad).OnComplete(EndDash).OnComplete(() =>
             {
-                _player.gameObject.layer = LayerMask.NameToLayer("Player");
+                //_player.gameObject.layer = LayerMask.NameToLayer("Player");
                 _player.ChangeState("IDLE");
             });
 
@@ -66,3 +66,4 @@ public class PlayerDashState : EntityState
             base.Exit();
         }
     }
+}

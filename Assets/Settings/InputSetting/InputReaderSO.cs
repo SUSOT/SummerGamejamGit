@@ -10,6 +10,7 @@ namespace Settings.InputSetting
         public Action OnDashKeyPressed;
         public event Action<Vector2> OnUINavigation;
         public event Action OnUIOnSubmitPressed;
+        public event Action OnUIOnCancelPressed;
 
         private Controls _controls;
 
@@ -61,6 +62,14 @@ namespace Settings.InputSetting
             }
         }
 
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+            {
+                OnUIOnCancelPressed?.Invoke();
+            }
+        }
+
         public void DisablePlayerCnt()
         {
             _controls.Player.Disable();
@@ -82,12 +91,6 @@ namespace Settings.InputSetting
         }
 
         #region Not Use
-
-
-        public void OnCancel(InputAction.CallbackContext context)
-        {
-            
-        }
 
         public void OnPoint(InputAction.CallbackContext context)
         {
