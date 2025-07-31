@@ -18,6 +18,7 @@ namespace KHG.Bullets
         [Header("Bullet Setting")]
         [SerializeField] private float speed = 15f;
         [SerializeField] private float scale = 1.7f;
+        [SerializeField] private float bulletRotation = 15f;
 
         [Inject] private PoolManagerMono _poolManager;
 
@@ -53,6 +54,7 @@ namespace KHG.Bullets
             bullet.transform.localScale = Vector3.one * scale;
             bullet.MoveSpeed = speed;
             bullet.MoveDirection = bulletDirection;
+            bullet.RotationSpeed = bulletRotation;
         }
     }
 }
