@@ -1,3 +1,4 @@
+using DG.Tweening;
 using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using System;
@@ -8,6 +9,8 @@ namespace KHG.Bullets
 {
     public class ExplodeBullet : Bullet
     {
+        [SerializeField] private bool moveable;
+        [SerializeField] private Vector3 targetPosition;
         public UnityEvent ActiveEvent;
         public Vector3 SpawnPosition 
         { 
@@ -17,6 +20,12 @@ namespace KHG.Bullets
 
         private bool _damageable;
         private Pool _explodePool;
+
+        private void Start()
+        {
+            if(moveable) transform.DOMove(targetPosition, 1.5f);
+        }
+
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             if(_damageable == true) base.OnTriggerEnter2D(other);
@@ -25,7 +34,7 @@ namespace KHG.Bullets
         public void DamageStart() => _damageable = true;
         public void DamageEnd() => _damageable = false;
         public void OnActivated() => ActiveEvent?.Invoke();
-        public void DestroySelf() => Destroy(gameObject);
+        public void DestroySelf() => _explodePool.Push(this);
 
         public override void SetUpPool(Pool pool)
         {
@@ -34,6 +43,7 @@ namespace KHG.Bullets
 
         public override void ResetItem()
         {
+            
         }
     }
 }

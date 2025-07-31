@@ -20,7 +20,7 @@ namespace KHG.Bullets
 
         public void OnDamageStart() => _damageable = true;
         public void OnDamageEnd() => _damageable = false;
-        public void DestroySelf() => Destroy(gameObject);
+        public void DestroySelf() => _laserPool.Push(this);
         public void OnActivated() => ActiveEvent?.Invoke();
 
         protected override void OnTriggerEnter2D(Collider2D other)

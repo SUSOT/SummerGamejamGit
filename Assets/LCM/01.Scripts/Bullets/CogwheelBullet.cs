@@ -7,13 +7,13 @@ namespace LCM._01.Scripts.Bullets
     {
         [SerializeField] private Vector2 moveDirection;
         private Rigidbody2D _rigidbody;
-        [SerializeField] private float moveSpeed;
-        [SerializeField] private float rotationSpeed;
+        [field:SerializeField] public float MoveSpeed { get; set; }
+        [field:SerializeField] public float RotationSpeed{ get; set; }
 
         private void FixedUpdate()
         {
-            _rigidbody.linearVelocity = moveDirection * moveSpeed;
-            transform.Rotate(0f, 0f, rotationSpeed);
+            _rigidbody.linearVelocity = moveDirection * MoveSpeed;
+            transform.Rotate(0f, 0f, RotationSpeed);
         }
 
         public override void SetUpPool(Pool pool)

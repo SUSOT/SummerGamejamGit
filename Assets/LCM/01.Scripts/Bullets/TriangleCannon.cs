@@ -9,10 +9,12 @@ namespace LCM._01.Scripts.Bullets
     public class TriangleCannon : Bullet
     {
         [SerializeField] private PoolingItemSO normalBullet;
-        [SerializeField] private float moveTime = 2.5f;
-        [SerializeField] private float rotationSpeed = 180f;
-        [SerializeField] private float rotationDuration = 6f;
-        [SerializeField] private float fireDuration = 1f;
+        [field: SerializeField] public float MoveTime { get; set; } = 2.5f;
+        [field: SerializeField] public float RotationSpeed { get; set; } = 180f;
+        [field: SerializeField] public float RotationDuration { get; set; } = 6f;
+        [field: SerializeField] public float FireDuration { get; set; } = 1f;
+        
+        [field: SerializeField] public Vector2 MovePosition { get; set; }
 
         public List<Transform> muzzles;
 
@@ -25,18 +27,18 @@ namespace LCM._01.Scripts.Bullets
         private IEnumerator MoveCoroutine()
         {
             yield return new DOTweenCYInstruction.WaitForCompletion(
-                transform.DOMove(Vector3.zero, moveTime).SetEase(Ease.OutSine));
+                transform.DOMove(MovePosition, MoveTime).SetEase(Ease.OutSine));
 
             StartInfiniteRotation();
         }
 
         private void StartInfiniteRotation()
         {
-            float totalRotationAngle = rotationSpeed * rotationDuration;
+            float totalRotationAngle = RotationSpeed * RotationDuration;
 
             transform.DORotate(
                     new Vector3(0, 0, totalRotationAngle),
-                    rotationDuration,
+                    RotationDuration,
                     RotateMode.FastBeyond360)
                 .SetEase(Ease.Linear)
                 .SetRelative(true)
@@ -45,7 +47,7 @@ namespace LCM._01.Scripts.Bullets
                 .OnComplete(() =>
                 {
                     StopAllCoroutines();
-                    transform.DOMoveY(30f, moveTime).SetEase(Ease.OutSine);
+                    transform.DOMoveY(30f, MoveTime).SetEase(Ease.OutSine);
                 });
         }
         
@@ -60,7 +62,7 @@ namespace LCM._01.Scripts.Bullets
                 bullet.MoveDirection = bulletTrm.up;
             }
 
-            yield return new WaitForSeconds(fireDuration);
+            yield return new WaitForSeconds(FireDuration);
             StartCoroutine(ShootingBullet());
         }
 
