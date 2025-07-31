@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: MissileBullet
   prefab: {fileID: 947688052283410805, guid: 476dd2a8541046849a5dac90b3f6e3d2, type: 3}
-  initCount: 1
+  initCount: 5
