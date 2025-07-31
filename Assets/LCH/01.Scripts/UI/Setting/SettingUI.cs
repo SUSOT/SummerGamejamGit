@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Settings.InputSetting;
 using System;
 using UnityEngine;
@@ -12,13 +13,13 @@ public class SettingUI : MonoBehaviour
 
     private void Awake()
     {
-        backGround.gameObject.SetActive(false);
         input.OnUIOnCancelPressed += HandleCancelUI;
+        backGround.gameObject.transform.DOScale(0, 0.8f);
     }
 
     private void HandleCancelUI()
     {
-        backGround.gameObject.SetActive(false);
+        backGround.gameObject.transform.DOScale(0,0.8f);
         OnSettingUIClose?.Invoke(); 
     }
 

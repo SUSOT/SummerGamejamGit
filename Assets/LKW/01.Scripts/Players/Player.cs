@@ -4,11 +4,10 @@ using Code.SkillSystem;
 using Code.SkillSystem.Dash;
 using Entities;
 using LCM._01.Scripts;
+using LKW._01.Scripts.Core;
 using Settings.InputSetting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Players
 {
@@ -18,8 +17,10 @@ namespace Players
         public AnimParamSO MOVE_YParam;
         
         [SerializeField] private LayerMask projectileLayer;
+        [SerializeField] private GameEventChannelSO playerChannel;
         [SerializeField] private ParticleSystem deadParticle;
-        public TrailRenderer trailRenderer;
+        [SerializeField] public ParticleSystem trailParticle;
+        [SerializeField] public ParticleSystem dashParticle;
         
         public UnityEvent gameOverEvent;
         [field:SerializeField] public InputReaderSO inputReader{get; private set;}
@@ -34,7 +35,6 @@ namespace Players
         {
             base.Awake();
             _stateMachine = new StateMachine(this, stateList);
-            trailRenderer = GetComponentInChildren<TrailRenderer>();
         }
 
         private void Start()
@@ -74,6 +74,7 @@ namespace Players
             if (Health <= 0)
             {
                 gameOverEvent?.Invoke();
+                playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
                 deadParticle.transform.position = transform.position;
                 deadParticle.Play();
             }

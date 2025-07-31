@@ -43,6 +43,7 @@ namespace Entities
         {
             Movement.Value = Vector2.zero;
             _rigidbody.linearVelocity = Vector3.zero;
+            _rigidbody.angularVelocity = 0;
         }
     }
 }

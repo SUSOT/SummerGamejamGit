@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class CircleWorm : Bullet
 {
-    [SerializeField] private float moveSpeed = 20;
+    [SerializeField] private float moveSpeed = 10;
     [SerializeField] private float rotationSpeed;
 
-
+    private Rigidbody2D _rigid;
+    private void Awake()
+    {
+        _rigid = GetComponent<Rigidbody2D>();
+        _rigid.AddTorque(rotationSpeed);
+    }
     private void FixedUpdate()
     {
         SetMovement();
@@ -16,11 +21,7 @@ public class CircleWorm : Bullet
 
     private void SetMovement()
     {
-        transform.position += transform.up * rotationSpeed * Time.fixedDeltaTime;
-        if (rotationSpeed > 0)
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + rotationSpeed * Time.fixedDeltaTime);
-        }
+        transform.position += transform.up * moveSpeed * Time.fixedDeltaTime;
     }
 
     public override void ResetItem()

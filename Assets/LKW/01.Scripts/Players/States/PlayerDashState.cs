@@ -23,11 +23,15 @@ namespace Players
             base.Enter();
             Vector2 playerInput = _player.inputReader.MoveDirection;
             Vector2 dashDirection = playerInput.normalized;
+            
+            _player.transform.up = dashDirection;
             _mover.CanManualMove = true;
             _mover.StopImmediately();
             
             Vector3 destination = _player.transform.position + (Vector3)dashDirection * _dashDistance;
             float dashTime = _dashTime;
+            
+            _player.dashParticle.Play();
 
             RaycastHit2D hit =  Physics2D.Raycast(_player.transform.position, dashDirection, _dashDistance, LayerMask.GetMask("Wall"));
             if (hit.collider != null)
@@ -44,7 +48,6 @@ namespace Players
                 dashTime =  _dashDistance * _dashTime / _dashDistance;
             }
             //_player.gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
-            _player.trailRenderer.enabled = true;
             _player.transform.DOMove(destination, dashTime).SetEase(Ease.OutQuad).OnComplete(EndDash).OnComplete(() =>
             {
                 //_player.gameObject.layer = LayerMask.NameToLayer("Player");
@@ -60,7 +63,6 @@ namespace Players
 
         public override void Exit()
         {
-            _player.trailRenderer.enabled = false;
             _mover.StopImmediately();
             _mover.CanManualMove = false;
             base.Exit();
