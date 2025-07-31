@@ -4,33 +4,37 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LaserBullet : Bullet
+namespace KHG.Bullets
 {
-    public UnityEvent ActiveEvent;
-    public float rotation
+    public class LaserBullet : Bullet
     {
-        get => transform.rotation.z;
-        set => transform.rotation = Quaternion.Euler(transform.rotation.x,transform.rotation.y, value);
-    }
-    private bool _damageable = false;
+        public UnityEvent ActiveEvent;
+        public float rotation
+        {
+            get => transform.rotation.z;
+            set => transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, value);
+        }
+        private bool _damageable = false;
 
-    private Pool _laserPool;
+        private Pool _laserPool;
 
-    public void OnDamageStart() => _damageable = true;
-    public void OnDamageEnd() => _damageable = false;
-    public void DestroySelf() => Destroy(gameObject);
-    public void OnActivated() => ActiveEvent?.Invoke();
+        public void OnDamageStart() => _damageable = true;
+        public void OnDamageEnd() => _damageable = false;
+        public void DestroySelf() => Destroy(gameObject);
+        public void OnActivated() => ActiveEvent?.Invoke();
 
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        if(_damageable == true) base.OnTriggerEnter2D(other);
-    }
-    public override void ResetItem()
-    {
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            if (_damageable == true) base.OnTriggerEnter2D(other);
+        }
+        public override void ResetItem()
+        {
+        }
+
+        public override void SetUpPool(Pool pool)
+        {
+            _laserPool = pool;
+        }
     }
 
-    public override void SetUpPool(Pool pool)
-    {
-        _laserPool = pool;
-    }
 }
