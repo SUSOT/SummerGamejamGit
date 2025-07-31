@@ -1,18 +1,25 @@
 using System;
+using Animation;
 using Code.SkillSystem;
 using Code.SkillSystem.Dash;
 using Entities;
+using LCM._01.Scripts;
 using Settings.InputSetting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Players
 {
-    public class Player : Entity
+    public class Player : Entity, IDamageable
     {
+        public AnimParamSO MOVE_XParam;
+        public AnimParamSO MOVE_YParam;
+        
+        
         [SerializeField] private LayerMask projectileLayer;
-        [SerializeField] private ParticleSystem deadParticles;
+        [SerializeField] private ParticleSystem deadParticle;
         public TrailRenderer trailRenderer;
         
         public UnityEvent gameOverEvent;
@@ -21,6 +28,8 @@ namespace Players
         [SerializeField] private StateListSO stateList;
         
         private StateMachine _stateMachine;
+
+        [field: SerializeField] public int Health { get; private set; } = 3;
 
         protected override void Awake()
         {
@@ -58,6 +67,17 @@ namespace Players
 
         public void ChangeState(string stateName) => _stateMachine.ChangeState(stateName);
 
-        
+
+        public void TakeDamage()
+        {
+            Health--;
+
+            if (Health <= 0)
+            {
+                gameOverEvent?.Invoke();
+                deadParticle.transform.position = transform.position;
+                deadParticle.Play();
+            }
+        }
     }
 }

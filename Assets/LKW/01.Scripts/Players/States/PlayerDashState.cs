@@ -22,8 +22,7 @@ namespace Players
         {
             base.Enter();
             Vector2 playerInput = _player.inputReader.MoveDirection;
-            Vector2 dashDirection = _player.transform.up;
-
+            Vector2 dashDirection = playerInput.normalized;
             _mover.CanManualMove = true;
             _mover.StopImmediately();
             

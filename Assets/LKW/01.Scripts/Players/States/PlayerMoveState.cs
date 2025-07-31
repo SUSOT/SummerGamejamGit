@@ -8,10 +8,13 @@ namespace Players
     {
         private Player _player;
         private EntityMover _mover;
+        private EntityRenderer _renderer;
+        
         public PlayerMoveState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
         {
             _player = entity as Player;
             _mover = entity.GetCompo<EntityMover>();
+            _renderer = entity.GetCompo<EntityRenderer>();
         }
 
         public override void Enter()
@@ -24,8 +27,12 @@ namespace Players
         public override void Update()
         {
             base.Update();
-            _mover.SetMovement(_player.inputReader.MoveDirection);
-            _mover.SetRotation(_player.inputReader.MoveDirection);
+            Vector2 direction = _player.inputReader.MoveDirection;
+            
+            _mover.SetMovement(direction);
+            _mover.SetRotation(direction);
+            _renderer.SetParam(_player.MOVE_XParam, direction.x);
+            _renderer.SetParam(_player.MOVE_YParam, direction.y);
             if (_mover.Movement.Value == Vector2.zero)
                 _player.ChangeState("IDLE");
         }

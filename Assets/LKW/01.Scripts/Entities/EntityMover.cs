@@ -1,13 +1,15 @@
 using System;
+using System.Collections;
 using LKW._01.Scripts.Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Entities
 {
     public class EntityMover : MonoBehaviour, IEntityComponent
     {
         [SerializeField] private float moveSpeed = 5f;
-        [SerializeField] private float rotateTime = 0.12f;
+         [SerializeField] private float rotateSpeed = 0.2f;
         private Rigidbody2D _rigidbody;
         private Entity _entity;
         
@@ -32,11 +34,14 @@ namespace Entities
 
         public void SetRotation(Vector3 direction)
         {
-            transform.parent.up = direction;
+           float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+           Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle) * Quaternion.Euler(0, 0, -90f);
+            transform.parent.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
         }
 
         public void StopImmediately()
         {
+            Movement.Value = Vector2.zero;
             _rigidbody.linearVelocity = Vector3.zero;
         }
     }
