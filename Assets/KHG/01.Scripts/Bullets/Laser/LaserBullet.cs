@@ -34,6 +34,7 @@ namespace KHG.Bullets
         public override void ResetItem()
         {
             _damageable = false;
+            transform.rotation = Quaternion.identity;
         }
 
         public override void SetUpPool(Pool pool)

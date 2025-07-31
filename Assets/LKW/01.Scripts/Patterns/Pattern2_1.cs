@@ -20,17 +20,29 @@ namespace LKW._01.Scripts.Patterns
 
         private IEnumerator SpawnCoroutine()
         {
-            int idx = Random.Range(0,2);
-
-            if (idx == 0)
+            for (int i = 0; i < 40; i++)
             {
-                
-            }
+                LaserBullet laser = poolManager.Pop(laserItem) as LaserBullet;
             
-            LaserBullet laser = poolManager.Pop(laserItem) as LaserBullet;
+                int idx = Random.Range(0,2);
+                Vector3 spawnPos;
 
-            laser.transform.position = new Vector3(0, 0, 0);
-            yield return new WaitForSeconds(1f);
+                Debug.Log(idx);
+                if (idx == 0)
+                {
+                    spawnPos = new Vector3(0,Random.Range(spawnPoints[0].position.y, spawnPoints[1].position.y),0);
+                }
+                else
+                {
+                    spawnPos = new Vector3(Random.Range(spawnPoints[0].position.x, spawnPoints[1].position.x), 0,0);
+                    laser.transform.rotation = Quaternion.Euler(0,0,0);
+                    laser.rotation = 90f;
+                }
+            
+                laser.transform.position = spawnPos;
+            
+                yield return new WaitForSeconds(1);
+            }
         }
     }
 }
