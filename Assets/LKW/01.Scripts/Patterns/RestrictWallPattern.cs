@@ -27,12 +27,6 @@ namespace LKW._01.Scripts.Patterns
         private float spawnTime;
         private bool isActive = false;
         
-        public RestrictWallPattern(float startTime) : base(startTime)
-        {
-        }
-        
-
-
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Q))
@@ -53,7 +47,7 @@ namespace LKW._01.Scripts.Patterns
             
             wall.SetWall();
             
-            DOVirtual.DelayedCall(previewTime * 1.5f, () =>
+            DOVirtual.DelayedCall(previewTime * 2.5f, () =>
             {
                 isActive = true;
                 spawnTime = Time.time;

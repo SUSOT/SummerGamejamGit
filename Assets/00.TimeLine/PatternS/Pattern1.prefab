@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7db6d0d99a79949a08b41882ea85a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 1
+  startTime: 4
   normalItem: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  SpawnCount: 10
+  SpawnCount: 5
   spawnPoints:
   - {x: 20, y: -20}
   - {x: -35, y: 10}
@@ -54,4 +54,4 @@ MonoBehaviour:
   - {x: -5, y: 18}
   - {x: -20, y: -20}
   - {x: 20, y: -20}
-  moveSpeed: 20
+  moveSpeed: 22

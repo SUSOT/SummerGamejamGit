@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
   m_Name: Parrten1
   m_EditorClassIdentifier: 
-  StartTime: 0
+  StartTime: 5
   pattern: {fileID: 2128855019354663806, guid: e93518bba49088e4082568b5c8e136f2, type: 3}

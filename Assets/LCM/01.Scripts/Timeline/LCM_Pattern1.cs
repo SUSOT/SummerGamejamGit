@@ -7,18 +7,14 @@ using UnityEngine;
 
 namespace LCM._01.Scripts.Timeline
 {
-    public class LCM_Pattern1 : TimeLinePattern
+    public class Pattern1 : TimeLinePattern
     {
         [SerializeField] private PoolingItemSO triangleCannon;
         [SerializeField] private PoolingItemSO wall;
         [SerializeField] private PoolingItemSO crossLaser;
         [SerializeField] private PoolingItemSO laser;
         [Inject] private PoolManagerMono _poolManager;
-        
-        public LCM_Pattern1(float startTime) : base(startTime)
-        {
-            
-        }
+       
         
         private void OnEnable()
         {
