@@ -15,7 +15,13 @@ namespace LCM._01.Scripts.Bullets
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
 
-        private IEnumerator Start()
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            StartCoroutine(CountDown());
+        }
+
+        private IEnumerator CountDown()
         {
             yield return new WaitForSeconds(missileTime);
             _isTargeting = false;

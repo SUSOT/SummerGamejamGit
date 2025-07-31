@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
@@ -9,7 +8,6 @@ namespace LCM._01.Scripts.Bullets
 {
     public class TriangleCannon : Bullet
     {
-        [Inject] private PoolManagerMono _poolManager;
         [SerializeField] private PoolingItemSO normalBullet;
         [SerializeField] private float moveTime = 2.5f;
         [SerializeField] private float rotationSpeed = 180f;
@@ -18,7 +16,13 @@ namespace LCM._01.Scripts.Bullets
 
         public List<Transform> muzzles;
 
-        private IEnumerator Start()
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            StartCoroutine(MoveCoroutine());
+        }
+
+        private IEnumerator MoveCoroutine()
         {
             yield return new DOTweenCYInstruction.WaitForCompletion(
                 transform.DOMove(Vector3.zero, moveTime).SetEase(Ease.OutSine));
@@ -41,7 +45,7 @@ namespace LCM._01.Scripts.Bullets
                 .OnComplete(() =>
                 {
                     StopAllCoroutines();
-                    transform.DOMoveY(20f, moveTime).SetEase(Ease.OutSine);
+                    transform.DOMoveY(30f, moveTime).SetEase(Ease.OutSine);
                 });
         }
         

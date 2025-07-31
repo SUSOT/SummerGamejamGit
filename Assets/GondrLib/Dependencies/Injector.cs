@@ -12,10 +12,22 @@ namespace GondrLib.Dependencies
         private const BindingFlags _BindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         
         private readonly Dictionary<Type, object> _registry = new Dictionary<Type, object>();
+        
+        public static Injector Instance { get; private set; }
+        
+        public void InjectRuntime(MonoBehaviour mono)
+        {
+            if (IsInjectable(mono))
+            {
+                Inject(mono);
+            }
+        }
         //대문자 Object는 유니티 오브젝트이다.
 
         private void Awake()
         {
+            Instance = this;
+            
             //인터페이스를 구현한 모든 녀석을 가져와서 Provide 어트리뷰트가 있는 녀석을 찾아서 딕셔너리에 넣는다.
             IEnumerable<IDependencyProvider> providers = FindMonoBehaviours().OfType<IDependencyProvider>();
             foreach (IDependencyProvider pro in providers)
