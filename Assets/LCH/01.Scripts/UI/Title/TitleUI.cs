@@ -9,7 +9,8 @@ public class TitleUI : MonoBehaviour
 {
     [SerializeField] private List<ImageType> images;
     [SerializeField] private InputReaderSO inputSO;
-    [SerializeField] private Image settingUI;
+    [SerializeField] private GameObject settingUI;
+    [SerializeField] private TitleDirection direction;
     [SerializeField] private float inputCooldown = 0.2f;
     [SerializeField] private string loadScene;
     private float _inputTime;
@@ -32,7 +33,8 @@ public class TitleUI : MonoBehaviour
                 SceneManager.LoadScene(loadScene);
                 break;
             case ImageTypeEnum.SETTING:
-                settingUI.gameObject.SetActive(true);
+                settingUI.SetActive(true);
+                direction.Pase();
                 break;
             case ImageTypeEnum.EXIT:
                 Application.Quit();
