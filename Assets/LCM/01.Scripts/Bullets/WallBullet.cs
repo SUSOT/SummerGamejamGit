@@ -25,14 +25,5 @@ namespace LCM._01.Scripts.Bullets
         {
             _rigidbody.linearVelocity = Vector2.zero;
         }
-        
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-            if (other.gameObject.CompareTag("BulletDestroyZone"))
-            {
-                _poolManager.Push(this);
-            }
-        }
     }
 }

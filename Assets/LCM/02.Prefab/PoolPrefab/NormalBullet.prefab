@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.3529412, b: 0.3529412, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.52156866, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  <MoveDirection>k__BackingField: {x: 2, y: 1}
+  <MoveDirection>k__BackingField: {x: -1, y: 0}
   moveSpeed: 4
   rotationSpeed: 10
 --- !u!60 &1458899350087436182

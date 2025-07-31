@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: NormalBullet
+  m_Name: DashCircle
   m_EditorClassIdentifier: 
-  poolingName: NormalBullet
-  prefab: {fileID: 2959930951891833905, guid: 497a7ab3948714f49b3bdc95b2e7ec63, type: 3}
-  initCount: 30
+  poolingName: DashCircle
+  prefab: {fileID: 5491021625145846693, guid: b3c6468c11b6437408a93d2dcb331c0e, type: 3}
+  initCount: 6
