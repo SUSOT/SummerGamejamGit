@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: TileSquareBullet
+  m_Name: Wall
   m_EditorClassIdentifier: 
-  poolingName: TileSquareBullet
-  prefab: {fileID: 147104597729570372, guid: d58a4990d2c8fd64a8ffb2eb58087e6e, type: 3}
+  poolingName: Wall
+  prefab: {fileID: 4623612265210421083, guid: 4e721be047a0fae419b3f77e8e07c2e4, type: 3}
   initCount: 10

@@ -347,8 +347,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.27, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8413183026533052866}
   m_Father: {fileID: 0}
@@ -367,8 +367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: b223361dd376394429b2250221c323a2, type: 2}
   moveDirection: {x: -1, y: 0}
-  moveSpeed: 3
-  rotationSpeed: 6
+  <MoveSpeed>k__BackingField: 0
+  <RotationSpeed>k__BackingField: 0
 --- !u!50 &1204770070118884597
 Rigidbody2D:
   serializedVersion: 5
