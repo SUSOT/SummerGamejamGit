@@ -14,33 +14,24 @@ public class AudioSetting : MonoBehaviour
 
     private void OnEnable()
     {
-        setting.AddListener<Setting>(HandleSetting);
-    }
-
-    private void HandleSetting(Setting evt)
-    {
-        if (evt.Open)
+        if (PlayerPrefs.HasKey("BGMVolume"))
         {
-            if (PlayerPrefs.HasKey("BGMVolume"))
-            {
-                LoadBgmVolume();
-            }
-            if (PlayerPrefs.HasKey("SFXVolume"))
-            {
-                LoadSfxVolume();
-            }
-            if (PlayerPrefs.HasKey("MasterVolume"))
-            {
-                LoadMasterVolume();
-            }
-            else
-            {
-                SetMasterVolume();
-                SetBgmVolume();
-                SetSfxVolume();
-            }
+            LoadBgmVolume();
         }
-        
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            LoadSfxVolume();
+        }
+        if (PlayerPrefs.HasKey("MasterVolume"))
+        {
+            LoadMasterVolume();
+        }
+        else
+        {
+            SetMasterVolume();
+            SetBgmVolume();
+            SetSfxVolume();
+        }
     }
 
     private void LoadBgmVolume()
@@ -86,8 +77,4 @@ public class AudioSetting : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", vol);
     }
 
-    private void OnDestroy()
-    {
-        setting.RemoveListener<Setting>(HandleSetting);
-    }
 }

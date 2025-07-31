@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 namespace EasyTransition
 {
@@ -17,19 +18,20 @@ namespace EasyTransition
         public UnityAction onTransitionCutPointReached;
         public UnityAction onTransitionEnd;
 
-        private static TransitionManager instance;
+        public static TransitionManager instance;
 
         private void Awake()
         {
-            instance = this;
-        }
+            if(instance == null)
+            {
 
-        public static TransitionManager Instance()
-        {
-            if (instance == null)
-                Debug.LogError("You tried to access the instance before it exists.");
-
-            return instance;
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         /// <summary>
@@ -117,6 +119,7 @@ namespace EasyTransition
             yield return new WaitForSecondsRealtime(transitionSettings.destroyTime);
 
             onTransitionEnd?.Invoke();
+            runningTransition = false;
         }
 
         IEnumerator Timer(int sceneIndex, float startDelay, TransitionSettings transitionSettings)
@@ -141,6 +144,7 @@ namespace EasyTransition
             yield return new WaitForSecondsRealtime(transitionSettings.destroyTime);
 
             onTransitionEnd?.Invoke();
+            runningTransition = false;
         }
 
         IEnumerator Timer(float delay, TransitionSettings transitionSettings)
@@ -174,7 +178,7 @@ namespace EasyTransition
             while (this.gameObject.activeInHierarchy)
             {
                 //Check for multiple instances of the Transition Manager component
-                var managerCount = GameObject.FindObjectsOfType<TransitionManager>(true).Length;
+                var managerCount = FindObjectsByType<TransitionManager>(FindObjectsSortMode.None).Length;
                 if (managerCount > 1)
                     Debug.LogError($"There are {managerCount.ToString()} Transition Managers in your scene. Please ensure there is only one Transition Manager in your scene or overlapping transitions may occur.");
             

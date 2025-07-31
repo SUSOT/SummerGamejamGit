@@ -7,7 +7,7 @@ public class TitleDirection : MonoBehaviour
     [SerializeField] private GameEventChannelSO setting;
     private Sequence _seq;
 
-    private void Awake()
+    private void OnEnable()
     {
         setting.AddListener<Setting>(HandleSettingOpen);
     }
