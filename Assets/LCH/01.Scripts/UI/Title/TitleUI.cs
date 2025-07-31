@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Settings.InputSetting;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class TitleUI : MonoBehaviour
     [SerializeField] private TitleDirection direction;
     [SerializeField] private float inputCooldown = 0.2f;
     [SerializeField] private string loadScene;
+    [SerializeField] private Image selectImage;
     private float _inputTime;
     private int _currentIndex = 0;
 
@@ -30,10 +32,11 @@ public class TitleUI : MonoBehaviour
         switch (images[_currentIndex].type)
         {
             case ImageTypeEnum.START:
+                inputSO.EnablePlayerCnt();
                 SceneManager.LoadScene(loadScene);
                 break;
             case ImageTypeEnum.SETTING:
-                settingUI.SetActive(true);
+                settingUI.transform.DOScale(1, 0.8f);
                 direction.Pase();
                 break;
             case ImageTypeEnum.EXIT:
@@ -59,6 +62,9 @@ public class TitleUI : MonoBehaviour
             _currentIndex = (_currentIndex - 1 + images.Count) % images.Count;
         }
 
+        selectImage.gameObject.transform.SetParent(images[_currentIndex].gameObject.transform);
+        RectTransform rectTransform = selectImage.rectTransform;
+        rectTransform.DOAnchorPos(new Vector2(-90,0),0.2f).SetEase(Ease.OutQuad);
         images[_currentIndex].SelectImage();
     }
 
