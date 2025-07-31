@@ -21,13 +21,14 @@ namespace LCM._01.Scripts.Bullets
             _rigidbody.linearVelocity = Vector2.zero;
             _rigidbody.angularVelocity = 0f;
             transform.rotation = Quaternion.identity;
+            moveSpeed = 0f;
         }
 
         private void FixedUpdate()
         {
             if (_rigidbody == null) return;
             
-            _rigidbody.linearVelocity = MoveDirection * moveSpeed;
+            _rigidbody.linearVelocity = MoveDirection.normalized * moveSpeed;
             transform.Rotate(0f, 0f, rotationSpeed);
         }
     }
