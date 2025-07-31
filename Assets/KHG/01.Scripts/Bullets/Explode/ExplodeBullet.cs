@@ -9,8 +9,8 @@ namespace KHG.Bullets
 {
     public class ExplodeBullet : Bullet
     {
-        [SerializeField] private bool moveable;
-        [SerializeField] private Vector3 targetPosition;
+        [SerializeField] public bool moveable { get; set; }
+        [SerializeField] public Vector3 targetPosition { get; set; }
         public UnityEvent ActiveEvent;
         public Vector3 SpawnPosition 
         { 

@@ -22,6 +22,7 @@ namespace KHG.Bullets
         public void OnDamageEnd() => _damageable = false;
         public void DestroySelf()
         {
+            _damageable = false;
             if (_laserPool != null) _laserPool.Push(this);
             else Destroy(gameObject);
         }
