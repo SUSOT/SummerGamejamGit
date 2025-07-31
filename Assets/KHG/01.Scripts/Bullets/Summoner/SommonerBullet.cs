@@ -30,7 +30,10 @@ public class SommonerBullet : Bullet
 
     public override void SetUpPool(Pool pool) => _currentPool = pool;
 
-
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+    }
     private void FixedUpdate()
     {
         SetMovement();
