@@ -637,7 +637,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: 5baffc5f5d62d004fa52c9a539ca2546, type: 2}
   moveSpeed: 8
-  rotationSpeed: -25
 --- !u!95 &5967829171120364282
 Animator:
   serializedVersion: 7
@@ -672,9 +671,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:

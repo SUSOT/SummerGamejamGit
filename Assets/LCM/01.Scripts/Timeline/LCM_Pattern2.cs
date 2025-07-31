@@ -17,9 +17,6 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private PoolingItemSO laser;
         [SerializeField] private PoolingItemSO triangle;
         
-        public LCM_Pattern2(float startTime) : base(startTime)
-        {
-        }
         
         private void OnEnable()
         {

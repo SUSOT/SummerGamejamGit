@@ -16,9 +16,8 @@ namespace KHG.Bullets
         {
             _rigid = GetComponent<Rigidbody2D>();
         }
-        protected override void OnEnable()
+        private void Start()
         {
-            base.OnEnable();
             _rigid.AddTorque(rotationSpeed);
         }
         private void FixedUpdate()
