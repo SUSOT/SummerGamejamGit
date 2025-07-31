@@ -5217,15 +5217,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25c273fea9d4e1994837ca31a999e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolManager: {fileID: 0}
   MOVE_XParam: {fileID: 11400000, guid: b253b6843bf9a2047b7aabbb0b8a40e5, type: 2}
   MOVE_YParam: {fileID: 11400000, guid: 25144eaa885568e4ab16f373b88cee2a, type: 2}
   projectileLayer:
     serializedVersion: 2
     m_Bits: 0
-  playerChannel: {fileID: 0}
+  playerChannel: {fileID: 11400000, guid: 36077f98588a13547a92201cb838bd5a, type: 2}
   deadParticle: {fileID: 0}
   trailParticle: {fileID: 8968635494183907312}
   dashParticle: {fileID: 7877785406042160438}
+  dashCirce: {fileID: 11400000, guid: 637f2e25e103c6841b3a3e88e680a238, type: 2}
   gameOverEvent:
     m_PersistentCalls:
       m_Calls: []

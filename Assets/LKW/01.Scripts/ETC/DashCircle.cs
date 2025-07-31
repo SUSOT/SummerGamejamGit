@@ -8,7 +8,7 @@ namespace Animation
 {
     public class DashCircle : MonoBehaviour, IPoolable
     {
-        [Inject] private PoolManagerMono poolManager;
+        [SerializeField] private PoolManagerSO poolManager;
 
         [field: SerializeField] public PoolingItemSO PoolingType { get; private set; }
         public GameObject GameObject => gameObject;
@@ -20,7 +20,7 @@ namespace Animation
         
         public void SetUpPool(Pool pool)
         {
-            
+            poolManager.Push(this);
         }
 
         public void ResetItem()
