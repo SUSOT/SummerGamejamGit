@@ -10,28 +10,37 @@ public class AudioSetting : MonoBehaviour
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private GameEventChannelSO setting;
 
     private void OnEnable()
     {
-        if (PlayerPrefs.HasKey("BGMVolume"))
+        setting.AddListener<Setting>(HandleSetting);
+    }
+
+    private void HandleSetting(Setting evt)
+    {
+        if (evt.Open)
         {
-            LoadBgmVolume();
+            if (PlayerPrefs.HasKey("BGMVolume"))
+            {
+                LoadBgmVolume();
+            }
+            if (PlayerPrefs.HasKey("SFXVolume"))
+            {
+                LoadSfxVolume();
+            }
+            if (PlayerPrefs.HasKey("MasterVolume"))
+            {
+                LoadMasterVolume();
+            }
+            else
+            {
+                SetMasterVolume();
+                SetBgmVolume();
+                SetSfxVolume();
+            }
         }
-        if (PlayerPrefs.HasKey("SFXVolume"))
-        {
-            LoadSfxVolume();
-        }
-        if (PlayerPrefs.HasKey("MasterVolume"))
-        {
-            LoadMasterVolume();
-        }
-        else
-        {
-            SetMasterVolume();
-            SetBgmVolume();
-            SetSfxVolume();
-        }
-   
+        
     }
 
     private void LoadBgmVolume()
@@ -75,5 +84,10 @@ public class AudioSetting : MonoBehaviour
         float volume = Mathf.Log10(vol) * 20;
         mixer.SetFloat("SFX", volume);
         PlayerPrefs.SetFloat("SFXVolume", vol);
+    }
+
+    private void OnDestroy()
+    {
+        setting.RemoveListener<Setting>(HandleSetting);
     }
 }

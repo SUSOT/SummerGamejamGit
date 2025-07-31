@@ -1,4 +1,5 @@
 using DG.Tweening;
+using EasyTransition;
 using Settings.InputSetting;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ public class TitleUI : MonoBehaviour
 {
     [SerializeField] private List<ImageType> images;
     [SerializeField] private InputReaderSO inputSO;
-    [SerializeField] private GameObject settingUI;
     [SerializeField] private TitleDirection direction;
+    [SerializeField] private GameEventChannelSO settingUI;
     [SerializeField] private float inputCooldown = 0.2f;
     [SerializeField] private string loadScene;
     [SerializeField] private Image selectImage;
@@ -33,11 +34,10 @@ public class TitleUI : MonoBehaviour
         {
             case ImageTypeEnum.START:
                 inputSO.EnablePlayerCnt();
-                SceneManager.LoadScene(loadScene);
+                DemoLoadScene.instance.LoadScene(loadScene);
                 break;
             case ImageTypeEnum.SETTING:
-                settingUI.transform.DOScale(1, 0.8f);
-                direction.Pase();
+                settingUI.RaiseEvent(TitleEvents.Setting.Init(true));
                 break;
             case ImageTypeEnum.EXIT:
                 Application.Quit();
