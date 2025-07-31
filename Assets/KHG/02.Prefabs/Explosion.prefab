@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fd9ecd943296d4b8c2f107837bde12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PoolingType>k__BackingField: {fileID: 11400000, guid: 7514f9544fdae0a479ddb1e71551ec14, type: 2}
+  <PoolingType>k__BackingField: {fileID: 11400000, guid: d472e9bc4431cc34ba400b6a75a92136, type: 2}
 --- !u!1 &8622891313396690469
 GameObject:
   m_ObjectHideFlags: 0
