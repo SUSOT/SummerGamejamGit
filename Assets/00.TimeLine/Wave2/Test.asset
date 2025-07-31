@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
-  m_Name: PatternDataList
+  m_Name: Test
   m_EditorClassIdentifier: 
   patterns:
-  - {fileID: 11400000, guid: 60f7a2b5c0ae0974fbbd7d106c1b98fa, type: 2}
-  - {fileID: 11400000, guid: f98d5962723482745875bbc04974b8f4, type: 2}
-  - {fileID: 11400000, guid: 04ddbfae7df943f40ab22dae6abc1cd8, type: 2}
-  - {fileID: 11400000, guid: 20b87bcbf44564a4eac2c962ecbc5ac0, type: 2}
+  - {fileID: 11400000, guid: de60555bbf5fe48459ebb7fb8b3864f2, type: 2}
+  - {fileID: 11400000, guid: 8ff6f059b22b81b4c817c2cb0bded8ff, type: 2}
+  - {fileID: 11400000, guid: a00e987e5abe89e45b74e18f34e56faa, type: 2}
+  - {fileID: 11400000, guid: 33d32a8df14d53f4aa6e0a65436d739f, type: 2}
