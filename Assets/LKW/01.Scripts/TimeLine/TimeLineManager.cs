@@ -33,7 +33,6 @@ public class TimeLineManager : MonoBehaviour
     private void Update()
     {
         currentTime += Time.deltaTime;
-        Debug.Log(currentTime);
         CheckPatterns();
     }
 
