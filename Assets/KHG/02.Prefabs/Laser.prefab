@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587234724433333411}
   - component: {fileID: 6172182731104816987}
+  - component: {fileID: 1572953570713793330}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -56,6 +57,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1572953570713793330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536465149609459148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ff18c64a2c3ad4ba8599da459df0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PoolingType>k__BackingField: {fileID: 11400000, guid: 5a35b48eba652114c903004762039825, type: 2}
 --- !u!1 &1857688428763544343
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +168,8 @@ GameObject:
   - component: {fileID: 8757831422516493946}
   - component: {fileID: 1653985462823114580}
   - component: {fileID: 3401673395061479595}
+  - component: {fileID: 8842089283513061859}
+  - component: {fileID: 1725308367790599550}
   m_Layer: 0
   m_Name: LaserBody
   m_TagString: Untagged
@@ -261,7 +277,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -277,3 +293,43 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &8842089283513061859
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667944653559976017}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1725308367790599550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667944653559976017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0ac47609178bb4cae08cff5c2fc960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageApplier: {fileID: 1572953570713793330}
