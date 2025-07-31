@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: TileSquareBullet
   prefab: {fileID: 147104597729570372, guid: d58a4990d2c8fd64a8ffb2eb58087e6e, type: 3}
-  initCount: 0
+  initCount: 10

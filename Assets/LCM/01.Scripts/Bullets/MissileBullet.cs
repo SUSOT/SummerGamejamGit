@@ -47,7 +47,7 @@ namespace LCM._01.Scripts.Bullets
             
             if (_isTargeting)
             {
-                var player = Physics2D.OverlapCircle(transform.position, 30f, whatIsPlayer);
+                var player = Physics2D.OverlapCircle(transform.position, 70f, whatIsPlayer);
                 _direction= (player.transform.position - transform.position).normalized;
                 _rigidbody.linearVelocity = _direction * MoveSpeed;
                 transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 225f);
@@ -62,7 +62,7 @@ namespace LCM._01.Scripts.Bullets
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 30f);
+            Gizmos.DrawWireSphere(transform.position, 70f);
             Gizmos.color = Color.white;
         }
 #endif
