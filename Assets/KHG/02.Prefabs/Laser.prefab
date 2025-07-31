@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5545ce0ee6dd5fc4e8a050be4458fe4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 0}
+  laser: {fileID: 5625667586284781515}
 --- !u!1 &3667944653559976017
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ff18c64a2c3ad4ba8599da459df0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PoolingType>k__BackingField: {fileID: 0}
+  <PoolingType>k__BackingField: {fileID: 11400000, guid: 5a35b48eba652114c903004762039825, type: 2}
 --- !u!61 &3401673395061479595
 BoxCollider2D:
   m_ObjectHideFlags: 0
