@@ -41,8 +41,11 @@ public class TimeLineManager : MonoBehaviour
     {
         while (patternQueue.Count > 0 && currentTime >= patternQueue.Peek().StartTime)
         {
-            TimeLinePattern pattern = patternQueue.Dequeue().pattern;
-            pattern.Execute();
+            TimeLinePattern patternObj = patternQueue.Dequeue().pattern;
+            Instantiate(patternObj.gameObject).GetComponent<TimeLinePattern>().Execute();
+
+            //TimeLinePattern pattern = patternQueue.Dequeue().pattern;
+            //pattern.Execute();
         }
     }
 }

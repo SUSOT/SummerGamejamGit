@@ -4,52 +4,55 @@ using LCM._01.Scripts.Bullets;
 using System.Collections;
 using UnityEngine;
 
-public class CircleGenerate : MonoBehaviour
+namespace KHG.Bullets
 {
-    [SerializeField] private PoolingItemSO normalBullet;
-
-    [SerializeField] private float delayTime;
-    [SerializeField] private int bulletCount;
-
-    [SerializeField] private float rotationSpeed = 0;
-    [SerializeField] private float generateAngle = 60;
-    [Header("Bullet Setting")]
-    [SerializeField] private float speed = 15f;
-    [SerializeField] private float scale = 1.7f;
-
-    [Inject] private PoolManagerMono _poolManager;
-
-    private void OnEnable()
+    public class CircleGenerate : MonoBehaviour
     {
-        Injector.Instance.InjectRuntime(this);
-        if(TryGetComponent(out Rigidbody2D rigid)) rigid.AddTorque(rotationSpeed);
-    }
+        [SerializeField] private PoolingItemSO normalBullet;
 
-    public void GenerateObstacles()
-    {
-        StartCoroutine(Generate());
-    }
+        [SerializeField] private float delayTime;
+        [SerializeField] private int bulletCount;
 
-    private IEnumerator Generate()
-    {
-        for (int i = 0; i < bulletCount; i++)
+        [SerializeField] private float rotationSpeed = 0;
+        [SerializeField] private float generateAngle = 60;
+        [Header("Bullet Setting")]
+        [SerializeField] private float speed = 15f;
+        [SerializeField] private float scale = 1.7f;
+
+        [Inject] private PoolManagerMono _poolManager;
+
+        private void OnEnable()
         {
-            float currentAngle = generateAngle + (360f / bulletCount) * i;
-            Spawn(currentAngle);
-            yield return new WaitForSeconds(delayTime);
+            Injector.Instance.InjectRuntime(this);
+            if (TryGetComponent(out Rigidbody2D rigid)) rigid.AddTorque(rotationSpeed);
         }
-    }
 
-    private void Spawn(float angle)
-    {
-        float bulletDirX = Mathf.Cos(angle * Mathf.Deg2Rad);
-        float bulletDirY = Mathf.Sin(angle * Mathf.Deg2Rad);
-        Vector2 bulletDirection = new Vector2(bulletDirX, bulletDirY).normalized;
+        public void GenerateObstacles()
+        {
+            StartCoroutine(Generate());
+        }
 
-        NormalBullet bullet = _poolManager.Pop<NormalBullet>(normalBullet);
-        bullet.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-        bullet.transform.localScale = Vector3.one * scale;
-        bullet.moveSpeed = speed;
-        bullet.MoveDirection = bulletDirection;
+        private IEnumerator Generate()
+        {
+            for (int i = 0; i < bulletCount; i++)
+            {
+                float currentAngle = generateAngle + (360f / bulletCount) * i;
+                Spawn(currentAngle);
+                yield return new WaitForSeconds(delayTime);
+            }
+        }
+
+        private void Spawn(float angle)
+        {
+            float bulletDirX = Mathf.Cos(angle * Mathf.Deg2Rad);
+            float bulletDirY = Mathf.Sin(angle * Mathf.Deg2Rad);
+            Vector2 bulletDirection = new Vector2(bulletDirX, bulletDirY).normalized;
+
+            NormalBullet bullet = _poolManager.Pop<NormalBullet>(normalBullet);
+            bullet.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+            bullet.transform.localScale = Vector3.one * scale;
+            bullet.moveSpeed = speed;
+            bullet.MoveDirection = bulletDirection;
+        }
     }
 }

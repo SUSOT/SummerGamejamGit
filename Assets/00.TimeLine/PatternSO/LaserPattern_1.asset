@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
-  m_Name: PatternDataList
+  m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
+  m_Name: LaserPattern_1
   m_EditorClassIdentifier: 
-  patterns:
-  - {fileID: 11400000, guid: a4d67dad912b54743968d7b2e93e36a2, type: 2}
+  StartTime: 0
+  pattern: {fileID: 4318699792743350296, guid: 469a70c6a146ffb40b6ab3f8849bb34d, type: 3}
