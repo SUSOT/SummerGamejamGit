@@ -11,12 +11,6 @@ namespace LCM._01.Scripts.Bullets
         [SerializeField] private float moveSpeed;
         [SerializeField] private float rotationSpeed;
 
-        // 풀링되면 지울코드
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-        }
-
         public override void SetUpPool(Pool pool)
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -31,6 +25,8 @@ namespace LCM._01.Scripts.Bullets
 
         private void FixedUpdate()
         {
+            if (_rigidbody == null) return;
+            
             _rigidbody.linearVelocity = MoveDirection * moveSpeed;
             transform.Rotate(0f, 0f, rotationSpeed);
         }

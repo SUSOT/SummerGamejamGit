@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 587234724433333411}
   - component: {fileID: 6172182731104816987}
-  - component: {fileID: 2168959913957819694}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -57,20 +56,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2168959913957819694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536465149609459148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5545ce0ee6dd5fc4e8a050be4458fe4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laser: {fileID: 5625667586284781515}
-  targetRotation: 0
 --- !u!1 &1857688428763544343
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +153,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8757831422516493946}
   - component: {fileID: 1653985462823114580}
-  - component: {fileID: 5625667586284781515}
   - component: {fileID: 3401673395061479595}
   m_Layer: 0
   m_Name: LaserBody
@@ -247,19 +231,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5625667586284781515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3667944653559976017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ff18c64a2c3ad4ba8599da459df0d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <PoolingType>k__BackingField: {fileID: 11400000, guid: 5a35b48eba652114c903004762039825, type: 2}
 --- !u!61 &3401673395061479595
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -97,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3765337567684585790}
   - component: {fileID: 7081102691145968794}
-  - component: {fileID: 6873685863134092834}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -144,19 +143,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6873685863134092834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6926220831358915679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b3781ae5388834e8919855964f118e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explode: {fileID: 4347275266772188341}
 --- !u!1 &8622891313396690469
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +153,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1087774647396399902}
   - component: {fileID: 8033030057194633994}
-  - component: {fileID: 4347275266772188341}
   - component: {fileID: 3391972625357469999}
   m_Layer: 0
   m_Name: WarnCircle
@@ -246,19 +231,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4347275266772188341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622891313396690469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fd9ecd943296d4b8c2f107837bde12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <PoolingType>k__BackingField: {fileID: 11400000, guid: 7514f9544fdae0a479ddb1e71551ec14, type: 2}
 --- !u!58 &3391972625357469999
 CircleCollider2D:
   m_ObjectHideFlags: 0
