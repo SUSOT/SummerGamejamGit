@@ -1,15 +1,14 @@
-using System;
 using DG.Tweening;
-using Unity.VisualScripting;
+using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace LKW._01.Scripts.Patterns
 {
     public class RestrictWallPattern : TimeLinePattern
     {
-        [SerializeField] private GameObject wall;
-        [SerializeField] private GameObject preview;
-        [SerializeField] private SpriteRenderer previewRenderer;
+        [SerializeField] private PoolManagerSO poolManager;
+        [SerializeField] private PoolingItemSO wallItem;
         
         [SerializeField] private bool isHorizontal = false;
         [SerializeField] private bool isNegative = false;
@@ -21,6 +20,9 @@ namespace LKW._01.Scripts.Patterns
         
         [SerializeField] private float lifeTime;
 
+        [SerializeField] private Vector2 initPos;
+
+        private Wall wall;
 
         private float spawnTime;
         private bool isActive = false;
@@ -28,12 +30,7 @@ namespace LKW._01.Scripts.Patterns
         public RestrictWallPattern(float startTime) : base(startTime)
         {
         }
-
-        private void OnDestroy()
-        {
-            DOTween.Kill(wall);
-            DOTween.Kill(preview);
-        }
+        
 
 
         private void Update()
@@ -43,63 +40,24 @@ namespace LKW._01.Scripts.Patterns
             
             if (Time.time - spawnTime >= lifeTime && isActive == true)
             {
-                if (isHorizontal)
-                {
-                    isActive = false;
-                    wall.transform.DOScaleX(0, 1).SetEase(Ease.OutQuad)
-                        .OnComplete(() => Destroy(gameObject));
-                }
-                else
-                {
-                    isActive = false;
-                    wall.transform.DOScaleY(0, 1).SetEase(Ease.OutQuad)
-                        .OnComplete(() => Destroy(gameObject));
-                }
+                isActive = false;
+                wall.UnSetWall();
             }
         }
 
         public override void Execute()
         {
+            wall = poolManager.Pop(wallItem) as Wall;
             
-
+            wall.Init(initPos, isHorizontal, isNegative, wallHeight, wallWidth, previewTime);
             
-            if (isHorizontal)
+            wall.SetWall();
+            
+            DOVirtual.DelayedCall(previewTime * 1.5f, () =>
             {
-                wall.transform.localScale = new Vector3(1, wallHeight, 1);
-                preview.transform.localScale = new Vector3(1, wallHeight, 1);
-
-                preview.transform.DOScaleX(wallWidth, previewTime);
-                previewRenderer.DOColor(new Vector4(1,1,1,0.5f), previewTime / 10).SetEase(Ease.InOutExpo).SetLoops(10, LoopType.Yoyo);
-                DOVirtual.DelayedCall(previewTime, () =>
-                {
-                    preview.SetActive(false);
-                    wall.transform.DOScaleX(wallWidth, previewTime / 2).SetEase(Ease.InOutExpo)
-                        .OnComplete(() =>
-                        {
-                            spawnTime = Time.time;
-                            isActive = true;
-                        });
-                });
-            }
-
-            else
-            {
-                wall.transform.localScale = new Vector3(wallHeight,1 , 1);
-                preview.transform.localScale = new Vector3(wallHeight,1 , 1);
-                
-                preview.transform.DOScaleY(wallWidth, previewTime);
-                previewRenderer.DOColor(new Vector4(1,1,1,0.5f), previewTime / 10).SetEase(Ease.InOutExpo).SetLoops(10, LoopType.Yoyo);
-                DOVirtual.DelayedCall(previewTime, () =>
-                {
-                    preview.SetActive(false);
-                    wall.transform.DOScaleY(wallWidth, previewTime / 2).SetEase(Ease.InOutExpo)
-                        .OnComplete(() =>
-                        {
-                            spawnTime = Time.time;
-                            isActive = true;
-                        });
-                });
-            }
+                isActive = true;
+                spawnTime = Time.time;
+            });
         }
     }
 }

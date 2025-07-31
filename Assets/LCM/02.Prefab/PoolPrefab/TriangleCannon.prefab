@@ -364,7 +364,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5073010380543880924}
@@ -440,10 +440,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: 54623d8b6aa39854c8f80d9c0d264efd, type: 2}
   normalBullet: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  moveTime: 2.5
-  rotationSpeed: 360
-  rotationDuration: 10
-  fireDuration: 0.3
+  <MoveTime>k__BackingField: 2.5
+  <RotationSpeed>k__BackingField: 180
+  <RotationDuration>k__BackingField: 6
+  <FireDuration>k__BackingField: 1
+  <MovePosition>k__BackingField: {x: 0, y: 0}
   muzzles:
   - {fileID: 2099307326920383082}
   - {fileID: 301380855549040431}
