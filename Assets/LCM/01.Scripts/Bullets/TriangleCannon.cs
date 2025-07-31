@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
@@ -9,7 +8,6 @@ namespace LCM._01.Scripts.Bullets
 {
     public class TriangleCannon : Bullet
     {
-        [Inject] private PoolManagerMono _poolManager;
         [SerializeField] private PoolingItemSO normalBullet;
         [SerializeField] private float moveTime = 2.5f;
         [SerializeField] private float rotationSpeed = 180f;
@@ -66,6 +64,15 @@ namespace LCM._01.Scripts.Bullets
 
         public override void ResetItem()
         {
+        }
+        
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            base.OnTriggerEnter2D(other);
+            if (other.gameObject.CompareTag("BulletDestroyZone"))
+            {
+                _poolManager.Push(this);
+            }
         }
     }
 }

@@ -1,8 +1,11 @@
 namespace LKW._01.Scripts.Core
 {
-    public class PlayerEvents
+    public static class PlayerEvents
     {
-        
+        public static PlayerHitEvent PlayerHitEvent = new PlayerHitEvent();
     }
-    
+
+    public class PlayerHitEvent : GameEvent
+    {
+    }
 }

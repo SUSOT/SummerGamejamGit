@@ -21,6 +21,7 @@ namespace Players
         {
             base.Enter();
             _mover.Movement.OnValueChanged += HandleDirectionChanged;
+            _player.trailParticle.Play();
         }
         
 
@@ -40,6 +41,8 @@ namespace Players
         public override void Exit()
         {
             _mover.Movement.OnValueChanged -= HandleDirectionChanged;
+            _player.trailParticle.Stop();
+
             base.Exit();
         }
         
