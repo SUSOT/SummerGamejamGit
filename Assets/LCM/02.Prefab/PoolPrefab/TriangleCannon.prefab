@@ -439,9 +439,9 @@ MonoBehaviour:
   <PoolingType>k__BackingField: {fileID: 11400000, guid: 54623d8b6aa39854c8f80d9c0d264efd, type: 2}
   normalBullet: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
   moveTime: 2.5
-  rotationSpeed: 180
-  rotationDuration: 6
-  fireDuration: 1
+  rotationSpeed: 360
+  rotationDuration: 10
+  fireDuration: 0.3
   muzzles:
   - {fileID: 2099307326920383082}
   - {fileID: 301380855549040431}
