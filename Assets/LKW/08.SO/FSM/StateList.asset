@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752be46032be4ad3b3ee4a6bee5c1dc0, type: 3}
   m_Name: StateList
   m_EditorClassIdentifier: 
-  states: []
+  states:
+  - {fileID: 11400000, guid: 3bdc375d270abd64b85f6d6cc6a7dec4, type: 2}
+  - {fileID: 11400000, guid: 8c57bad7171b9094cba4d36e32853ba8, type: 2}
+  - {fileID: 11400000, guid: f88de28cdf6f232449688c53a99d5eb6, type: 2}

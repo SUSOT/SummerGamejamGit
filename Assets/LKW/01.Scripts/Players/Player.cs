@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Code.Players
+namespace Players
 {
     public class Player : Entity
     {
@@ -26,7 +26,7 @@ namespace Code.Players
         {
             base.Awake();
             _stateMachine = new StateMachine(this, stateList);
-            trailRenderer = GetComponent<TrailRenderer>();
+            trailRenderer = GetComponentInChildren<TrailRenderer>();
         }
 
         private void Start()
@@ -58,15 +58,6 @@ namespace Code.Players
 
         public void ChangeState(string stateName) => _stateMachine.ChangeState(stateName);
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (((1 << other.gameObject.layer) & projectileLayer) != 0)
-            {
-                gameOverEvent.Invoke();
-                deadParticles.transform.position = transform.position;
-                deadParticles.gameObject.SetActive(true);
-                gameObject.SetActive(false);
-            }
-        }
+        
     }
 }

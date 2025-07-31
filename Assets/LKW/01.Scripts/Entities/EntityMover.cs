@@ -7,6 +7,7 @@ namespace Entities
     public class EntityMover : MonoBehaviour, IEntityComponent
     {
         [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private float rotateTime = 0.12f;
         private Rigidbody2D _rigidbody;
         private Entity _entity;
         
@@ -31,7 +32,7 @@ namespace Entities
 
         public void SetRotation(Vector3 direction)
         {
-            transform.up = direction;
+            transform.parent.up = direction;
         }
 
         public void StopImmediately()
