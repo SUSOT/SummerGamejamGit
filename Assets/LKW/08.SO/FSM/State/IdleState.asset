@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IdleState
   m_EditorClassIdentifier: 
   stateName: IDLE
-  className: Assets/LKW/01.Scripts/Players/States/PlayerIdleState
+  className: Players.PlayerIdleState
   animParam: {fileID: 11400000, guid: c07689f41be97684f948092d060c32cd, type: 2}
