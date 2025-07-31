@@ -41,24 +41,33 @@ public class SettingManager : MonoBehaviour
             _isOpen = value;
             isTransitioning = true;
 
+            Time.timeScale = _isOpen ? 0 : 1;
+
             if (_isOpen)
             {
-                backGround.transform.DOScale(1, 0.8f).OnComplete(() => {
-                    isTransitioning = false;
-                });
+                backGround.transform.DOScale(1, 0.8f)
+                    .SetUpdate(true)
+                    .OnComplete(() => {
+                        isTransitioning = false;
+                    });
+
                 input.OnUINavigation += HandleNaveigation;
                 input.OnUIOnSubmitPressed += HandleSubmit;
             }
             else
             {
-                backGround.transform.DOScale(0, 0.8f).OnComplete(() => {
-                    isTransitioning = false;
-                });
+                backGround.transform.DOScale(0, 0.8f)
+                    .SetUpdate(true)
+                    .OnComplete(() => {
+                        isTransitioning = false;
+                    });
+
                 input.OnUINavigation -= HandleNaveigation;
                 input.OnUIOnSubmitPressed -= HandleSubmit;
             }
         }
     }
+
 
 
     private void Awake()
@@ -84,46 +93,50 @@ public class SettingManager : MonoBehaviour
 
     private void HandleSubmit()
     {
-        var selected = selectSillder[_currentIndex];
+        if (IsOpen)
+        {
+            var selected = selectSillder[_currentIndex];
 
 
-        if (selected.TryGetComponent(out Button button))
-        {
-            IsOpen = false;
-            GoTitleScene();
-        }
-        else
-        {
-            if (_isSlider)
+            if (selected.TryGetComponent(out Button button))
             {
-                Debug.Log("슬라이더 조작 종료");
-                _slider = null;
-                _isSlider = false;
-                input.OnUINavigation += HandleNaveigation;
-                input.OnUISilder -= HandleSilder;
-
-                _sliderCooldown = true;
-                Invoke(nameof(ResetSliderCooldown), 0.05f);
-                return;
+                IsOpen = false;
+                GoTitleScene();
             }
-
-            if (!_sliderCooldown && !_isSlider)
+            else
             {
-
-
-                if (selected.TryGetComponent(out Slider slider) && slider != _slider)
+                if (_isSlider)
                 {
-                    Debug.Log("슬라이더 조작 시작");
-                    _slider = slider;
-                    _isSlider = true;
+                    Debug.Log("슬라이더 조작 종료");
+                    _slider = null;
+                    _isSlider = false;
+                    input.OnUINavigation += HandleNaveigation;
+                    input.OnUISilder -= HandleSilder;
 
-                    UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_slider.gameObject);
+                    _sliderCooldown = true;
+                    Invoke(nameof(ResetSliderCooldown), 0.05f);
+                    return;
+                }
 
-                    input.OnUINavigation -= HandleNaveigation;
-                    input.OnUISilder += HandleSilder;
+                if (!_sliderCooldown && !_isSlider)
+                {
+
+
+                    if (selected.TryGetComponent(out Slider slider) && slider != _slider)
+                    {
+                        Debug.Log("슬라이더 조작 시작");
+                        _slider = slider;
+                        _isSlider = true;
+
+                        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_slider.gameObject);
+
+                        input.OnUINavigation -= HandleNaveigation;
+                        input.OnUISilder += HandleSilder;
+                    }
                 }
             }
         }
+       
         
 
     }
@@ -139,12 +152,13 @@ public class SettingManager : MonoBehaviour
 
     private void HandleNaveigation(Vector2 value)
     {
-        if (IsOpen && _isSlider == false)
+        if (IsOpen && !_isSlider)
         {
-            if (Time.time - _inputTime < inputCooldown || value.y == 0)
+            if (Time.unscaledTime - _inputTime < inputCooldown || value.y == 0)
                 return;
 
-            _inputTime = Time.time;
+            _inputTime = Time.unscaledTime;
+
             if (value.y < 0)
             {
                 _currentIndex = (_currentIndex + 1) % selectSillder.Count;
@@ -153,11 +167,15 @@ public class SettingManager : MonoBehaviour
             {
                 _currentIndex = (_currentIndex - 1 + selectSillder.Count) % selectSillder.Count;
             }
-            selectImage.gameObject.transform.SetParent(selectSillder[_currentIndex].gameObject.transform);
+
+            selectImage.transform.SetParent(selectSillder[_currentIndex]);
             RectTransform rectTransform = selectImage.rectTransform;
-            rectTransform.DOAnchorPos(new Vector2(-185, 0), 0.2f).SetEase(Ease.OutQuad);
+            rectTransform.DOAnchorPos(new Vector2(-185, 0), 0.2f)
+                .SetUpdate(true)
+                .SetEase(Ease.OutQuad);
         }
     }
+
 
     public void GoTitleScene()
     {
