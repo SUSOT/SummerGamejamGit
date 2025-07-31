@@ -1,3 +1,4 @@
+using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
@@ -5,6 +6,13 @@ namespace LCM._01.Scripts
 {
     public abstract class Bullet : MonoBehaviour, IPoolable
     {
+        [Inject] protected PoolManagerMono _poolManager;
+
+        private void OnEnable()
+        {
+            Injector.Instance.InjectRuntime(this);
+        }
+
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             ApplyDamage(other);

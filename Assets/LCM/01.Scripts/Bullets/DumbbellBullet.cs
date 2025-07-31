@@ -1,4 +1,3 @@
-using System;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
@@ -24,6 +23,16 @@ namespace LCM._01.Scripts.Bullets
         public override void ResetItem()
         {
             _rigidbody.linearVelocity = Vector2.zero;
+        }
+
+
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            base.OnTriggerEnter2D(other);
+            if (other.gameObject.CompareTag("BulletDestroyZone"))
+            {
+                _poolManager.Push(this);
+            }
         }
     }
 }
