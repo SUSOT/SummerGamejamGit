@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: PlayerHitImpact
+  m_Name: MissileBullet
   m_EditorClassIdentifier: 
-  poolingName: PlayerHitImpact
-  prefab: {fileID: 8716399419119240277, guid: 55b7c9ef44de3e74eac640e846b204b7, type: 3}
-  initCount: 3
+  poolingName: MissileBullet
+  prefab: {fileID: 947688052283410805, guid: 476dd2a8541046849a5dac90b3f6e3d2, type: 3}
+  initCount: 5

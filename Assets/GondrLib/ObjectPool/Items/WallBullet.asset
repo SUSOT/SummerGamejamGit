@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: HitImpact
+  m_Name: WallBullet
   m_EditorClassIdentifier: 
-  poolingName: HitImpact
-  prefab: {fileID: 214749262888531469, guid: 9ab47eb3356c89d44a77ad3bec1e4aa9, type: 3}
-  initCount: 3
+  poolingName: WallBullet
+  prefab: {fileID: 6799729449784232012, guid: d5c5178fcec7a264498ec6e88fd4c80e, type: 3}
+  initCount: 5

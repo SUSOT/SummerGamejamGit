@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: SlashVFX
+  m_Name: DumbbellBullet
   m_EditorClassIdentifier: 
-  poolingName: SlashVFX
-  prefab: {fileID: 3730671686793132737, guid: f9aa71e111e4dde41aa921365dd85411, type: 3}
-  initCount: 3
+  poolingName: DumbbellBullet
+  prefab: {fileID: 2579359021286647432, guid: b9571c3093646d84d9a16eb73cfb84fc, type: 3}
+  initCount: 5
