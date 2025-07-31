@@ -49,7 +49,7 @@ public class CircleGenerate : MonoBehaviour
         NormalBullet bullet = _poolManager.Pop<NormalBullet>(normalBullet);
         bullet.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         bullet.transform.localScale = Vector3.one * scale;
-        bullet.moveSpeed = speed;
+        bullet.MoveSpeed = speed;
         bullet.MoveDirection = bulletDirection;
     }
 }

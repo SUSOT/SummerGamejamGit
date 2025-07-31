@@ -7,8 +7,8 @@ namespace LCM._01.Scripts.Bullets
     public class MissileBullet : Bullet
     {
         [SerializeField] private LayerMask whatIsPlayer;
-        [SerializeField] private float moveSpeed;
-        [SerializeField] private float missileTime;
+        [field: SerializeField] public float MoveSpeed { get; set; }
+        [field: SerializeField] public float MissileTime { get; set; }
         [SerializeField] private GameObject circle;
         
         private bool _isTargeting = true;
@@ -23,7 +23,7 @@ namespace LCM._01.Scripts.Bullets
 
         private IEnumerator CountDown()
         {
-            yield return new WaitForSeconds(missileTime);
+            yield return new WaitForSeconds(MissileTime);
             _isTargeting = false;
             circle.GetComponent<SpriteRenderer>().color = Color.black;
         }
@@ -49,12 +49,12 @@ namespace LCM._01.Scripts.Bullets
             {
                 var player = Physics2D.OverlapCircle(transform.position, 30f, whatIsPlayer);
                 _direction= (player.transform.position - transform.position).normalized;
-                _rigidbody.linearVelocity = _direction * moveSpeed;
+                _rigidbody.linearVelocity = _direction * MoveSpeed;
                 transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 225f);
             }
             else
             {
-                _rigidbody.linearVelocity = _direction * moveSpeed;
+                _rigidbody.linearVelocity = _direction * MoveSpeed;
             }
         }
 
