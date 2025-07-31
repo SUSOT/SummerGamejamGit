@@ -30,15 +30,5 @@ namespace LCM._01.Scripts.Bullets
             _rigidbody.linearVelocity = MoveDirection * moveSpeed;
             transform.Rotate(0f, 0f, rotationSpeed);
         }
-        
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-            if (other.gameObject.CompareTag("BulletDestroyZone"))
-            {
-                Debug.Log(_poolManager);
-                _poolManager.Push(this);
-            }
-        }
     }
 }

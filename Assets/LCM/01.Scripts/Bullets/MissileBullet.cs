@@ -15,7 +15,13 @@ namespace LCM._01.Scripts.Bullets
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
 
-        private IEnumerator Start()
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            StartCoroutine(CountDown());
+        }
+
+        private IEnumerator CountDown()
         {
             yield return new WaitForSeconds(missileTime);
             _isTargeting = false;
@@ -49,15 +55,6 @@ namespace LCM._01.Scripts.Bullets
             else
             {
                 _rigidbody.linearVelocity = _direction * moveSpeed;
-            }
-        }
-        
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-            if (other.gameObject.CompareTag("BulletDestroyZone"))
-            {
-                _poolManager.Push(this);
             }
         }
 
