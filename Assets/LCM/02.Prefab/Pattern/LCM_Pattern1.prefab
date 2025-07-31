@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
-  triangleCannon: {fileID: 0}
-  wall: {fileID: 0}
+  triangleCannon: {fileID: 11400000, guid: 54623d8b6aa39854c8f80d9c0d264efd, type: 2}
+  wall: {fileID: 11400000, guid: 07e3097f351dcc948b01babe0c1bea97, type: 2}
   crossLaser: {fileID: 11400000, guid: b1b575d93c2d0f5408066a94f154e4e3, type: 2}
+  laser: {fileID: 11400000, guid: a397da91a1016084eba4ff86d1cb195c, type: 2}
