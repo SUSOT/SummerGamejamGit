@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
-  m_Name: DumbbellBullet
+  m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
+  m_Name: 2_1_PatternWall_Right
   m_EditorClassIdentifier: 
-  poolingName: DumbbellBullet
-  prefab: {fileID: 2579359021286647432, guid: b9571c3093646d84d9a16eb73cfb84fc, type: 3}
-  initCount: 15
+  StartTime: 0
+  pattern: {fileID: 6209561880476533235, guid: 0acf26a2f46df8a499f6b5c7a3070a3a, type: 3}

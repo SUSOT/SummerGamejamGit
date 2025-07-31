@@ -47,7 +47,7 @@ namespace LKW._01.Scripts.Patterns
             
             wall.SetWall();
             
-            DOVirtual.DelayedCall(previewTime * 1.5f, () =>
+            DOVirtual.DelayedCall(previewTime * 2.5f, () =>
             {
                 isActive = true;
                 spawnTime = Time.time;

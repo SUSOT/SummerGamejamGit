@@ -11,6 +11,7 @@ namespace KHG.Bullets
         [SerializeField] private GameObject warnningLine;
         [SerializeField] private Transform nail;
         public float MoveSpeed = 10;
+        public float _waitTime = 0.5f;
 
         private Vector3 SpawnPosition;
 
@@ -18,7 +19,6 @@ namespace KHG.Bullets
         private Pool _currentPool;
         private bool _moveable;
 
-        private float _waitTime = 0.5f;
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -60,9 +60,11 @@ namespace KHG.Bullets
             yield return new WaitForSeconds(_waitTime);
             _moveable = true;
             yield return new WaitForSeconds(_waitTime);
-            _warnRenderer.DOFade(0, _waitTime / 2);
+            _warnRenderer.DOFade(0, _waitTime);
+            yield return new WaitForSeconds(10);
 
             if(_currentPool != null) _currentPool.Push(this);
+            else Destroy(gameObject);
         }
     }
 }

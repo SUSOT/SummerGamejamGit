@@ -23,6 +23,7 @@ namespace KHG.Bullets
         public void DestroySelf()
         {
             if (_laserPool != null) _laserPool.Push(this);
+            else Destroy(gameObject);
         }
         public void OnActivated() => ActiveEvent?.Invoke();
 
@@ -32,6 +33,7 @@ namespace KHG.Bullets
         }
         public override void ResetItem()
         {
+            _damageable = false;
         }
 
         public override void SetUpPool(Pool pool)
