@@ -52,9 +52,9 @@ namespace KHG.Bullets
             NormalBullet bullet = _poolManager.Pop<NormalBullet>(normalBullet);
             bullet.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
             bullet.transform.localScale = Vector3.one * scale;
-            bullet.MoveSpeed = speed;
+            bullet.moveSpeed = speed;
             bullet.MoveDirection = bulletDirection;
-            bullet.RotationSpeed = bulletRotation;
+            bullet.rotationSpeed = bulletRotation;
         }
     }
 }

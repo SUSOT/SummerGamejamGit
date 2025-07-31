@@ -47,7 +47,7 @@ namespace LCM._01.Scripts.Bullets
                 .OnComplete(() =>
                 {
                     StopAllCoroutines();
-                    transform.DOMoveY(30f, MoveTime).SetEase(Ease.OutSine);
+                    transform.DOMoveY(150f, MoveTime).SetEase(Ease.OutSine);
                 });
         }
         
@@ -60,6 +60,7 @@ namespace LCM._01.Scripts.Bullets
                 NormalBullet bullet = _poolManager.Pop<NormalBullet>(normalBullet);
                 bullet.transform.SetPositionAndRotation(bulletTrm.position, bulletTrm.rotation);
                 bullet.MoveDirection = bulletTrm.up;
+                bullet.moveSpeed = 20f;
             }
 
             yield return new WaitForSeconds(FireDuration);
