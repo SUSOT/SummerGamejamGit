@@ -8,7 +8,7 @@ namespace LCM._01.Scripts.Bullets
         [field:SerializeField] public Vector2 MoveDirection { get; set; }
 
         private Rigidbody2D _rigidbody;
-        [SerializeField] private float moveSpeed;
+        [field:SerializeField] private float moveSpeed { get; set; }
         [SerializeField] private float rotationSpeed;
 
         public override void SetUpPool(Pool pool)
@@ -29,16 +29,6 @@ namespace LCM._01.Scripts.Bullets
             
             _rigidbody.linearVelocity = MoveDirection * moveSpeed;
             transform.Rotate(0f, 0f, rotationSpeed);
-        }
-        
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-            if (other.gameObject.CompareTag("BulletDestroyZone"))
-            {
-                Debug.Log(_poolManager);
-                _poolManager.Push(this);
-            }
         }
     }
 }

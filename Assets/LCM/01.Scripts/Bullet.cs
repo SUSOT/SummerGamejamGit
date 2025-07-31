@@ -8,13 +8,18 @@ namespace LCM._01.Scripts
     {
         [Inject] protected PoolManagerMono _poolManager;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             Injector.Instance.InjectRuntime(this);
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.gameObject.CompareTag("BulletDestroyZone"))
+            {
+                Debug.Log(_poolManager);
+                _poolManager.Push(this);
+            }
             ApplyDamage(other);
         }
         public void ApplyDamage(Collider2D targetCol)

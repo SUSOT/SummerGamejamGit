@@ -16,7 +16,13 @@ namespace LCM._01.Scripts.Bullets
 
         public List<Transform> muzzles;
 
-        private IEnumerator Start()
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            StartCoroutine(MoveCoroutine());
+        }
+
+        private IEnumerator MoveCoroutine()
         {
             yield return new DOTweenCYInstruction.WaitForCompletion(
                 transform.DOMove(Vector3.zero, moveTime).SetEase(Ease.OutSine));
@@ -39,7 +45,7 @@ namespace LCM._01.Scripts.Bullets
                 .OnComplete(() =>
                 {
                     StopAllCoroutines();
-                    transform.DOMoveY(20f, moveTime).SetEase(Ease.OutSine);
+                    transform.DOMoveY(30f, moveTime).SetEase(Ease.OutSine);
                 });
         }
         
@@ -64,15 +70,6 @@ namespace LCM._01.Scripts.Bullets
 
         public override void ResetItem()
         {
-        }
-        
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-            if (other.gameObject.CompareTag("BulletDestroyZone"))
-            {
-                _poolManager.Push(this);
-            }
         }
     }
 }

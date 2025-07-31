@@ -17,7 +17,7 @@ public class Test : MonoBehaviour
         {
             b = _poolManager.Pop<Bullet>(_poolItemSO);
             normalBullets.Add(b);
-            b.transform.position = Vector2.zero;
+            b.transform.position = new Vector3(8f,0,0);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
