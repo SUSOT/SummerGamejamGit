@@ -38,7 +38,11 @@ namespace LCM._01.Scripts.Bullets
                 .SetRelative(true)
                 .OnStart(() =>
                     StartCoroutine(ShootingBullet()))
-                .OnComplete(StopAllCoroutines);
+                .OnComplete(() =>
+                {
+                    StopAllCoroutines();
+                    transform.DOMoveY(20f, moveTime).SetEase(Ease.OutSine);
+                });
         }
         
 

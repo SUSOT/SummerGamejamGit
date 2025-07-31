@@ -37,6 +37,8 @@ namespace LCM._01.Scripts.Bullets
 
         private void FixedUpdate()
         {
+            if (_rigidbody == null) return;
+            
             if (_isTargeting)
             {
                 var player = Physics2D.OverlapCircle(transform.position, 30f, whatIsPlayer);

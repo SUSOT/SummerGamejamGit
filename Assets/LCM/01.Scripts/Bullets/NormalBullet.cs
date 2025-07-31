@@ -25,6 +25,8 @@ namespace LCM._01.Scripts.Bullets
 
         private void FixedUpdate()
         {
+            if (_rigidbody == null) return;
+            
             _rigidbody.linearVelocity = MoveDirection * moveSpeed;
             transform.Rotate(0f, 0f, rotationSpeed);
         }
