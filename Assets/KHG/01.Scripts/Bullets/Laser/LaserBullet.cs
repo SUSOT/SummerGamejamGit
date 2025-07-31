@@ -2,10 +2,16 @@ using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LaserBullet : Bullet
 {
-    public event Action activeEvent;
+    public UnityEvent ActiveEvent;
+    public float rotation
+    {
+        get => transform.rotation.z;
+        set => transform.rotation = Quaternion.Euler(transform.rotation.x,transform.rotation.y, value);
+    }
     private bool _damageable = false;
 
     private Pool _laserPool;
@@ -13,7 +19,7 @@ public class LaserBullet : Bullet
     public void OnDamageStart() => _damageable = true;
     public void OnDamageEnd() => _damageable = false;
     public void DestroySelf() => Destroy(gameObject);
-    public void OnActivated() => activeEvent?.Invoke();
+    public void OnActivated() => ActiveEvent?.Invoke();
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {

@@ -2,12 +2,13 @@ using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace KHG.Bullets
 {
     public class ExplodeBullet : Bullet
     {
-        public event Action activeEvent;
+        public UnityEvent ActiveEvent;
         public Vector3 SpawnPosition 
         { 
             get => transform.position;
@@ -23,7 +24,7 @@ namespace KHG.Bullets
 
         public void DamageStart() => _damageable = true;
         public void DamageEnd() => _damageable = false;
-        public void OnActivated() => activeEvent?.Invoke();
+        public void OnActivated() => ActiveEvent?.Invoke();
         public void DestroySelf() => Destroy(gameObject);
 
         public override void SetUpPool(Pool pool)
@@ -33,7 +34,6 @@ namespace KHG.Bullets
 
         public override void ResetItem()
         {
-            throw new NotImplementedException();
         }
     }
 }
