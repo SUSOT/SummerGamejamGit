@@ -5,6 +5,11 @@ namespace KHG.Bullets
 {
     public abstract class AnimEventController : MonoBehaviour
     {
+        public float roationAngle
+        {
+            get => transform.rotation.z;
+            set => transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, value);
+        }
         public abstract void OnDamageStart();
         public abstract void OnDamageEnd();
         public abstract void OnActivated();

@@ -8,6 +8,13 @@ namespace KHG.Bullets
     public class LaserAnimContoller : AnimEventController
     {
         [SerializeField] private LaserBullet laser;
+        [SerializeField] private float targetRotation;
+
+        private void Awake()
+        {
+            roationAngle = targetRotation;
+        }
+
 
         public override void OnDamageStart() => laser.OnDamageStart();
         public override void OnDamageEnd() => laser.OnDamageEnd();
