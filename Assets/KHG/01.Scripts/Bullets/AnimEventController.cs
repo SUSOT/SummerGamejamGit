@@ -1,3 +1,4 @@
+using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
 namespace KHG.Bullets
@@ -8,6 +9,8 @@ namespace KHG.Bullets
         public abstract void OnDamageEnd();
         public abstract void OnActivated();
         public abstract void DestroySelf();
+        public abstract void SetUpPool(Pool pool);
+        public abstract void ResetItem();
     }
 
 }
