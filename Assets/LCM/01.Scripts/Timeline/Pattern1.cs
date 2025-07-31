@@ -14,11 +14,7 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private PoolingItemSO crossLaser;
         [SerializeField] private PoolingItemSO laser;
         [Inject] private PoolManagerMono _poolManager;
-        
-        public Pattern1(float startTime) : base(startTime)
-        {
-            
-        }
+       
         
         private void OnEnable()
         {

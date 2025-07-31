@@ -4,9 +4,6 @@ using UnityEngine;
 public class Boss_1 : TimeLinePattern
 {
     [SerializeField] private Animator _bossAnimator;
-    public Boss_1(float startTime) : base(startTime)
-    {
-    }
 
     public override void Execute()
     {

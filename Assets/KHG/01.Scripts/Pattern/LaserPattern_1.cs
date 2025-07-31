@@ -9,9 +9,6 @@ public class LaserPattern_1 : TimeLinePattern
     [SerializeField] private PoolingItemSO laserItem;
     [Inject] private PoolManagerMono _poolManager;
 
-    public LaserPattern_1(float startTime) : base(startTime)
-    {
-    }
 
     private void OnEnable()
     {

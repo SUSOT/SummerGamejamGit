@@ -10,9 +10,6 @@ public class Pattern2 : TimeLinePattern
     [SerializeField] private int SpawnCount;
     [SerializeField] private List<Vector2> spawnPoints;
     [Inject] private PoolManagerMono _poolManager;
-    public Pattern2(float startTime) : base(startTime)
-    {
-    }
 
     private void OnEnable()
     {
