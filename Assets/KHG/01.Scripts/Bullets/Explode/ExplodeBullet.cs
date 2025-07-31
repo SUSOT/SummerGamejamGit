@@ -38,6 +38,7 @@ namespace KHG.Bullets
         public void DestroySelf()
         {
             if (_explodePool != null) _explodePool.Push(this);
+            else Destroy(gameObject);
         }
 
         public override void SetUpPool(Pool pool)
