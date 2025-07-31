@@ -6,7 +6,7 @@ using UnityEngine;
 public class LaserBullet : Bullet
 {
     public event Action activeEvent;
-    private bool _damageable;
+    private bool _damageable = false;
 
     private Pool _laserPool;
 
@@ -17,7 +17,7 @@ public class LaserBullet : Bullet
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if(_damageable) base.OnTriggerEnter2D(other);
+        if(_damageable == true) base.OnTriggerEnter2D(other);
     }
     public override void ResetItem()
     {

@@ -7,12 +7,15 @@ namespace LCM._01.Scripts
     {
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out IDamageable damageable))
+            ApplyDamage(other);
+        }
+        public void ApplyDamage(Collider2D targetCol)
+        {
+            if (targetCol.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakeDamage();
             }
         }
-
         [field: SerializeField] public PoolingItemSO PoolingType { get; private set; }
         public GameObject GameObject => gameObject;
         public abstract void SetUpPool(Pool pool);
