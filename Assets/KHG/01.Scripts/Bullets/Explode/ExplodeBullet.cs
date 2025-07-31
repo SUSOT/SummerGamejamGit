@@ -34,7 +34,7 @@ namespace KHG.Bullets
         public void DamageStart() => _damageable = true;
         public void DamageEnd() => _damageable = false;
         public void OnActivated() => ActiveEvent?.Invoke();
-        public void DestroySelf() => Destroy(gameObject);
+        public void DestroySelf() => _explodePool.Push(this);
 
         public override void SetUpPool(Pool pool)
         {
@@ -43,6 +43,7 @@ namespace KHG.Bullets
 
         public override void ResetItem()
         {
+            
         }
     }
 }
