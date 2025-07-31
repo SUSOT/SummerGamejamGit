@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RestrictWallPattren
   m_EditorClassIdentifier: 
   StartTime: 0
-  pattern: {fileID: 0}
+  pattern: {fileID: 6209561880476533235, guid: f0c65945fe7d92d448f6a86d32194439, type: 3}
