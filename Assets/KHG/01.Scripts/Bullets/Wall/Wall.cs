@@ -23,15 +23,15 @@ namespace KHG.Obstacles
         protected override void OnEnable()
         {
             base.OnEnable();
+            if(UseAutoSpawn) transform.position = SpawnVector;
+            wallObj.SetActive(false);
+            _warnRenderer.gameObject.SetActive(false);
             StartCoroutine(StartCo());
         }
 
         private IEnumerator StartCo()
         {
-            transform.position = SpawnVector;
             yield return new WaitForSeconds(0.1f);
-            wallObj.SetActive(false);
-            _warnRenderer.gameObject.SetActive(false);
             SetWall();
         }
 
@@ -54,6 +54,13 @@ namespace KHG.Obstacles
         }
         public void DestroyWall()
         {
+            wallObj.GetComponent<SpriteRenderer>().DOFade(0,1f);
+            StartCoroutine(RemoveWall(1f));
+        }
+
+        private IEnumerator RemoveWall(float time)
+        {
+            yield return new WaitForSeconds(time);
             if (_wallPool != null) _wallPool.Push(this);
             else Destroy(gameObject);
         }

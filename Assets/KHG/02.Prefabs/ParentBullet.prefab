@@ -194,13 +194,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: a29001dbba9c79746ac3c8bb834bd82f, type: 2}
-  moveSpeed: 0
   repeatDuration: 2.5
-  spawnEvent:
+  MoveSpeed: 10
+  OnSpawnEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7609446002530997324}
-        m_TargetAssemblyTypeName: CircleGenerate, Assembly-CSharp
+        m_TargetAssemblyTypeName: KHG.Bullets.CircleGenerate, Assembly-CSharp
         m_MethodName: GenerateObstacles
         m_Mode: 1
         m_Arguments:

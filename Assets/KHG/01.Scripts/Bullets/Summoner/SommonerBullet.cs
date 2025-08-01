@@ -27,6 +27,7 @@ namespace KHG.Bullets
         private Rigidbody2D _rigid;
         private Pool _currentPool;
         private Vector3 _originScale;
+        private bool _isDied;
 
         protected override void OnEnable()
         {
@@ -38,6 +39,7 @@ namespace KHG.Bullets
         {
             _rigid = GetComponent<Rigidbody2D>();
             _generator = GetComponent<CircleGenerate>();
+            DOTween.KillAll(this);
         }
 
         public void StartSpawn()
@@ -56,13 +58,22 @@ namespace KHG.Bullets
         {
             transform.position += transform.up * MoveSpeed * Time.fixedDeltaTime;
         }
-
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            base.OnTriggerEnter2D(other);
+            if (other.gameObject.CompareTag("BulletDestroyZone"))
+            {
+                _isDied = true;
+            }
+        }
         private IEnumerator Spawn()
         {
+            if(_isDied) yield break;
             yield return null;
             OnSpawnEvent?.Invoke();
             transform.DOScale(_originScale * 1.5f, 0.1f).OnComplete(() => transform.DOScale(_originScale, 0.1f));
             yield return new WaitForSeconds(repeatDuration);
+            if(_isDied) yield break;
             StartCoroutine(Spawn());
         }
     }
