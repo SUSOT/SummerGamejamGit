@@ -13,7 +13,7 @@ namespace LCM._01.Scripts.Bullets
         {
             if (_rigidbody == null) return;
             
-            _rigidbody.linearVelocity = MoveDirection * MoveSpeed;
+            _rigidbody.linearVelocity = MoveDirection.normalized * MoveSpeed;
         }
 
         public override void SetUpPool(Pool pool)

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
+  m_Name: Parrten3
   m_EditorClassIdentifier: 
-  patterns:
-  - {fileID: 11400000, guid: 98988c9297ebd5f499c5c9f89326f946, type: 2}
+  StartTime: 45
+  pattern: {fileID: 6592037605261597071, guid: 566c8cfc7c23ea544987ee2d1f1bc840, type: 3}
