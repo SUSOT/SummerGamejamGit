@@ -12,41 +12,88 @@ public class Patorl : MonoBehaviour
     [SerializeField] private Vector2 overlapSize;
     [SerializeField] private LayerMask whatIsPlayer;
     [SerializeField] private ContactFilter2D contactFilter;
+    [SerializeField] private GameEventChannelSO patorlOpen;
+    [SerializeField] private bool IsOpenClose;
+    private bool _Open = false;
 
     private bool hasTriggeredPortal = false;
 
+    private void Awake()
+    {
+        patorlOpen.AddListener<PatorlEvent>(HandleOpen);
+    }
+
+    private void HandleOpen(PatorlEvent evt)
+    {
+        Debug.Log("¾Ó");
+        _Open = true;
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOScale(1, 0.5f));
+        sequence.Join(transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360));
+    }
+
+    private void OnDestroy()
+    {
+        patorlOpen.RemoveListener<PatorlEvent>(HandleOpen);
+    }
+
     private void Start()
     {
+
+        if (IsOpenClose)
+        {
+
+            var sequence = DOTween.Sequence();
+            sequence.Append(transform.DOScale(1, 0.5f));
+            sequence.Join(transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360));
+
+            StartCoroutine(AutoClosePortalAtStart());
+        }
         StartCoroutine(CheckPlayerOverlap());
         StartCoroutine(CheckPlayerInPotarlOverlap());
+    }
+
+    private IEnumerator AutoClosePortalAtStart()
+    {
+        yield return new WaitForSeconds(2f);
+
+        _Open = false;
+        IsOpenClose = false;
+
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOScale(0, 0.5f));
+        sequence.Join(transform.DORotate(new Vector3(0, 0, -360), 0.5f, RotateMode.FastBeyond360));
     }
 
     private IEnumerator CheckPlayerInPotarlOverlap()
     {
         while (true)
         {
-            if (hasTriggeredPortal)
+            if(_Open == true)
             {
-                yield break;
+                if (hasTriggeredPortal)
+                {
+                    yield break;
+                }
+
+                RaycastHit2D hit = Physics2D.BoxCast(
+                    transform.position,
+                    new Vector2(4, 4),
+                    0,
+                    Vector2.zero,
+                    0,
+                    whatIsPlayer
+                );
+
+                if (hit.collider != null)
+                {
+                    hasTriggeredPortal = true;
+                    StartCoroutine(ExecutePortalSequence(hit.collider));
+                    yield break;
+                }
             }
-
-            RaycastHit2D hit = Physics2D.BoxCast(
-                transform.position,
-                new Vector2(4, 4),
-                0,
-                Vector2.zero,
-                0,
-                whatIsPlayer
-            );
-
-            if (hit.collider != null)
-            {
-                hasTriggeredPortal = true;
-                StartCoroutine(ExecutePortalSequence(hit.collider));
-                yield break;
-            }
-
             yield return new WaitForSeconds(0.3f);
+
         }
     }
 
@@ -72,24 +119,29 @@ public class Patorl : MonoBehaviour
 
         while (true)
         {
-            if (hasTriggeredPortal)
+            if (_Open)
             {
-                yield break;
+                if (hasTriggeredPortal)
+                {
+                    yield break;
+                }
+
+                bool isOverlapping = Physics2D.OverlapBox(transform.position, overlapSize, 0, whatIsPlayer);
+
+                if (isOverlapping && !wasOverlapping)
+                {
+                    transform.DOScale(4f, 0.4f);
+                }
+                else if (!isOverlapping && wasOverlapping)
+                {
+                    transform.DOScale(2f, 0.4f);
+                }
+
+                wasOverlapping = isOverlapping;
             }
 
-            bool isOverlapping = Physics2D.OverlapBox(transform.position, overlapSize, 0, whatIsPlayer);
-
-            if (isOverlapping && !wasOverlapping)
-            {
-                transform.DOScale(4f, 0.4f);
-            }
-            else if (!isOverlapping && wasOverlapping)
-            {
-                transform.DOScale(2f, 0.4f);
-            }
-
-            wasOverlapping = isOverlapping;
             yield return new WaitForSeconds(0.3f);
+
         }
     }
 
