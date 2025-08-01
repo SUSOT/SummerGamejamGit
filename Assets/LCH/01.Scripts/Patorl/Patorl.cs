@@ -1,5 +1,7 @@
 using DG.Tweening;
 using EasyTransition;
+using Entities;
+using Players;
 using System;
 using System.Collections;
 using System.Threading.Tasks;
@@ -87,6 +89,8 @@ public class Patorl : MonoBehaviour
                 if (hit.collider != null)
                 {
                     hasTriggeredPortal = true;
+                     EntityMover mover = hit.collider.gameObject.GetComponentInChildren<EntityMover>();
+                    mover.StopImmediately();
                     StartCoroutine(ExecutePortalSequence(hit.collider));
                     yield break;
                 }
