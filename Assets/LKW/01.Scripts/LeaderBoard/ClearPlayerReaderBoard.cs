@@ -5,13 +5,15 @@ using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
 using System.Threading.Tasks;
+using LKW._01.Scripts.LeaderBoard;
 
 public class ClearPlayerReaderBoard : MonoBehaviour
 {
     public TMP_InputField playerNameInput;
     public TMP_Text leaderboardText;
 
-    [SerializeField] private Transform rankBoardTrm;
+    [SerializeField] private Transform boxParent;
+    [SerializeField] private GameObject rankBoxPrefab;
 
     private string leaderboardId = "gamejam_Leaderboard"; // Unity Dashboard에서 만든 리더보드 ID
 
@@ -42,9 +44,10 @@ public class ClearPlayerReaderBoard : MonoBehaviour
         await RefreshLeaderboard();
     }
 
-    public async void OnSubmit()
+    public async void OnSubmit(float surviveTime)
     {
         Debug.Log("Submit");
+        
         string playerName = playerNameInput.text;
         if (!string.IsNullOrEmpty(playerName))
         {
@@ -54,7 +57,7 @@ public class ClearPlayerReaderBoard : MonoBehaviour
         try
         {
             // 점수는 고정값 1 (클리어 표시용)
-            await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, Random.Range(0,10));
+            await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, surviveTime);
             Debug.Log($"점수 등록 완료: {playerName}");
             await RefreshLeaderboard();
         }
@@ -66,18 +69,33 @@ public class ClearPlayerReaderBoard : MonoBehaviour
 
     public async Task RefreshLeaderboard()
     {
-
+        int number = 1;
+        
+        for (int i = boxParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        
         leaderboardText.text = "로딩 중...";
 
         try
         {
-            var scores = await LeaderboardsService.Instance.GetScoresAsync(leaderboardId, new GetScoresOptions { Limit = 50 });
-
+            var scores = await LeaderboardsService.Instance.GetScoresAsync(leaderboardId, new GetScoresOptions { Limit = 10 });
+            
             leaderboardText.text = "";
+            
             foreach (var entry in scores.Results)
             {
-                string name = entry.PlayerName ?? entry.PlayerId;
-                leaderboardText.text += $"{entry.Rank + 1}. {name}\n";
+                RankBox rankBox = Instantiate(rankBoxPrefab, boxParent).GetComponent<RankBox>();
+
+                string name = RemoveAfterHash(entry.PlayerName);
+                
+                int minutes = Mathf.FloorToInt((int)entry.Score / 60);
+                int seconds = Mathf.FloorToInt((int)entry.Score % 60);
+                
+                string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+                
+                rankBox.SetRankBox(name, timeText, number++);
             }
         }
         catch (System.Exception e)
@@ -85,5 +103,19 @@ public class ClearPlayerReaderBoard : MonoBehaviour
             leaderboardText.text = "리더보드 불러오기 실패";
             Debug.LogError(e.Message);
         }
+    }
+
+    public static string RemoveAfterHash(string original)
+    {
+        if (string.IsNullOrEmpty(original))
+            return original;
+
+        int hashIndex = original.IndexOf('#');
+        if (hashIndex >= 0)
+        {
+            return original.Substring(0, hashIndex);
+        }
+
+        return original;
     }
 }
