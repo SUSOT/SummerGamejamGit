@@ -13,6 +13,7 @@ public class Patorl : MonoBehaviour
     [SerializeField] private LayerMask whatIsPlayer;
     [SerializeField] private ContactFilter2D contactFilter;
     [SerializeField] private GameEventChannelSO patorlOpen;
+    [SerializeField] private bool IsOpenClose;
     private bool _Open = false;
 
     private bool hasTriggeredPortal = false;
@@ -38,8 +39,30 @@ public class Patorl : MonoBehaviour
 
     private void Start()
     {
+
+        if (IsOpenClose)
+        {
+
+            var sequence = DOTween.Sequence();
+            sequence.Append(transform.DOScale(1, 0.5f));
+            sequence.Join(transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360));
+
+            StartCoroutine(AutoClosePortalAtStart());
+        }
         StartCoroutine(CheckPlayerOverlap());
         StartCoroutine(CheckPlayerInPotarlOverlap());
+    }
+
+    private IEnumerator AutoClosePortalAtStart()
+    {
+        yield return new WaitForSeconds(2f);
+
+        _Open = false;
+        IsOpenClose = false;
+
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOScale(0, 0.5f));
+        sequence.Join(transform.DORotate(new Vector3(0, 0, -360), 0.5f, RotateMode.FastBeyond360));
     }
 
     private IEnumerator CheckPlayerInPotarlOverlap()
