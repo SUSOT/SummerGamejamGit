@@ -28,7 +28,7 @@ public class TitleUI : MonoBehaviour
         inputSO.OnUIOnSubmitPressed += HandleSubmit;
     }
 
-    private void OnEnable()
+    private void Start()
     {
         if (DemoLoadScene.instance.IsNomarlClear || DemoLoadScene.instance != null)
         {
