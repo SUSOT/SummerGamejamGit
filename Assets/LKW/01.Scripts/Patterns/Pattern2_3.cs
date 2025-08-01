@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace LKW._01.Scripts.Patterns
 {
-    public class Pattern2_2 : TimeLinePattern
+    public class Pattern2_3 : TimeLinePattern
     {
         [SerializeField] private PoolManagerSO poolManager;
         [SerializeField] private PoolingItemSO bigLaserItem;
