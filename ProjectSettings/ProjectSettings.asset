@@ -766,11 +766,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: e9352e55-a56f-4426-bf73-586e8192bc09
+  cloudProjectId: 20d659e0-28f8-4ca9-bd07-e00c4fa65fa9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SummerGamejam
-  organizationId: icwalmin
+  projectName: SummerGamejamGit
+  organizationId: ruddnjs013
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
