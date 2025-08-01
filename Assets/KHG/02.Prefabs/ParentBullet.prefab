@@ -224,13 +224,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalBullet: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  delayTime: 0.05
-  bulletCount: 8
   rotationSpeed: 5
-  generateAngle: 40
-  speed: 15
-  scale: 1.7
-  bulletRotation: 15
+  GenerateAngle: 60
+  DelayTime: 0
+  BulletCount: 5
+  Speed: 15
+  Scale: 1.7
+  BulletRotation: 15
 --- !u!50 &1759961824668272759
 Rigidbody2D:
   serializedVersion: 5
@@ -240,7 +240,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2276663763616321344}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
