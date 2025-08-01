@@ -101,7 +101,6 @@ namespace Players
             {
                 gameOverEvent?.Invoke();
                 playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
-                gameObject.SetActive(false);
             }
         }
     }
