@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class CameraEvent
 {
@@ -58,6 +59,7 @@ public class CameraFocus : MonoBehaviour
         vCam.transform.position = endPos;
         vCam.Lens.OrthographicSize = targetSize;
 
-        Debug.Log("이동가능");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("GameoverScene");
     }
 }
