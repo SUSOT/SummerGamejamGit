@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Animation;
 using Code.SkillSystem;
 using Code.SkillSystem.Dash;
@@ -17,7 +18,7 @@ namespace Players
     {
         private int fillAmountHash = Shader.PropertyToID("_FillAmount");
 
-        private int maxHealth = 3;
+        private int maxHealth = 5;
         
         [Inject] public PoolManagerMono poolManager;
 
@@ -36,7 +37,7 @@ namespace Players
         
         private StateMachine _stateMachine;
 
-        [field: SerializeField] public int Health { get; private set; } = 3;
+        [field: SerializeField] public int Health { get; private set; } = 5;
 
         private Material _material;
         
@@ -61,6 +62,7 @@ namespace Players
         private void OnDestroy()
         {
             inputReader.OnDashKeyPressed -= HandleDashKeyPress;
+            StopAllCoroutines();
         }
 
         private void Update()
@@ -102,6 +104,15 @@ namespace Players
                 gameOverEvent?.Invoke();
                 playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
             }
+
+            StartCoroutine(IgnoreCoroutine());
+        }
+
+        private IEnumerator IgnoreCoroutine()
+        {
+            gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
+            yield return new WaitForSeconds(0.6f);
+            gameObject.layer = 0;
         }
     }
 }

@@ -5407,7 +5407,6 @@ MonoBehaviour:
   MOVE_XParam: {fileID: 11400000, guid: b253b6843bf9a2047b7aabbb0b8a40e5, type: 2}
   MOVE_YParam: {fileID: 11400000, guid: 25144eaa885568e4ab16f373b88cee2a, type: 2}
   playerChannel: {fileID: 11400000, guid: 36077f98588a13547a92201cb838bd5a, type: 2}
-  deadParticle: {fileID: 0}
   trailParticle: {fileID: 8968635494183907312}
   dashParticle: {fileID: 7877785406042160438}
   dashCirce: {fileID: 11400000, guid: 637f2e25e103c6841b3a3e88e680a238, type: 2}
@@ -5428,7 +5427,7 @@ MonoBehaviour:
         m_CallState: 2
   <inputReader>k__BackingField: {fileID: 11400000, guid: 59b8e77e317ae3f41803dfae7a54a805, type: 2}
   stateList: {fileID: 11400000, guid: ef430354faadfed47892e1e1df071e38, type: 2}
-  <Health>k__BackingField: 3
+  <Health>k__BackingField: 5
 --- !u!50 &2387491636395866531
 Rigidbody2D:
   serializedVersion: 5
