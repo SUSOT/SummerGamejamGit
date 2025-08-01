@@ -10,11 +10,10 @@ namespace KHG.Bullets
 {
     public class SommonerBullet : Bullet
     {
-        [SerializeField] private float moveSpeed = 10;
         [SerializeField] private float repeatDuration = 1f;
-        private CircleGenerate _generator;
+        public float MoveSpeed = 10;
 
-        public UnityEvent spawnEvent;
+        public UnityEvent OnSpawnEvent;
 
         public float ChildSpawnCount => _generator.BulletCount;
         public bool AutoAngle => _generator.AutoAngle;
@@ -24,6 +23,7 @@ namespace KHG.Bullets
         public float BulletScale => _generator.Scale;
         public float BulletRotateSpeed => _generator.BulletRotation;
 
+        private CircleGenerate _generator;
         private Rigidbody2D _rigid;
         private Pool _currentPool;
         private Vector3 _originScale;
@@ -54,13 +54,13 @@ namespace KHG.Bullets
 
         private void SetMovement()
         {
-            transform.position += transform.up * moveSpeed * Time.fixedDeltaTime;
+            transform.position += transform.up * MoveSpeed * Time.fixedDeltaTime;
         }
 
         private IEnumerator Spawn()
         {
             yield return null;
-            spawnEvent?.Invoke();
+            OnSpawnEvent?.Invoke();
             transform.DOScale(_originScale * 1.5f, 0.1f).OnComplete(() => transform.DOScale(_originScale, 0.1f));
             yield return new WaitForSeconds(repeatDuration);
             StartCoroutine(Spawn());
