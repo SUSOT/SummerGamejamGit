@@ -281,6 +281,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 16
-  <MoveSpeed>k__BackingField: 0
-  <MissileTime>k__BackingField: 0
+  <MoveSpeed>k__BackingField: 5
+  <MissileTime>k__BackingField: 5
   circle: {fileID: 602501237588323074}

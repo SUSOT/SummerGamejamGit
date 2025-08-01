@@ -23,6 +23,7 @@ namespace LCM._01.Scripts.Bullets
 
         private IEnumerator CountDown()
         {
+            _isTargeting = true;
             yield return new WaitForSeconds(MissileTime);
             _isTargeting = false;
             circle.GetComponent<SpriteRenderer>().color = Color.black;
@@ -44,6 +45,8 @@ namespace LCM._01.Scripts.Bullets
         private void FixedUpdate()
         {
             if (_rigidbody == null) return;
+
+            Debug.Log(_direction);
             
             if (_isTargeting)
             {
