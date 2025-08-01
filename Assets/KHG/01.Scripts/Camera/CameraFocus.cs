@@ -6,13 +6,11 @@ public class CameraEvent
 {
     public static readonly CameraFocusEvent CameraFocusEvent = new();
 }
-
 public class CameraFocusEvent : GameEvent
 {
     public Transform target;
     public float targetSize = 0f;
 }
-
 public class CameraFocus : MonoBehaviour
 {
     [SerializeField] private GameEventChannelSO _cameraChannel;
