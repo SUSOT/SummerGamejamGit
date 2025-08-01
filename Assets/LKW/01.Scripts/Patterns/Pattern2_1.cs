@@ -47,7 +47,6 @@ namespace LKW._01.Scripts.Patterns
                 int idx = Random.Range(0,2);
                 Vector3 spawnPos;
 
-                Debug.Log(idx);
                 if (idx == 0)
                 {
                     spawnPos = new Vector3(0,Random.Range(spawnPoints[0].position.y, spawnPoints[1].position.y),0);

@@ -15,6 +15,10 @@ namespace Players
 {
     public class Player : Entity, IDamageable
     {
+        private int fillAmountHash = Shader.PropertyToID("_FillAmount");
+
+        private int maxHealth = 3;
+        
         [Inject] public PoolManagerMono poolManager;
 
         public AnimParamSO MOVE_XParam;
@@ -36,10 +40,13 @@ namespace Players
 
         [field: SerializeField] public int Health { get; private set; } = 3;
 
+        private Material _material;
+        
         protected override void Awake()
         {
             base.Awake();
             _stateMachine = new StateMachine(this, stateList);
+            _material = GetComponentInChildren<SpriteRenderer>().material;
         }
 
         private void Start()
@@ -76,7 +83,9 @@ namespace Players
         {
             Health--;
             Debug.Log("맞음");
-            
+            float fill = (float)Health / maxHealth;
+            _material.SetFloat(fillAmountHash, fill);
+
             if (Health <= 0)
             {
                 gameOverEvent?.Invoke();
