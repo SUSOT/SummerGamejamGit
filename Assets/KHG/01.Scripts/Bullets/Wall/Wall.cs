@@ -37,7 +37,7 @@ namespace KHG.Obstacles
             {
                 wallObj.SetActive(true);
                 _warnRenderer.gameObject.SetActive(false);
-                wallObj.transform.DOScale(Vector3.one, 0.2f).OnComplete(() => OnWallDeployed?.Invoke());
+                wallObj.transform.DOScale(Vector3.one, 0.1f).OnComplete(() => OnWallDeployed?.Invoke());
             });
         }
         public void DestroyWall()
