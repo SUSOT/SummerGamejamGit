@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
-  m_Name: 2_3_PatternWall_Left
+  m_Name: 2_3_PatternWall_Right
   m_EditorClassIdentifier: 
-  StartTime: 0
-  pattern: {fileID: 276868433177458438, guid: 9cdb79c6f8b438449b852207746825cd, type: 3}
+  StartTime: 60
+  pattern: {fileID: 276868433177458438, guid: 62350d4255b77f145b184e6a3e1ab705, type: 3}
