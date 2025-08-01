@@ -8,8 +8,10 @@ namespace KHG.Object
         [SerializeField] private Bullet damageApplier;
         public virtual void OnTriggerEnter2D(Collider2D collision)
         {
-            damageApplier.ApplyDamage(collision);
+            Entered(collision);
         }
+
+        public void Entered(Collider2D collision) => damageApplier.ApplyDamage(collision);
     }
 
 }
