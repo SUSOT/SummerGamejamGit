@@ -51,5 +51,5 @@ MonoBehaviour:
   wallHeight: 10
   wallWidth: 54
   previewTime: 3.5
-  lifeTime: 15
+  lifeTime: 12
   initPos: {x: 0, y: -11}

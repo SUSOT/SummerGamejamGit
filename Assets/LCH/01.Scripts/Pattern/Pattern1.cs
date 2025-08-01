@@ -34,6 +34,7 @@ public class Pattern1 : TimeLinePattern
                 obj.transform.position = spawnPoints[i];
                 obj.moveSpeed += moveSpeed;
                 obj.MoveDirection = -spawnPoints[i];
+                obj.rotationSpeed = 10;
                 yield return new WaitForSeconds(0.8f);
             }
             yield return new WaitForSeconds(0.5f);
