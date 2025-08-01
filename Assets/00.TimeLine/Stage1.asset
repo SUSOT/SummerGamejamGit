@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
-  m_Name: PatternDataList
+  m_Name: Stage1
   m_EditorClassIdentifier: 
   patterns:
   - {fileID: 11400000, guid: 60f7a2b5c0ae0974fbbd7d106c1b98fa, type: 2}
@@ -23,3 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e87586f93ffe01d4d921803d96799604, type: 2}
   - {fileID: 11400000, guid: 2d0675ec95bb22f44947c8003adfc6fb, type: 2}
   - {fileID: 11400000, guid: 850429c7fd23fa0419303df0ad2acedc, type: 2}
+  - {fileID: 11400000, guid: e20cb53590789ec428e32d25b26e9a8b, type: 2}
+  - {fileID: 11400000, guid: f88a2713880d54543999e12c4a6d8c21, type: 2}
