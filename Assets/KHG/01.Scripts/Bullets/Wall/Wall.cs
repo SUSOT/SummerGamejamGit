@@ -65,9 +65,9 @@ namespace KHG.Obstacles
             else Destroy(gameObject);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
-            base.OnTriggerEnter2D(collision.collider);
+            ApplyDamage(other);
         }
 
         public override void SetUpPool(Pool pool)
