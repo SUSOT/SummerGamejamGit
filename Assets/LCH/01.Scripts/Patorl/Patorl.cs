@@ -1,19 +1,69 @@
 using DG.Tweening;
 using EasyTransition;
+using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Patorl : MonoBehaviour
 {
-
     [SerializeField] private string nextScene;
     [SerializeField] private Vector2 overlapSize;
     [SerializeField] private LayerMask whatIsPlayer;
+    [SerializeField] private ContactFilter2D contactFilter;
+
+    private bool hasTriggeredPortal = false;
 
     private void Start()
     {
         StartCoroutine(CheckPlayerOverlap());
+        StartCoroutine(CheckPlayerInPotarlOverlap());
+    }
+
+    private IEnumerator CheckPlayerInPotarlOverlap()
+    {
+        while (true)
+        {
+            if (hasTriggeredPortal)
+            {
+                yield break;
+            }
+
+            RaycastHit2D hit = Physics2D.BoxCast(
+                transform.position,
+                new Vector2(4, 4),
+                0,
+                Vector2.zero,
+                0,
+                whatIsPlayer
+            );
+
+            if (hit.collider != null)
+            {
+                hasTriggeredPortal = true;
+                StartCoroutine(ExecutePortalSequence(hit.collider));
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    private IEnumerator ExecutePortalSequence(Collider2D playerCollider)
+    {
+        playerCollider.transform.SetParent(transform);
+        playerCollider.transform.DOMove(Vector3.zero, 0.3f);
+
+        DemoLoadScene.instance.LoadScene(nextScene);
+        yield return new WaitForSeconds(0.3f);
+        var sequence = DOTween.Sequence();
+        sequence.Append(transform.DOScale(0, 0.5f));
+        sequence.Join(transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360));
+
+        yield return sequence.WaitForCompletion();
+
+      
     }
 
     private IEnumerator CheckPlayerOverlap()
@@ -22,30 +72,24 @@ public class Patorl : MonoBehaviour
 
         while (true)
         {
+            if (hasTriggeredPortal)
+            {
+                yield break;
+            }
+
             bool isOverlapping = Physics2D.OverlapBox(transform.position, overlapSize, 0, whatIsPlayer);
 
             if (isOverlapping && !wasOverlapping)
             {
-                transform.DOScale(4f, 1.2f);
+                transform.DOScale(4f, 0.4f);
             }
             else if (!isOverlapping && wasOverlapping)
             {
-                transform.DOScale(2f, 1.2f);
+                transform.DOScale(2f, 0.4f);
             }
 
             wasOverlapping = isOverlapping;
-            yield return new WaitForSeconds(0.3f); 
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("¤·?");
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("¤·?");
-            transform.DOScale(0, 0.3f).OnComplete(()=>SceneManager.LoadScene(nextScene));
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
@@ -54,6 +98,9 @@ public class Patorl : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, overlapSize);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, new Vector2(4, 4));
     }
 #endif
 }

@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneCheck: {fileID: 11400000, guid: 19085ebf169bb61499d2dcddd13c328b, type: 2}
   transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
-  startDelay: 0.2
+  startDelay: 0
 --- !u!4 &1098039336
 Transform:
   m_ObjectHideFlags: 0
@@ -3965,7 +3965,7 @@ MonoBehaviour:
   - {fileID: 1500262083}
   selectImage: {fileID: 1947551282}
   mainMenuBnt: {fileID: 1344829531}
-  audioSetting: {fileID: 0}
+  audioSetting: {fileID: 80812029}
 --- !u!1 &1500262082
 GameObject:
   m_ObjectHideFlags: 0

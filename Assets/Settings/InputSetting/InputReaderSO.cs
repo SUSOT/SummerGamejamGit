@@ -16,6 +16,7 @@ namespace Settings.InputSetting
         private Controls _controls;
 
         public Vector2 MoveDirection {get; private set;}
+        public Vector2 sliderDir {get; private set;}
 
         private void OnEnable()
         {
@@ -75,7 +76,11 @@ namespace Settings.InputSetting
             if (context.performed)
             {
                 Vector2 uiMovement = context.ReadValue<Vector2>().normalized;
-                OnUINavigation?.Invoke(uiMovement);
+                sliderDir = uiMovement;
+            }
+            else if (context.canceled)
+            {
+                sliderDir = Vector2.zero;
             }
         }
 

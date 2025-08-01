@@ -56,6 +56,9 @@ public class SettingManager : MonoBehaviour
             }
             else
             {
+
+                _isSlider = false;
+
                 backGround.transform.DOScale(0, 0.8f)
                     .SetUpdate(true)
                     .OnComplete(() => {
@@ -87,9 +90,19 @@ public class SettingManager : MonoBehaviour
         sceneCheck.AddListener<SceneChangeCheck>(HandleSceneCheck);
        
         mainMenuBnt.gameObject.SetActive(false);
+
+        if (selectSillder[_currentIndex].TryGetComponent(out Slider slider))
+        {
+            _slider = slider;
+            _isSlider = true;
+        }
+        else
+        {
+            _slider = null;
+            _isSlider = false;
+        }
     }
 
-    private bool _sliderCooldown = false;
 
     private void HandleSubmit()
     {
@@ -97,57 +110,15 @@ public class SettingManager : MonoBehaviour
         {
             var selected = selectSillder[_currentIndex];
 
-
             if (selected.TryGetComponent(out Button button))
             {
                 IsOpen = false;
                 GoTitleScene();
             }
-            else
-            {
-                if (_isSlider)
-                {
-                    Debug.Log("슬라이더 조작 종료");
-                    _slider = null;
-                    _isSlider = false;
-                    input.OnUINavigation += HandleNaveigation;
-                    input.OnUISilder -= HandleSilder;
-
-                    _sliderCooldown = true;
-                    Invoke(nameof(ResetSliderCooldown), 0.05f);
-                    return;
-                }
-
-                if (!_sliderCooldown && !_isSlider)
-                {
-
-
-                    if (selected.TryGetComponent(out Slider slider) && slider != _slider)
-                    {
-                        Debug.Log("슬라이더 조작 시작");
-                        _slider = slider;
-                        _isSlider = true;
-
-                        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_slider.gameObject);
-
-                        input.OnUINavigation -= HandleNaveigation;
-                        input.OnUISilder += HandleSilder;
-                    }
-                }
-            }
         }
        
         
 
-    }
-
-    private void ResetSliderCooldown()
-    {
-        _sliderCooldown = false;
-    }
-    private void HandleSilder(Vector2 value)
-    {
-        _sliderInput = value;
     }
 
     private void HandleNaveigation(Vector2 value)
@@ -173,6 +144,18 @@ public class SettingManager : MonoBehaviour
             rectTransform.DOAnchorPos(new Vector2(-185, 0), 0.2f)
                 .SetUpdate(true)
                 .SetEase(Ease.OutQuad);
+
+            if (selectSillder[_currentIndex].TryGetComponent(out Slider slider))
+            {
+                _slider = slider;
+                _isSlider = true;
+            }
+            else
+            {
+                _slider = null;
+                _isSlider = false;
+            }
+
         }
     }
 
@@ -211,20 +194,20 @@ public class SettingManager : MonoBehaviour
 
     private void Update()
     {
-        if (_isSlider && _slider != null && Mathf.Abs(_sliderInput.x) > 0.1f)
+        if (!_isSlider) return;
+
+        _sliderInput = input.sliderDir;
+
+        if (_slider != null && Mathf.Abs(_sliderInput.x) > 0.1f)
         {
-            if (Time.time - _sliderInputTime >= inputCooldown)
+            if (Time.unscaledTime - _sliderInputTime >= inputCooldown)
             {
                 float step = (_slider.maxValue - _slider.minValue) / 10f;
 
                 if (_sliderInput.x < 0)
-                {
                     _slider.value = Mathf.Max(_slider.minValue, _slider.value - step);
-                }
                 else if (_sliderInput.x > 0)
-                {
                     _slider.value = Mathf.Min(_slider.maxValue, _slider.value + step);
-                }
 
                 if (_slider.name.Contains("Master"))
                     audioSetting.SetMasterVolume();
@@ -233,17 +216,20 @@ public class SettingManager : MonoBehaviour
                 else if (_slider.name.Contains("SFX"))
                     audioSetting.SetSfxVolume();
 
-                _sliderInputTime = Time.time;
+                _sliderInputTime = Time.unscaledTime;
             }
         }
     }
-
-
 
     private void OnDestroy()
     {
         input.OnUIOnCancelPressed -= HandleCancelUI;
         sceneCheck.RemoveListener<SceneChangeCheck>(HandleSceneCheck);
-       
+
     }
 }
+
+
+
+
+
