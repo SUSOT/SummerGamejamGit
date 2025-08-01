@@ -9,8 +9,8 @@ namespace KHG.Bullets
 {
     public class ExplodeBullet : Bullet
     {
-        [SerializeField] public bool moveable { get; set; }
-        [SerializeField] public Vector3 targetPosition { get; set; }
+        [SerializeField] public bool moveable;
+        [SerializeField] public Vector3 targetPosition;
         public UnityEvent ActiveEvent;
         public Vector3 SpawnPosition 
         { 
@@ -23,8 +23,11 @@ namespace KHG.Bullets
 
         protected override void OnEnable()
         {
-            if (moveable) transform.DOMove(targetPosition, 1.5f);
             base.OnEnable();
+        }
+        private void Start()
+        {
+            if (moveable) transform.DOMove(targetPosition, 1.5f);
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
