@@ -645,6 +645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadParticle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5586655922850348810, guid: 7d799a109eb55714192073b935fd0dac, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
