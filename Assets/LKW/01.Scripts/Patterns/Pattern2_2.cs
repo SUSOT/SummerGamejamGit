@@ -13,7 +13,7 @@ namespace LKW._01.Scripts.Patterns
         [SerializeField] private PoolingItemSO bigLaserItem;
         [SerializeField] private SommonerBullet sBullet;
 
-        WaitForSeconds wait = new WaitForSeconds(0.8f);
+        WaitForSeconds wait = new WaitForSeconds(0.6f);
 
         public override void Execute()
         {

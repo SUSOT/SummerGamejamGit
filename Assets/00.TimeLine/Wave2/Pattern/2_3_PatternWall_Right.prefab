@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4449606201788431021
+--- !u!1 &144749284886396924
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8777396268497876069}
-  - component: {fileID: 8084298364933444158}
+  - component: {fileID: 677163276718595962}
+  - component: {fileID: 276868433177458438}
   m_Layer: 0
-  m_Name: FinalBossPattern
+  m_Name: 2_3_PatternWall_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8777396268497876069
+--- !u!4 &677163276718595962
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449606201788431021}
+  m_GameObject: {fileID: 144749284886396924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.38, y: 15.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8084298364933444158
+--- !u!114 &276868433177458438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449606201788431021}
+  m_GameObject: {fileID: 144749284886396924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ffeda6c9d14429d97bcc3dc8cadbe46, type: 3}
+  m_Script: {fileID: 11500000, guid: 50c7029cadb84940bf331424cb9ab233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warning: {fileID: 4709029311236902850, guid: 18e053513fe9d3e40afaf5f310fb5350, type: 3}
-  bossPrefab: {fileID: 4640047647580359304, guid: a63844de724499a4aa3bcf043f8d4b4a, type: 3}
-  normal: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  laser: {fileID: 11400000, guid: a397da91a1016084eba4ff86d1cb195c, type: 2}
+  poolManager: {fileID: 11400000, guid: 7f6b4e67a6cfa2e42bac3f9fb5c4907e, type: 2}
+  wallItem: {fileID: 11400000, guid: ce9cfa4c517c65e4885acc284a58faf9, type: 2}
+  isHorizontal: 1
+  isNegative: 0
+  wallHeight: 30
+  wallWidth: 40
+  previewTime: 1.5
+  lifeTime: 36
+  initPos: {x: -30, y: 0}

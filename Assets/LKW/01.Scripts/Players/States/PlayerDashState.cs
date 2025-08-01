@@ -56,7 +56,7 @@ namespace Players
             _player.gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
             _player.transform.DOMove(destination, dashTime).SetEase(Ease.OutQuad).OnComplete(EndDash).OnComplete(() =>
             {
-                _player.gameObject.layer = 0;
+                _player.gameObject.layer = 11;
                 _player.ChangeState("IDLE");
             });
 
