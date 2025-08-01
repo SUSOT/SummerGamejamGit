@@ -128,6 +128,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1127437836195457816, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127437836195457816, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127437836195457816, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127437836195457816, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -172,8 +184,16 @@ PrefabInstance:
       value: Potorl
       objectReference: {fileID: 0}
     - target: {fileID: 8056862677969917824, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
+      propertyPath: _Open
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056862677969917824, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
       propertyPath: nextScene
       value: Stage2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056862677969917824, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
+      propertyPath: IsOpenClose
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8056862677969917824, guid: baa2818b0fba2ce449bbb4b4e2bf50ee, type: 3}
       propertyPath: whatIsPlayer.m_Bits
