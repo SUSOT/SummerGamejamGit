@@ -19,7 +19,7 @@ namespace KHG.Bullets
             set => transform.position = value; 
         }
 
-        private bool _damageable;
+        private bool _damageable = false;
         private Pool _explodePool;
 
         protected override void OnEnable()
