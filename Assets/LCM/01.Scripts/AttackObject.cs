@@ -7,10 +7,6 @@ namespace LCM._01.Scripts
     {
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("BulletDestroyZone"))
-            {
-                Destroy(gameObject);
-            }
             ApplyDamage(other);
         }
 
