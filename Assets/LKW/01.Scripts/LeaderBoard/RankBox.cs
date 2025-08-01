@@ -7,11 +7,13 @@ namespace LKW._01.Scripts.LeaderBoard
     {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI numberText;
 
-        public void SetRankBox(string name, int score)
+        public void SetRankBox(string name, string time, int number)
         {
+            numberText.text = $"{number.ToString()}.";
             nameText.text = name;
-            scoreText.text = score.ToString();
+            scoreText.text = time;
         }
     }
 }
