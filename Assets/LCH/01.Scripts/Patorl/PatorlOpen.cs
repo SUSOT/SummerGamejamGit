@@ -7,6 +7,6 @@ public class PatorlOpen : MonoBehaviour
 
    public void PatorlOpenEvet()
     {
-
+        patorl.RaiseEvent(PatorlOpenEvents.PatorlEvent);
     }
 }
