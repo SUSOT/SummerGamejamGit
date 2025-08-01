@@ -26,6 +26,11 @@ namespace Players
             base.Enter();
             Vector2 playerInput = _player.inputReader.MoveDirection;
             Vector2 dashDirection = playerInput.normalized;
+
+            if (playerInput == Vector2.zero)
+            {
+                dashDirection = _player.transform.up;
+            }
             
             _player.transform.up = dashDirection;
             _mover.CanManualMove = true;
