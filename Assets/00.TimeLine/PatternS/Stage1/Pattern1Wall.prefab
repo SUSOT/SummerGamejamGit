@@ -52,4 +52,4 @@ MonoBehaviour:
   wallWidth: 35
   previewTime: 4
   lifeTime: 17
-  initPos: {x: 27, y: 0}
+  initPos: {x: 27.5, y: 0}
