@@ -38,10 +38,10 @@ public class Pattern3 : TimeLinePattern
             {
                 wallBullet.MoveDirection = Vector2.right;
             }
-            for (int j = i +2; j <= spawnPos.Count; j++)
+            for (int j = i +2; j <= spawnPos.Count -1; j++)
             {
                 MissileBullet missileBullet = _poolManager.Pop<MissileBullet>(guidedMissileItem);
-                missileBullet.transform.position = spawnPos[i];
+                missileBullet.transform.position = spawnPos[j];
                 missileBullet.MoveSpeed += 5f;
                 missileBullet.MissileTime = 4f;
                 yield return new WaitForSeconds(0.3f);

@@ -67,7 +67,6 @@ public class Pattern2 : TimeLinePattern
             explode.moveable = true;
             explode.transform.position = spawnPoints[i];
             explode.targetPosition = movePoints[i];
-            _currentSpawnCount = i;
             yield return new WaitForSeconds(0.4f);
         }
     }
