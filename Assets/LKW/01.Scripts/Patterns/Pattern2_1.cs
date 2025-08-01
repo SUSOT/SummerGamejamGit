@@ -12,6 +12,7 @@ namespace LKW._01.Scripts.Patterns
         
         [SerializeField] private PoolManagerSO poolManager;
         [SerializeField] private PoolingItemSO laserItem;
+        [SerializeField] private PoolingItemSO explosionBulletItem;
         
         public override void Execute()
         {
@@ -20,8 +21,27 @@ namespace LKW._01.Scripts.Patterns
 
         private IEnumerator SpawnCoroutine()
         {
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 57; i++)
             {
+                if (i % 5 == 0)
+                {
+                    
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            ExplodeBullet exBullet = poolManager.Pop(explosionBulletItem) as ExplodeBullet;
+                            exBullet.transform.position = spawnPoints[j].position;
+                        }
+                        else
+                        {
+                            ExplodeBullet exBullet = poolManager.Pop(explosionBulletItem) as ExplodeBullet;
+                            exBullet.transform.position = spawnPoints[j+2].position;
+                        }
+                    }
+                    
+                }
+                
                 LaserBullet laser = poolManager.Pop(laserItem) as LaserBullet;
             
                 int idx = Random.Range(0,2);
@@ -41,7 +61,7 @@ namespace LKW._01.Scripts.Patterns
             
                 laser.transform.position = spawnPos;
             
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }

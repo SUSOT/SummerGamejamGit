@@ -31,22 +31,22 @@ namespace KHG.Bullets
         protected override void OnEnable()
         {
             base.OnEnable();
-            _rigid = GetComponent<Rigidbody2D>();
-            _generator = GetComponent<CircleGenerate>();
-
             _originScale = transform.localScale;
             StartCoroutine(Spawn());
         }
         public override void ResetItem()
         {
+            _rigid = GetComponent<Rigidbody2D>();
+            _generator = GetComponent<CircleGenerate>();
+        }
+
+        public void StartSpawn()
+        {
+            StartCoroutine(Spawn());
         }
 
         public override void SetUpPool(Pool pool) => _currentPool = pool;
-
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-        }
+        
         private void FixedUpdate()
         {
             SetMovement();
@@ -66,5 +66,4 @@ namespace KHG.Bullets
             StartCoroutine(Spawn());
         }
     }
-
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   patterns:
-  - {fileID: 11400000, guid: de60555bbf5fe48459ebb7fb8b3864f2, type: 2}
   - {fileID: 11400000, guid: 8ff6f059b22b81b4c817c2cb0bded8ff, type: 2}
   - {fileID: 11400000, guid: a00e987e5abe89e45b74e18f34e56faa, type: 2}
   - {fileID: 11400000, guid: 33d32a8df14d53f4aa6e0a65436d739f, type: 2}
+  - {fileID: 11400000, guid: de60555bbf5fe48459ebb7fb8b3864f2, type: 2}
   - {fileID: 11400000, guid: 7f8e250033ec3ef4482302adb95bfb0a, type: 2}
+  - {fileID: 11400000, guid: 3b8de42e7abfc844aa704e5ac2a76ff7, type: 2}
