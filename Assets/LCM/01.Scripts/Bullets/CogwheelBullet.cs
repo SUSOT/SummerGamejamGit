@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LCM._01.Scripts.Bullets
 {
@@ -9,6 +12,25 @@ namespace LCM._01.Scripts.Bullets
         private Rigidbody2D _rigidbody;
         [field:SerializeField] public float MoveSpeed { get; set; }
         [field:SerializeField] public float RotationSpeed{ get; set; }
+
+        public UnityEvent OnSpawn;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            StartCoroutine(StartShake());
+        }
+
+        private IEnumerator StartShake()
+        {
+            yield return new WaitForSeconds(0.5f);
+            OnSpawn?.Invoke();
+        }
+
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
 
         private void FixedUpdate()
         {

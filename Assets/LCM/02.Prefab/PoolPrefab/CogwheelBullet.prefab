@@ -330,6 +330,8 @@ GameObject:
   - component: {fileID: 4695117653561819509}
   - component: {fileID: 5883903147689589861}
   - component: {fileID: 1204770070118884597}
+  - component: {fileID: -1023958607096874639}
+  - component: {fileID: -7654555142043325332}
   m_Layer: 0
   m_Name: CogwheelBullet
   m_TagString: Untagged
@@ -366,9 +368,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: b223361dd376394429b2250221c323a2, type: 2}
-  moveDirection: {x: -1, y: 0}
+  <MoveDirection>k__BackingField: {x: 0, y: 0}
   <MoveSpeed>k__BackingField: 0
   <RotationSpeed>k__BackingField: 0
+  OnSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7654555142043325332}
+        m_TargetAssemblyTypeName: CameraShakeFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &1204770070118884597
 Rigidbody2D:
   serializedVersion: 5
@@ -396,6 +413,127 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1023958607096874639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930974107941871531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 4
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.04724884
+        inSlope: 0.0283268
+        outSlope: 0.0283268
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.1607943
+        value: 0.051810022
+        inSlope: -0.16509
+        outSlope: -0.16509
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.18110521
+      - serializedVersion: 3
+        time: 0.31660992
+        value: 0.04833506
+        inSlope: 0.12957758
+        outSlope: 0.12957758
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.25213277
+      - serializedVersion: 3
+        time: 0.5454243
+        value: 0.05400906
+        inSlope: 0.12975803
+        outSlope: 0.12975803
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.25369844
+      - serializedVersion: 3
+        time: 0.824493
+        value: 0.059670173
+        inSlope: 0.037863724
+        outSlope: 0.037863724
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.788185
+      - serializedVersion: 3
+        time: 1
+        value: 0.055404663
+        inSlope: -0.024269853
+        outSlope: -0.024269853
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 4
+    ImpulseType: 1
+    DissipationRate: 0.419
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &-7654555142043325332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930974107941871531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5d123c142826f46a9e22df3705378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onlyPlayPowerAttack: 1
+  impulseForce: 1
 --- !u!1 &7301814340623268326
 GameObject:
   m_ObjectHideFlags: 0
