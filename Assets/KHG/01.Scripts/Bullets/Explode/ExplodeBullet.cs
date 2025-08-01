@@ -2,6 +2,7 @@ using DG.Tweening;
 using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,10 +25,11 @@ namespace KHG.Bullets
         protected override void OnEnable()
         {
             base.OnEnable();
+            StartCoroutine(Move(0.1f));
         }
         private void Start()
         {
-            if (moveable) transform.DOMove(targetPosition, 1.5f);
+            
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
@@ -43,7 +45,11 @@ namespace KHG.Bullets
             if (_explodePool != null) _explodePool.Push(this);
             else Destroy(gameObject);
         }
-
+        private IEnumerator Move(float t)
+        {
+            yield return new WaitForSeconds(t);
+            if (moveable) transform.DOMove(targetPosition, 1.5f);
+        }
         public override void SetUpPool(Pool pool)
         {
             _explodePool = pool;
@@ -51,7 +57,9 @@ namespace KHG.Bullets
 
         public override void ResetItem()
         {
-            
+            transform.DOKill();
+            SpawnPosition = Vector3.zero;
+            targetPosition = Vector3.zero;
         }
     }
 }
