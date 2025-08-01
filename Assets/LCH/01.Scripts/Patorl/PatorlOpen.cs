@@ -1,3 +1,4 @@
+using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
 public class PatorlOpen : MonoBehaviour
@@ -7,6 +8,7 @@ public class PatorlOpen : MonoBehaviour
 
    public void PatorlOpenEvet()
     {
+        PoolManagerMono.Instacne.AllPush();
         patorl.RaiseEvent(PatorlOpenEvents.PatorlEvent);
     }
 }
