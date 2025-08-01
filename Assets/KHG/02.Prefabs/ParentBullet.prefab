@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6510718388534193309}
   - component: {fileID: 1827811843408871552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7609446002530997324}
   - component: {fileID: 1759961824668272759}
   - component: {fileID: 5318069635949755241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ParentBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3652705426307770679}
   - component: {fileID: 4351343642019390374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046134611045704639}
   - component: {fileID: 8081583266168132779}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

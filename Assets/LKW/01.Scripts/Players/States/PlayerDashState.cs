@@ -53,10 +53,10 @@ namespace Players
                 ;
                 dashTime =  _dashDistance * _dashTime / _dashDistance;
             }
-            //_player.gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
+            _player.gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
             _player.transform.DOMove(destination, dashTime).SetEase(Ease.OutQuad).OnComplete(EndDash).OnComplete(() =>
             {
-                //_player.gameObject.layer = LayerMask.NameToLayer("Player");
+                _player.gameObject.layer = 0;
                 _player.ChangeState("IDLE");
             });
 

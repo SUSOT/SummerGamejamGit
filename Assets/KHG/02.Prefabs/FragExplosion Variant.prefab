@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6222059505853235508}
   - component: {fileID: 8776419162829098561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Deco_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7264279835150903625}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3799478400757775110}
   - component: {fileID: 274920761554798013}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Deco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8894206562336810644}
   - component: {fileID: 6530660861163062882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Deco_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6422004916753078913}
   - component: {fileID: 792642867919971918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Deco_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6420720636108342249}
   - component: {fileID: 2343863367579215607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FragmentGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,13 +428,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalBullet: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  delayTime: 0
-  bulletCount: 5
   rotationSpeed: 30
-  generateAngle: 60
-  speed: 15
-  scale: 1.7
-  bulletRotation: 15
+  GenerateAngle: 60
+  DelayTime: 0
+  BulletCount: 5
+  Speed: 15
+  Scale: 1.7
+  BulletRotation: 15
 --- !u!1001 &888119564925352737
 PrefabInstance:
   m_ObjectHideFlags: 0

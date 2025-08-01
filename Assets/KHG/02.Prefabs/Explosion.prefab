@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2757152520472561656}
   - component: {fileID: 4029544241684192087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 5191471425095076706}
   - component: {fileID: 7565675627335920412}
   - component: {fileID: 219219898889024950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: d472e9bc4431cc34ba400b6a75a92136, type: 2}
+  moveable: 0
+  targetPosition: {x: 0, y: 0, z: 0}
   ActiveEvent:
     m_PersistentCalls:
       m_Calls:
@@ -254,7 +256,7 @@ GameObject:
   - component: {fileID: 3391972625357469999}
   - component: {fileID: 3051962160522612240}
   - component: {fileID: 3099034729681439923}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WarnCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

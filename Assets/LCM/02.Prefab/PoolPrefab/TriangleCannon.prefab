@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073010380543880924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Design
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5432785915506816941}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4836678524843789007}
   - component: {fileID: 804769477743617824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Triangle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5024688952732783409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301380855549040431}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1922576717129759748}
   - component: {fileID: 5441066912162395070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Triangle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099307326920383082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 3415298287431618359}
   - component: {fileID: 6486414407737712279}
   - component: {fileID: 2287865755005110047}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TriangleCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

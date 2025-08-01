@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8525983827880349178}
   - component: {fileID: 4258549883208985055}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WarnLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7710403651780185779}
   - component: {fileID: 8069051212176910037}
   - component: {fileID: 363175718471535200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2654893076149538416}
   - component: {fileID: 8409179331885882269}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NailBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,3 +316,5 @@ MonoBehaviour:
   <PoolingType>k__BackingField: {fileID: 11400000, guid: e8d26ed10dac3d948ad647843e23b36e, type: 2}
   warnningLine: {fileID: 1529112716915939635}
   nail: {fileID: 7687594562513756957}
+  MoveSpeed: 10
+  _waitTime: 0.5
