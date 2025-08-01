@@ -123,7 +123,7 @@ public class SettingManager : MonoBehaviour
 
     private void HandleNaveigation(Vector2 value)
     {
-        if (IsOpen && !_isSlider)
+        if (IsOpen)
         {
             if (Time.unscaledTime - _inputTime < inputCooldown || value.y == 0)
                 return;
