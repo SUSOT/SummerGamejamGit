@@ -1,5 +1,6 @@
 using DG.Tweening;
 using EasyTransition;
+using GondrLib.ObjectPool.Runtime;
 using Settings.InputSetting;
 using System;
 using System.Collections.Generic;
@@ -116,8 +117,7 @@ public class SettingManager : MonoBehaviour
                 GoTitleScene();
             }
         }
-       
-        
+             
 
     }
 
@@ -162,6 +162,7 @@ public class SettingManager : MonoBehaviour
 
     public void GoTitleScene()
     {
+        PoolManagerMono.Instacne.AllPush();
         DemoLoadScene.instance.LoadScene("Title");
     }
 
