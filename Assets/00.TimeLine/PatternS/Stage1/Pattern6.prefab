@@ -53,5 +53,4 @@ MonoBehaviour:
   - {x: 5, y: 0, z: 90}
   - {x: 0, y: -10, z: 0}
   - {x: -5, y: 0, z: 90}
-  - {x: 0, y: 10, z: 0}
   moveSpeed: 5
