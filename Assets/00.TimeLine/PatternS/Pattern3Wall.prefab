@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 7776915872398057089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 15.99, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,8 +48,8 @@ MonoBehaviour:
   wallItem: {fileID: 11400000, guid: ce9cfa4c517c65e4885acc284a58faf9, type: 2}
   isHorizontal: 1
   isNegative: 0
-  wallHeight: 10
-  wallWidth: 54
+  wallHeight: 7
+  wallWidth: 55
   previewTime: 3.5
-  lifeTime: 15
-  initPos: {x: 0, y: -11}
+  lifeTime: 10
+  initPos: {x: 0, y: 12}

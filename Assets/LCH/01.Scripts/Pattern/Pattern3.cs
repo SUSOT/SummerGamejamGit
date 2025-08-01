@@ -43,7 +43,7 @@ public class Pattern3 : TimeLinePattern
                 MissileBullet missileBullet = _poolManager.Pop<MissileBullet>(guidedMissileItem);
                 missileBullet.transform.position = spawnPos[j];
                 missileBullet.MoveSpeed = 5f;
-                missileBullet.MissileTime = 4f;
+                missileBullet.MissileTime = 8f;
                 yield return new WaitForSeconds(0.3f);
             }
 
