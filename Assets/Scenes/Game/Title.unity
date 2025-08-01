@@ -2171,7 +2171,7 @@ MonoBehaviour:
   inputSO: {fileID: 11400000, guid: 59b8e77e317ae3f41803dfae7a54a805, type: 2}
   direction: {fileID: 45452694}
   inputCooldown: 0.2
-  loadScene: Test
+  loadScene: Stage1
   selectImage: {fileID: 2057711896}
 --- !u!1 &924366459
 GameObject:
