@@ -49,7 +49,7 @@ MonoBehaviour:
   isHorizontal: 1
   isNegative: 0
   wallHeight: 30
-  wallWidth: 40
+  wallWidth: 30
   previewTime: 1.5
   lifeTime: 36
   initPos: {x: 30, y: 0}
