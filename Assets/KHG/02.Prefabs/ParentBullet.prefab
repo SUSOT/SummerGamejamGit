@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: a29001dbba9c79746ac3c8bb834bd82f, type: 2}
-  moveSpeed: 8
-  repeatDuration: 1.5
+  moveSpeed: 0
+  repeatDuration: 2.5
   spawnEvent:
     m_PersistentCalls:
       m_Calls:

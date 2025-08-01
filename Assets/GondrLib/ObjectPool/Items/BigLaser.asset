@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: c3a4afc4c03a454f9c1df9a315b2b0bb, type: 3}
+  m_Name: BigLaser
   m_EditorClassIdentifier: 
-  patterns:
-  - {fileID: 11400000, guid: 3b8de42e7abfc844aa704e5ac2a76ff7, type: 2}
+  poolingName: BigLaser
+  prefab: {fileID: 6172519334226507850, guid: ad49020a8c3bf85448c3c0a693c99551, type: 3}
+  initCount: 10

@@ -30,6 +30,11 @@ namespace KHG.Bullets
         {
         }
 
+        public void StartSpawn()
+        {
+            StartCoroutine(Spawn());
+        }
+
         public override void SetUpPool(Pool pool) => _currentPool = pool;
 
         protected override void OnTriggerEnter2D(Collider2D other)
