@@ -5365,7 +5365,7 @@ GameObject:
   - component: {fileID: 5422976677082257797}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5407,7 +5407,6 @@ MonoBehaviour:
   MOVE_XParam: {fileID: 11400000, guid: b253b6843bf9a2047b7aabbb0b8a40e5, type: 2}
   MOVE_YParam: {fileID: 11400000, guid: 25144eaa885568e4ab16f373b88cee2a, type: 2}
   playerChannel: {fileID: 11400000, guid: 36077f98588a13547a92201cb838bd5a, type: 2}
-  deadParticle: {fileID: 0}
   trailParticle: {fileID: 8968635494183907312}
   dashParticle: {fileID: 7877785406042160438}
   dashCirce: {fileID: 11400000, guid: 637f2e25e103c6841b3a3e88e680a238, type: 2}
