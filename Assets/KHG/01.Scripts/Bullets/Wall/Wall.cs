@@ -58,7 +58,7 @@ namespace KHG.Obstacles
 
         public override void ResetItem()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

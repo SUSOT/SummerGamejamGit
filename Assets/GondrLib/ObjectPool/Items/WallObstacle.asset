@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WallObstacle
   m_EditorClassIdentifier: 
   poolingName: WallObstacle
-  prefab: {fileID: 4271839907917662676, guid: fbd157970abc5fb49887797d4fa08099, type: 3}
+  prefab: {fileID: 8086267627220679344, guid: f2fb8f71d01c1d546b10df19887a50c2, type: 3}
   initCount: 7
