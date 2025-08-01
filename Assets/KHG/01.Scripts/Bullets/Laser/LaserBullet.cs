@@ -30,7 +30,8 @@ namespace KHG.Bullets
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (_damageable == true) base.OnTriggerEnter2D(other);
+            if (_damageable == true)
+                ApplyDamage(other);
         }
         public override void ResetItem()
         {

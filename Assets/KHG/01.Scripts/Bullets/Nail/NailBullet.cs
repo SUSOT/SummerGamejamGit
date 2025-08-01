@@ -41,7 +41,7 @@ namespace KHG.Bullets
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            base.OnTriggerEnter2D(other);
+            ApplyDamage(other);
         }
         private void FixedUpdate()
         {
