@@ -10,16 +10,16 @@ namespace LCM._01.Scripts.Bullets
         [field: SerializeField] public Vector2 MoveDirection { get; set; }
         [field: SerializeField] public float MoveSpeed { get; set; }
 
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
         private void FixedUpdate()
         {
             if (_rigidbody == null) return;
             
             _rigidbody.linearVelocity = MoveDirection.normalized * MoveSpeed;
-        }
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         public override void SetUpPool(Pool pool)
