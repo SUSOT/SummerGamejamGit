@@ -2416,6 +2416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bossAnimator: {fileID: 2381705118307018176}
+  channel: {fileID: 11400000, guid: 442a9ed33747126479d155ac9c6fb7cf, type: 2}
+  cilp: {fileID: 8300000, guid: 94646105e19523b4b8041782763d5d8d, type: 3}
 --- !u!1 &2958464484896159402
 GameObject:
   m_ObjectHideFlags: 0
