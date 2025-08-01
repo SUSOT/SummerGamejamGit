@@ -6,16 +6,20 @@ using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
 using System.Threading.Tasks;
 using LKW._01.Scripts.LeaderBoard;
+using UnityEngine.Serialization;
 
 public class ClearPlayerReaderBoard : MonoBehaviour
 {
     public TMP_InputField playerNameInput;
     public TMP_Text leaderboardText;
-
     [SerializeField] private Transform boxParent;
     [SerializeField] private GameObject rankBoxPrefab;
+    [SerializeField] private TextMeshProUGUI timeText;
+    
 
-    private string leaderboardId = "gamejam_Leaderboard"; // Unity Dashboard에서 만든 리더보드 ID
+    private string leaderboardId = "gamejam_Leaderboard";
+
+    private int clearTime = 0;
 
     private int temp = 1;
     async void Start()
@@ -41,14 +45,16 @@ public class ClearPlayerReaderBoard : MonoBehaviour
         }
 
         // 로그인 성공 후 리더보드 호출
-        await RefreshLeaderboard();
     }
 
-    public async void OnSubmit(float surviveTime)
+    public async void OnSubmit()
     {
         Debug.Log("Submit");
         
         string playerName = playerNameInput.text;
+        
+        if(playerName.Length > 8) return;
+        
         if (!string.IsNullOrEmpty(playerName))
         {
             await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
@@ -57,7 +63,7 @@ public class ClearPlayerReaderBoard : MonoBehaviour
         try
         {
             // 점수는 고정값 1 (클리어 표시용)
-            await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, surviveTime);
+            await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, clearTime);
             Debug.Log($"점수 등록 완료: {playerName}");
             await RefreshLeaderboard();
         }
@@ -103,6 +109,18 @@ public class ClearPlayerReaderBoard : MonoBehaviour
             leaderboardText.text = "리더보드 불러오기 실패";
             Debug.LogError(e.Message);
         }
+    }
+
+    public void SetClearTime(int time)
+    {
+        clearTime = time;
+        
+        int minutes = Mathf.FloorToInt(clearTime / 60);
+        int seconds = Mathf.FloorToInt(clearTime % 60);
+                
+        string timeTxt = string.Format("{0:00}:{1:00}", minutes, seconds);
+        
+         timeText.text = timeTxt;
     }
 
     public static string RemoveAfterHash(string original)
