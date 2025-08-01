@@ -1,41 +1,65 @@
 using System.Collections;
-using Unity.Cinemachine;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class CameraEvent
 {
     public static readonly CameraFocusEvent CameraFocusEvent = new();
 }
+
 public class CameraFocusEvent : GameEvent
 {
     public Transform target;
-    public float targetSize = 10f;
+    public float targetSize = 0f;
 }
 
 public class CameraFocus : MonoBehaviour
 {
     [SerializeField] private GameEventChannelSO _cameraChannel;
-
     [SerializeField] private CinemachineCamera vCam;
+    [SerializeField] private float transitionDuration = 2f;
 
     private void Awake()
     {
         _cameraChannel.AddListener<CameraFocusEvent>(OnCameraFocus);
     }
 
+    private void OnDestroy()
+    {
+        _cameraChannel.RemoveListener<CameraFocusEvent>(OnCameraFocus);
+    }
+
     private void OnCameraFocus(CameraFocusEvent arg)
     {
-        SetTarget(arg.target);
-        SetLens(arg.targetSize);
+        StartCoroutine(SmoothFocusTransition(arg.target, arg.targetSize));
     }
 
-    private void SetLens(float targetSize)
+    private IEnumerator SmoothFocusTransition(Transform target, float targetSize)
     {
+        yield return new WaitForSecondsRealtime(1f);
+
+        Vector3 startPos = vCam.transform.position;
+        Vector3 endPos = target.position + new Vector3(0, 0, -10);
+
+        float startSize = vCam.Lens.OrthographicSize;
+
+        float elapsed = 0f;
+
+        while (elapsed < transitionDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = elapsed / transitionDuration;
+            t = Mathf.Clamp01(t);
+
+            vCam.transform.position = Vector3.Lerp(startPos, endPos, t);
+            vCam.Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, t);
+
+            yield return null;
+        }
+
+        vCam.transform.position = endPos;
         vCam.Lens.OrthographicSize = targetSize;
-    }
 
-    private void SetTarget(Transform target)
-    {
-        vCam.Follow = target;
+        Debug.Log("이동가능");
     }
 }
