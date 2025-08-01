@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
+using KHG.Bullets;
 using LCM._01.Scripts.Bullets;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private GameObject warning;
         [SerializeField] private GameObject bossPrefab;
         [SerializeField] private PoolingItemSO normal;
+        [SerializeField] private PoolingItemSO laser;
         private GameObject _boss;
         
         private void OnEnable()
@@ -49,6 +51,8 @@ namespace LCM._01.Scripts.Timeline
                 .SetEase(Ease.InOutSine)
                 .SetRelative(true);
 
+            yield return new WaitForSeconds(1f);
+
             for (int i = 0; i < 30; ++i)
             {
                 for (int j = 0; j < 3; ++j)
@@ -61,6 +65,26 @@ namespace LCM._01.Scripts.Timeline
                     float angle = 120f * j;  
                     Vector3 direction = Quaternion.AngleAxis(angle, Vector3.forward) * _boss.transform.up;
                     nb.MoveDirection = direction.normalized;
+                }
+                
+                if (i == 10)
+                {
+                    for (int j = 0; j < 2; ++j)
+                    {
+                        LaserBullet lb = _poolManager.Pop<LaserBullet>(laser);
+                        lb.transform.position =  j == 0 ? new Vector2(0, -12f) : new Vector2(0, 12f);
+                        lb.transform.rotation = Quaternion.identity;
+                    }
+                }
+
+                if (i == 20)
+                {
+                    for (int j = 0; j < 2; ++j)
+                    {
+                        LaserBullet lb = _poolManager.Pop<LaserBullet>(laser);
+                        lb.transform.position =  j == 0 ? new Vector2(-18f,0) : new Vector2(18f,0);
+                        lb.transform.rotation = Quaternion.Euler(0,0,90f);
+                    }
                 }
                 yield return new WaitForSeconds(0.2f);
             }

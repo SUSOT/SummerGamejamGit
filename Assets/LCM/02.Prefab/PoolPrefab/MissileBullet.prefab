@@ -283,4 +283,5 @@ MonoBehaviour:
     m_Bits: 2048
   <MoveSpeed>k__BackingField: 5
   <MissileTime>k__BackingField: 5
+  <RotationSpeed>k__BackingField: 270
   circle: {fileID: 602501237588323074}

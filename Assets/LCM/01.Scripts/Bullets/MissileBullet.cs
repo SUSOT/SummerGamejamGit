@@ -9,6 +9,7 @@ namespace LCM._01.Scripts.Bullets
         [SerializeField] private LayerMask whatIsPlayer;
         [field: SerializeField] public float MoveSpeed { get; set; }
         [field: SerializeField] public float MissileTime { get; set; }
+        [field: SerializeField] public float RotationSpeed { get; set; } = 90f; 
         [SerializeField] private GameObject circle;
 
         private bool _isTargeting = true;
@@ -36,7 +37,6 @@ namespace LCM._01.Scripts.Bullets
 
         public override void ResetItem()
         {
-            StopAllCoroutines();
             _rigidbody.linearVelocity = Vector2.zero;
             transform.rotation = Quaternion.identity;
             _isTargeting = true;
@@ -53,8 +53,14 @@ namespace LCM._01.Scripts.Bullets
             {
                 _direction = (player.transform.position - transform.position).normalized;
                 _rigidbody.linearVelocity = _direction * MoveSpeed;
-                transform.rotation = Quaternion.Euler(0f, 0f,
-                    Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 225f);
+                
+                float targetAngle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 225f;
+                Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
+                
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation, 
+                    targetRotation, 
+                    RotationSpeed * Time.fixedDeltaTime);
             }
             else
             {
