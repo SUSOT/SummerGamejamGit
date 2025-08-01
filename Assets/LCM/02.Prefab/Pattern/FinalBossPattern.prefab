@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warning: {fileID: 4709029311236902850, guid: 18e053513fe9d3e40afaf5f310fb5350, type: 3}
   bossPrefab: {fileID: 4640047647580359304, guid: a63844de724499a4aa3bcf043f8d4b4a, type: 3}
+  normal: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}

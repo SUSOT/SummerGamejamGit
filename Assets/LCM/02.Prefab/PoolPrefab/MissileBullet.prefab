@@ -280,7 +280,7 @@ MonoBehaviour:
   <PoolingType>k__BackingField: {fileID: 11400000, guid: fb24b860efbd3d545ba902b0d468a13e, type: 2}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 2048
   <MoveSpeed>k__BackingField: 5
   <MissileTime>k__BackingField: 5
   circle: {fileID: 602501237588323074}

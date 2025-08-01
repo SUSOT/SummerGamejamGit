@@ -10,7 +10,7 @@ namespace LCM._01.Scripts.Bullets
         [field: SerializeField] public float MoveSpeed { get; set; }
         [field: SerializeField] public float MissileTime { get; set; }
         [SerializeField] private GameObject circle;
-        
+
         private bool _isTargeting = true;
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
@@ -47,14 +47,14 @@ namespace LCM._01.Scripts.Bullets
         {
             if (_rigidbody == null) return;
 
-            Debug.Log(_direction);
-            
-            if (_isTargeting)
+            var player = Physics2D.OverlapCircle(transform.position, 70f, whatIsPlayer);
+
+            if (_isTargeting && player != null)
             {
-                var player = Physics2D.OverlapCircle(transform.position, 70f, whatIsPlayer);
-                _direction= (player.transform.position - transform.position).normalized;
+                _direction = (player.transform.position - transform.position).normalized;
                 _rigidbody.linearVelocity = _direction * MoveSpeed;
-                transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 225f);
+                transform.rotation = Quaternion.Euler(0f, 0f,
+                    Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 225f);
             }
             else
             {
