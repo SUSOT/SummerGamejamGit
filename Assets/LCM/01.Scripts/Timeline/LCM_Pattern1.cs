@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using KHG.Bullets;
@@ -37,8 +38,11 @@ namespace LCM._01.Scripts.Timeline
             yield return new WaitForSeconds(3f);
             TriangleCannon tc = _poolManager.Pop<TriangleCannon>(triangleCannon);
             tc.transform.position = new Vector3(0, 30, 0);
-            tc.MovePosition = Vector2.zero;
             tc.FireDuration = 0.35f;
+            tc.transform.DOMove(Vector3.zero, 3f).SetEase(Ease.OutBounce).OnComplete(() =>
+            {
+                tc.StartInfiniteRotation();
+            });
             for (int i = 0; i < 10; ++i)
             {
                 WallBullet wb = _poolManager.Pop<WallBullet>(wall);
