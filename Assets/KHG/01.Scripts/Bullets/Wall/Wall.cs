@@ -12,6 +12,7 @@ namespace KHG.Obstacles
         [SerializeField] private GameObject wallObj;
         [SerializeField] private SpriteRenderer _warnRenderer;
 
+        public bool UseAutoSpawn = true;
         public Vector3 SpawnVector { get; set; }
 
         public UnityEvent OnWallDeployed;
