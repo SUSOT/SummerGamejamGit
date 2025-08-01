@@ -31,11 +31,13 @@ namespace LKW._01.Scripts.Patterns
                         if (i % 2 == 0)
                         {
                             ExplodeBullet exBullet = poolManager.Pop(explosionBulletItem) as ExplodeBullet;
+                            exBullet.targetPosition = spawnPoints[j].position;
                             exBullet.transform.position = spawnPoints[j].position;
                         }
                         else
                         {
                             ExplodeBullet exBullet = poolManager.Pop(explosionBulletItem) as ExplodeBullet;
+                            exBullet.targetPosition = spawnPoints[j+2].position;
                             exBullet.transform.position = spawnPoints[j+2].position;
                         }
                     }
