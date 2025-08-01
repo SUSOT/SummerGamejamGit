@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1572953570713793330}
   - component: {fileID: 4445216577085191140}
   - component: {fileID: 7058444609722346503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6667997014345050452}
   - component: {fileID: 2064903065726703524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InnerLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 3401673395061479595}
   - component: {fileID: 8842089283513061859}
   - component: {fileID: 1725308367790599550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LaserBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

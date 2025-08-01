@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3739598172532149929}
   - component: {fileID: 8645901219817883187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1747351575089363060}
   - component: {fileID: 6125548465482084288}
   - component: {fileID: 2467120087317191630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2350629612824590867}
   - component: {fileID: 5490172985844324710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

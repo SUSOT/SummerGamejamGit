@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8413183026533052866}
   - component: {fileID: 8340258408206281675}
   - component: {fileID: 1561295047671587268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6070084872566802768}
   - component: {fileID: 7870190349787692418}
   - component: {fileID: 8069910408133352420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hexagon Flat Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 1204770070118884597}
   - component: {fileID: -1023958607096874639}
   - component: {fileID: -7654555142043325332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CogwheelBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573824841489397532}
   - component: {fileID: 9211143825348830292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
