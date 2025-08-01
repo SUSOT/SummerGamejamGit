@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.SceneManagement;
+using GondrLib.Dependencies;
+using GondrLib.ObjectPool.Runtime;
 
 public class CameraEvent
 {
@@ -18,6 +20,12 @@ public class CameraFocus : MonoBehaviour
     [SerializeField] private CinemachineCamera vCam;
     [SerializeField] private float transitionDuration = 2f;
 
+    [Inject] private PoolManagerMono poolManagerMono;
+
+    private void OnEnable()
+    {
+        Injector.Instance.InjectRuntime(this);
+    }
     private void Awake()
     {
         _cameraChannel.AddListener<CameraFocusEvent>(OnCameraFocus);
@@ -59,6 +67,7 @@ public class CameraFocus : MonoBehaviour
         vCam.transform.position = endPos;
         vCam.Lens.OrthographicSize = targetSize;
 
+        poolManagerMono.AllPush();
         Time.timeScale = 1f;
         SceneManager.LoadScene("GameoverScene");
     }

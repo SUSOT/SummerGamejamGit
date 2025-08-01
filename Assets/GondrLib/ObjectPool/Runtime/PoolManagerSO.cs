@@ -65,5 +65,12 @@ namespace GondrLib.ObjectPool.Runtime
                 pool.Push(item);
             }
         }
+        public void PushAll()
+        {
+            foreach (var pool in _pools.Values)
+            {
+                pool.PushAll();
+            }
+        }
     }
 }

@@ -35,13 +35,7 @@ namespace GondrLib.ObjectPool.Runtime
 
         public void AllPush()
         {
-            foreach (IPoolable poolable in poolManager.itemList)
-            {
-                if (poolable.GameObject.activeInHierarchy)
-                {
-                    poolManager.Push(poolable);
-                }
-            }
+            poolManager.PushAll();
         }
     }
 }

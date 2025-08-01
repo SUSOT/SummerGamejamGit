@@ -95,8 +95,8 @@ namespace Players
                 gameOverEvent?.Invoke();
                 playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
                 deadParticle.transform.position = transform.position;
-                deadParticle.Play();
-                gameObject.SetActive(false);
+                //deadParticle.Play();
+                //gameObject.SetActive(false);
             }
         }
     }
