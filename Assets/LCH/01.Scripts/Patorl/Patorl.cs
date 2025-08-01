@@ -25,7 +25,6 @@ public class Patorl : MonoBehaviour
 
     private void HandleOpen(PatorlEvent evt)
     {
-        Debug.Log("¾Ó");
         _Open = true;
         var sequence = DOTween.Sequence();
         sequence.Append(transform.DOScale(1, 0.5f));
@@ -102,6 +101,10 @@ public class Patorl : MonoBehaviour
         playerCollider.transform.SetParent(transform);
         playerCollider.transform.DOMove(Vector3.zero, 0.3f);
 
+        if(nextScene == "Title")
+        {
+            DemoLoadScene.instance.IsNomarlClear = true;
+        }
         DemoLoadScene.instance.LoadScene(nextScene);
         yield return new WaitForSeconds(0.3f);
         var sequence = DOTween.Sequence();
