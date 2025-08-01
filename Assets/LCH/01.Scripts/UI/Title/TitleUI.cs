@@ -18,6 +18,7 @@ public class TitleUI : MonoBehaviour
     [SerializeField] private Image lockImage;
     private float _inputTime;
     private int _currentIndex = 0;
+    private bool _isScenChagn = false;
 
     private void Awake()
     {
@@ -30,7 +31,8 @@ public class TitleUI : MonoBehaviour
 
     private void Start()
     {
-        if (DemoLoadScene.instance.IsNomarlClear || DemoLoadScene.instance != null)
+        _isScenChagn = false;
+        if (DemoLoadScene.instance.IsNomarlClear && DemoLoadScene.instance != null)
         {
             Destroy(lockImage.gameObject);
         }
@@ -38,55 +40,64 @@ public class TitleUI : MonoBehaviour
 
     private void HandleSubmit()
     {
-        switch (images[_currentIndex].type)
+        if (_isScenChagn == false)
         {
-            case ImageTypeEnum.START:
-                inputSO.EnablePlayerCnt();
-                DemoLoadScene.instance.LoadScene(loadScene);
-                break;
-            case ImageTypeEnum.Infinite:
-                if (DemoLoadScene.instance.IsNomarlClear)
-                {
-                    DemoLoadScene.instance.LoadScene("InfiniteScene");
-                }
-                else
-                {
-                    return;
-                }
-                break;
-            case ImageTypeEnum.SETTING:
-                SettingManager.Instance.IsOpen = true;
-                break;
-            case ImageTypeEnum.EXIT:
-                Application.Quit();
-                break;
+            switch (images[_currentIndex].type)
+            {
+                case ImageTypeEnum.START:
+                    inputSO.EnablePlayerCnt();
+                    DemoLoadScene.instance.LoadScene(loadScene);
+                    _isScenChagn = true;
+                    break;
+                case ImageTypeEnum.Infinite:
+                    if (DemoLoadScene.instance.IsNomarlClear)
+                    {
+                        DemoLoadScene.instance.LoadScene("InfiniteScene");
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    break;
+                case ImageTypeEnum.SETTING:
+                    SettingManager.Instance.IsOpen = true;
+                    break;
+                case ImageTypeEnum.EXIT:
+                    Application.Quit();
+                    break;
+            }
         }
+       
     }
 
     private void HandleMoveSelect(Vector2 value)
     {
-        if(SettingManager.Instance.IsOpen == false)
+        if(_isScenChagn == false)
         {
-            if (Time.time - _inputTime < inputCooldown || value.y == 0)
-                return;
-
-            _inputTime = Time.time;
-
-            images[_currentIndex].NotSelectImage();
-            if (value.y < 0)
+            if (SettingManager.Instance.IsOpen == false)
             {
-                _currentIndex = (_currentIndex + 1) % images.Count;
-            }
-            else if (value.y > 0)
-            {
-                _currentIndex = (_currentIndex - 1 + images.Count) % images.Count;
-            }
+                if (Time.time - _inputTime < inputCooldown || value.y == 0)
+                    return;
 
-            selectImage.gameObject.transform.SetParent(images[_currentIndex].gameObject.transform);
-            RectTransform rectTransform = selectImage.rectTransform;
-            rectTransform.DOAnchorPos(new Vector2(-90, 0), 0.2f).SetEase(Ease.OutQuad);
-            images[_currentIndex].SelectImage();
+                _inputTime = Time.time;
+
+                images[_currentIndex].NotSelectImage();
+                if (value.y < 0)
+                {
+                    _currentIndex = (_currentIndex + 1) % images.Count;
+                }
+                else if (value.y > 0)
+                {
+                    _currentIndex = (_currentIndex - 1 + images.Count) % images.Count;
+                }
+
+                selectImage.gameObject.transform.SetParent(images[_currentIndex].gameObject.transform);
+                RectTransform rectTransform = selectImage.rectTransform;
+                rectTransform.DOAnchorPos(new Vector2(-90, 0), 0.2f).SetEase(Ease.OutQuad);
+                images[_currentIndex].SelectImage();
+            }
         }
+        
        
     }
 

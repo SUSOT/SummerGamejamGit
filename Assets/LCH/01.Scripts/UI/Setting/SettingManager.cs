@@ -194,31 +194,35 @@ public class SettingManager : MonoBehaviour
 
     private void Update()
     {
-        if (!_isSlider) return;
-
-        _sliderInput = input.sliderDir;
-
-        if (_slider != null && Mathf.Abs(_sliderInput.x) > 0.1f)
+        if (IsOpen)
         {
-            if (Time.unscaledTime - _sliderInputTime >= inputCooldown)
+            if (!_isSlider) return;
+
+            _sliderInput = input.sliderDir;
+
+            if (_slider != null && Mathf.Abs(_sliderInput.x) > 0.1f)
             {
-                float step = (_slider.maxValue - _slider.minValue) / 10f;
+                if (Time.unscaledTime - _sliderInputTime >= inputCooldown)
+                {
+                    float step = (_slider.maxValue - _slider.minValue) / 10f;
 
-                if (_sliderInput.x < 0)
-                    _slider.value = Mathf.Max(_slider.minValue, _slider.value - step);
-                else if (_sliderInput.x > 0)
-                    _slider.value = Mathf.Min(_slider.maxValue, _slider.value + step);
+                    if (_sliderInput.x < 0)
+                        _slider.value = Mathf.Max(_slider.minValue, _slider.value - step);
+                    else if (_sliderInput.x > 0)
+                        _slider.value = Mathf.Min(_slider.maxValue, _slider.value + step);
 
-                if (_slider.name.Contains("Master"))
-                    audioSetting.SetMasterVolume();
-                else if (_slider.name.Contains("BGM"))
-                    audioSetting.SetBgmVolume();
-                else if (_slider.name.Contains("SFX"))
-                    audioSetting.SetSfxVolume();
+                    if (_slider.name.Contains("Master"))
+                        audioSetting.SetMasterVolume();
+                    else if (_slider.name.Contains("BGM"))
+                        audioSetting.SetBgmVolume();
+                    else if (_slider.name.Contains("SFX"))
+                        audioSetting.SetSfxVolume();
 
-                _sliderInputTime = Time.unscaledTime;
+                    _sliderInputTime = Time.unscaledTime;
+                }
             }
         }
+        
     }
 
     private void OnDestroy()
