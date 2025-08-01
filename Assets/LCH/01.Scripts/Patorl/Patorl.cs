@@ -14,7 +14,7 @@ public class Patorl : MonoBehaviour
     [SerializeField] private ContactFilter2D contactFilter;
     [SerializeField] private GameEventChannelSO patorlOpen;
     [SerializeField] private bool IsOpenClose;
-    private bool _Open = false;
+    [SerializeField] private bool _Open = false;
 
     private bool hasTriggeredPortal = false;
 
@@ -99,7 +99,7 @@ public class Patorl : MonoBehaviour
     private IEnumerator ExecutePortalSequence(Collider2D playerCollider)
     {
         playerCollider.transform.SetParent(transform);
-        playerCollider.transform.DOMove(Vector3.zero, 0.3f);
+        playerCollider.gameObject.transform.position = new Vector2(transform.position.x,transform.position.y);
 
         if(nextScene == "Title")
         {
