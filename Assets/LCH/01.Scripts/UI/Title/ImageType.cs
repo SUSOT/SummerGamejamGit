@@ -8,6 +8,7 @@ public enum ImageTypeEnum
     None = 0,
     START,
     SETTING,
+    Infinite,
     EXIT
 }
 

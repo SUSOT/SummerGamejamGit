@@ -8,6 +8,7 @@ namespace EasyTransition
 
         [SerializeField] private GameEventChannelSO SceneCheck;
         public static DemoLoadScene instance;
+        public bool IsNomarlClear = false;
 
         private void Awake()
         {
