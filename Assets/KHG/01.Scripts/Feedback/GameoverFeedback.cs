@@ -1,30 +1,32 @@
+using GondrLib.Dependencies;
+using GondrLib.ObjectPool.Runtime;
+using KHG.Bullets;
+using Players;
 using Unity.Cinemachine;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[RequireComponent((typeof(Volume)))]
+//[RequireComponent((typeof(Volume)))]
 public class GameoverFeedback : Feedback
 {
     [SerializeField] private GameEventChannelSO cameraChannel;
-    [SerializeField] private Transform plr;
+    [SerializeField] private Transform player;
+    [SerializeField] private Volume gameoverVolume;
 
-    private Volume GameoverVolume;
-
-    private void Awake()
-    {
-        GameoverVolume = GetComponent<Volume>();
-    }
     public override void CreateFeedback()
     {
-        GameoverVolume.enabled = true;
+        gameoverVolume.enabled = true;
 
         if (cameraChannel == null) return;
-        cameraChannel.RaiseEvent(CameraEvent.CameraFocusEvent);
+        CameraFocusEvent evt = CameraEvent.CameraFocusEvent;
+        evt.target = player;
+        cameraChannel.RaiseEvent(evt);
         Time.timeScale = 0;
     }
 
     public override void StopFeedback()
     {
-        GameoverVolume.enabled = false;
+        gameoverVolume.enabled = false;
     }
 }
