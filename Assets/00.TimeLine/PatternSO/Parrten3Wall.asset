@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
-  m_Name: Parrten3
+  m_Name: Parrten3Wall
   m_EditorClassIdentifier: 
-  StartTime: 48
-  pattern: {fileID: 6592037605261597071, guid: 566c8cfc7c23ea544987ee2d1f1bc840, type: 3}
+  StartTime: 44
+  pattern: {fileID: 6209561880476533235, guid: bb0a277d98bb71c4496b8ea8f774a8c2, type: 3}

@@ -45,7 +45,39 @@ public class Pattern2 : TimeLinePattern
     new Vector2(-30.6f, -20.4f),
     new Vector2(32.3f, 27.6f)
 };
-    [SerializeField] private List<Vector2> movePoints;
+ private  List<Vector2> movePoints = new List<Vector2>
+{
+    new Vector2(-18.4f, 7.2f),
+    new Vector2(15.3f, -1.8f),
+    new Vector2(-21.2f, 11.5f),
+    new Vector2(19.7f, 4.3f),
+    new Vector2(-8.5f, -2.6f),
+    new Vector2(12.8f, 9.1f),
+    new Vector2(-16.3f, 2.4f),
+    new Vector2(21.6f, 8.7f),
+    new Vector2(-3.7f, 11.8f),
+    new Vector2(7.4f, -0.9f),
+    new Vector2(-14.9f, 6.5f),
+    new Vector2(20.1f, 10.3f),
+    new Vector2(-11.8f, 3.7f),
+    new Vector2(5.2f, -2.1f),
+    new Vector2(-19.5f, 8.9f),
+    new Vector2(13.6f, 1.4f),
+    new Vector2(-6.2f, 11.2f),
+    new Vector2(17.9f, 5.8f),
+    new Vector2(-22.0f, -1.3f),
+    new Vector2(9.8f, 7.6f),
+    new Vector2(-2.1f, 4.9f),
+    new Vector2(21.3f, 12.0f),
+    new Vector2(-15.7f, -2.7f),
+    new Vector2(4.5f, 9.8f),
+    new Vector2(-10.2f, 6.1f),
+    new Vector2(18.4f, 2.2f),
+    new Vector2(-7.8f, 10.7f),
+    new Vector2(14.1f, -1.5f),
+    new Vector2(-20.6f, 5.4f),
+    new Vector2(11.3f, 8.3f)
+};
     [Inject] private PoolManagerMono _poolManager;
     private int _currentSpawnCount;
 
@@ -61,14 +93,15 @@ public class Pattern2 : TimeLinePattern
 
     private IEnumerator SpawnBullet()
     {
-        for (int i = 0; i < SpawnCount; i++)
-        {
-            ExplodeBullet explode = _poolManager.Pop<ExplodeBullet>(boomItem);
-            explode.moveable = true;
-            explode.transform.position = spawnPoints[i];
-            explode.targetPosition = movePoints[i];
-            _currentSpawnCount = i;
-            yield return new WaitForSeconds(0.4f);
-        }
+
+            for (int j = 0; j < SpawnCount; j++)
+            {
+                ExplodeBullet explode = _poolManager.Pop<ExplodeBullet>(boomItem);
+                explode.SpawnPosition = spawnPoints[j];
+                explode.targetPosition = movePoints[j];
+                explode.moveable = true;
+                yield return new WaitForSeconds(0.5f);
+            }
+            yield return new WaitForSeconds(0.3f);
     }
 }
