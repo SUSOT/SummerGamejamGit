@@ -89,8 +89,8 @@ public class Patorl : MonoBehaviour
                 if (hit.collider != null)
                 {
                     hasTriggeredPortal = true;
-                     EntityMover mover = hit.collider.gameObject.GetComponentInChildren<EntityMover>();
-                    mover.StopImmediately();
+                    EntityMover mover = hit.collider.gameObject.GetComponentInChildren<EntityMover>();
+                    mover.CanManualMove = false;
                     StartCoroutine(ExecutePortalSequence(hit.collider));
                     yield break;
                 }
@@ -105,7 +105,7 @@ public class Patorl : MonoBehaviour
         playerCollider.transform.SetParent(transform);
         playerCollider.gameObject.transform.position = new Vector2(transform.position.x,transform.position.y);
 
-        if(nextScene == "Title")
+        if(nextScene == "Stage3")
         {
             DemoLoadScene.instance.IsNomarlClear = true;
         }
