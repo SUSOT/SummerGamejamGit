@@ -57,7 +57,7 @@ using UnityEngine;
                 preview.transform.DOScaleX(wallWidth, previewTime);
                 previewRenderer.DOColor(new Vector4(1,1,1,0.5f), previewTime / 10)
                     .SetEase(Ease.InOutExpo).SetLoops(10, LoopType.Yoyo);
-                DOVirtual.DelayedCall(previewTime, () =>
+                DOVirtual.DelayedCall(previewTime* 1.2f, () =>
                 {
                     preview.SetActive(false);
                     wall.transform.DOScaleX(wallWidth, previewTime / 2).SetEase(Ease.InOutExpo);
@@ -72,7 +72,7 @@ using UnityEngine;
                 preview.transform.DOScaleY(wallWidth, previewTime);
                 previewRenderer.DOColor(new Vector4(1,1,1,0.5f), previewTime / 10)
                     .SetEase(Ease.InOutExpo).SetLoops(10, LoopType.Yoyo);
-                DOVirtual.DelayedCall(previewTime, () =>
+                DOVirtual.DelayedCall(previewTime * 1.2f, () =>
                 {
                     preview.SetActive(false);
                     wall.transform.DOScaleY(wallWidth, previewTime / 2).SetEase(Ease.InOutExpo);

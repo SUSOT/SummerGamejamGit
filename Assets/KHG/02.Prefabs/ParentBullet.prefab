@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6510718388534193309}
   - component: {fileID: 1827811843408871552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7609446002530997324}
   - component: {fileID: 1759961824668272759}
   - component: {fileID: 5318069635949755241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ParentBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolingType>k__BackingField: {fileID: 11400000, guid: a29001dbba9c79746ac3c8bb834bd82f, type: 2}
-  moveSpeed: 8
-  repeatDuration: 1.5
+  moveSpeed: 0
+  repeatDuration: 2.5
   spawnEvent:
     m_PersistentCalls:
       m_Calls:
@@ -224,13 +224,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalBullet: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
-  delayTime: 0.05
-  bulletCount: 8
   rotationSpeed: 5
-  generateAngle: 40
-  speed: 15
-  scale: 1.7
-  bulletRotation: 15
+  GenerateAngle: 60
+  DelayTime: 0
+  BulletCount: 5
+  Speed: 15
+  Scale: 1.7
+  BulletRotation: 15
 --- !u!50 &1759961824668272759
 Rigidbody2D:
   serializedVersion: 5
@@ -240,7 +240,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2276663763616321344}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3652705426307770679}
   - component: {fileID: 4351343642019390374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046134611045704639}
   - component: {fileID: 8081583266168132779}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

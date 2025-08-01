@@ -17,7 +17,6 @@ namespace LCM._01.Scripts
         {
             if (other.gameObject.CompareTag("BulletDestroyZone"))
             {
-                Debug.Log(_poolManager);
                 _poolManager.Push(this);
             }
             ApplyDamage(other);

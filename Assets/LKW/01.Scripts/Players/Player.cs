@@ -75,13 +75,15 @@ namespace Players
         public void TakeDamage()
         {
             Health--;
-
+            Debug.Log("맞음");
+            
             if (Health <= 0)
             {
                 gameOverEvent?.Invoke();
                 playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
                 deadParticle.transform.position = transform.position;
                 deadParticle.Play();
+                gameObject.SetActive(false);
             }
         }
     }

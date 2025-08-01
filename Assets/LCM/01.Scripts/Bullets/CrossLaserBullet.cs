@@ -27,5 +27,10 @@ namespace LCM._01.Scripts.Bullets
         {
             
         }
+
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            ApplyDamage(other);
+        }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5587951971095597184}
   - component: {fileID: 5691776642251586947}
   - component: {fileID: 631071475913935201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TileSquareBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
