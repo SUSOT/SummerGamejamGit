@@ -44,7 +44,7 @@ public class Patorl : MonoBehaviour
         {
 
             var sequence = DOTween.Sequence();
-            sequence.Append(transform.DOScale(1, 0.5f));
+            sequence.Append(transform.DOScale(4, 0.5f));
             sequence.Join(transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360));
 
             StartCoroutine(AutoClosePortalAtStart());
