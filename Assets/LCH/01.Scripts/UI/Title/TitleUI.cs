@@ -30,7 +30,7 @@ public class TitleUI : MonoBehaviour
 
     private void OnEnable()
     {
-        if (DemoLoadScene.instance.IsNomarlClear)
+        if (DemoLoadScene.instance.IsNomarlClear || DemoLoadScene.instance != null)
         {
             Destroy(lockImage.gameObject);
         }
