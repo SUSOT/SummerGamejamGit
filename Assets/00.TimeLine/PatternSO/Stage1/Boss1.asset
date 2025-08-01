@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
-  m_Name: Boss
+  m_Name: Boss1
   m_EditorClassIdentifier: 
   StartTime: 140
   pattern: {fileID: 4564718729064719357, guid: f2112d6e5ab9ef44bbbfc555c005b3a1, type: 3}
