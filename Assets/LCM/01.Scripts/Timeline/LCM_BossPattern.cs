@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
+using LCM._01.Scripts.Bullets;
 using UnityEngine;
 
 namespace LCM._01.Scripts.Timeline
@@ -12,6 +13,7 @@ namespace LCM._01.Scripts.Timeline
 
         [SerializeField] private GameObject warning;
         [SerializeField] private GameObject bossPrefab;
+        [SerializeField] private PoolingItemSO normal;
         private GameObject _boss;
         
         private void OnEnable()
@@ -46,6 +48,22 @@ namespace LCM._01.Scripts.Timeline
             _boss.transform.DORotate(new Vector3(0, 0, 2520), 7f, RotateMode.FastBeyond360)
                 .SetEase(Ease.InOutSine)
                 .SetRelative(true);
+
+            for (int i = 0; i < 30; ++i)
+            {
+                for (int j = 0; j < 3; ++j)
+                {
+                    NormalBullet nb = _poolManager.Pop<NormalBullet>(normal);
+                    nb.transform.position = _boss.transform.position;
+                    nb.moveSpeed = 25f;
+                    nb.rotationSpeed = 9f;
+        
+                    float angle = 120f * j;  
+                    Vector3 direction = Quaternion.AngleAxis(angle, Vector3.forward) * _boss.transform.up;
+                    nb.MoveDirection = direction.normalized;
+                }
+                yield return new WaitForSeconds(0.2f);
+            }
         }
     }
 }
