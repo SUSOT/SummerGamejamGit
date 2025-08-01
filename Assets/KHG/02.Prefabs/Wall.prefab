@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8755934677646949665}
   - component: {fileID: 2669860692801764974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WarnningPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 412004569380522007}
   - component: {fileID: 2082029146602014891}
   - component: {fileID: 3515807541089326965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8832469851954690321}
   - component: {fileID: 2981094915391091563}
   - component: {fileID: 1337541244589086301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
