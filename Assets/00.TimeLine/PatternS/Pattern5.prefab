@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7776915872398057089
+--- !u!1 &8382544029659755327
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 381805362631505297}
-  - component: {fileID: 6209561880476533235}
+  - component: {fileID: 2822680058408993151}
+  - component: {fileID: 482372589000251826}
   m_Layer: 0
-  m_Name: Pattern2Wall
+  m_Name: Pattern5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &381805362631505297
+--- !u!4 &2822680058408993151
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776915872398057089}
+  m_GameObject: {fileID: 8382544029659755327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 15.99, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6209561880476533235
+--- !u!114 &482372589000251826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776915872398057089}
+  m_GameObject: {fileID: 8382544029659755327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c7029cadb84940bf331424cb9ab233, type: 3}
+  m_Script: {fileID: 11500000, guid: 154619727834ded4ab5c57f91757f8a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolManager: {fileID: 11400000, guid: 7f6b4e67a6cfa2e42bac3f9fb5c4907e, type: 2}
-  wallItem: {fileID: 11400000, guid: ce9cfa4c517c65e4885acc284a58faf9, type: 2}
-  isHorizontal: 0
-  isNegative: 0
-  wallHeight: 54
-  wallWidth: 26
-  previewTime: 4
-  lifeTime: 12
-  initPos: {x: 0, y: -19}
+  triangle: {fileID: 11400000, guid: 54623d8b6aa39854c8f80d9c0d264efd, type: 2}
+  boomBullet: {fileID: 11400000, guid: 9fd8ab9b07251e647acb412b1b96f5c8, type: 2}
+  spawnCount: 7

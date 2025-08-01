@@ -29,7 +29,7 @@ public class Pattern4 : TimeLinePattern
             LaserBullet laser = _poolManager.Pop<LaserBullet>(laserItem);
             laser.transform.position = spawnPosandRoatz[j];
             laser.transform.rotation = Quaternion.Euler(0, 0, spawnPosandRoatz[j].z);
-            yield return new WaitForSeconds(0.45f);
+            yield return new WaitForSeconds(0.3f);
         }
     }
 }
