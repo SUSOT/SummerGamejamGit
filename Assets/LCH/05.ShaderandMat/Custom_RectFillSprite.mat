@@ -32,7 +32,7 @@ Material:
     - _FillAmount: 1
     - _FillDirection: 4
     m_Colors:
-    - _BackgroundColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _BackgroundColor: {r: 0.21383637, g: 0.20240486, b: 0.20240486, a: 1}
     - _FillColor: {r: 0.5254902, g: 0.78039217, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
