@@ -22,6 +22,11 @@ namespace LCM._01.Scripts.Bullets
             _rigidbody.linearVelocity = MoveDirection.normalized * MoveSpeed;
         }
 
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
         public override void SetUpPool(Pool pool)
         {
             _rigidbody = GetComponent<Rigidbody2D>();

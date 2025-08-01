@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: 0c91065d04b24ba9baa38097799abc14, type: 3}
+  m_Name: LCM_FinalBoss
   m_EditorClassIdentifier: 
-  patterns:
-  - {fileID: 11400000, guid: 7445ec24cbcdf5e4b84a1af35df3514e, type: 2}
+  StartTime: 0
+  pattern: {fileID: 8084298364933444158, guid: 86491ecff394c614184d4f6572a1ad50, type: 3}
