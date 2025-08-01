@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 801154920841873047}
   - component: {fileID: 2983360745903319674}
   - component: {fileID: 7071978647523288140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DumbbellBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4448676758045285126}
   - component: {fileID: 4042110167494464434}
   - component: {fileID: 2381201281349907729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DumbbellBullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 2615597841699819923}
   - component: {fileID: 5936085587381931994}
   - component: {fileID: 6917445245796071144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 5555114523347112272}
   - component: {fileID: 6634379910078948091}
   - component: {fileID: 5445522227811226620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DumbbellBullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

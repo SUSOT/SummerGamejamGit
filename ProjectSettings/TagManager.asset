@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - IgnoreBody
+  - Obstacle
   - Wall
   - 
   - 

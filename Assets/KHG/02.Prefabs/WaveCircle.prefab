@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3499532403254267111}
   - component: {fileID: 7664637874835312972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2524421558516028560}
   - component: {fileID: 3152456321211433810}
   - component: {fileID: 4337438000952943843}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 8359388298993257826}
   - component: {fileID: 6655754374551821425}
   - component: {fileID: 7462948031397433852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 758039077393244931}
   - component: {fileID: 4666200723582338861}
   - component: {fileID: 4731228197797227127}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 1401103307703826032}
   - component: {fileID: 5967829171120364282}
   - component: {fileID: 4537542720466209417}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaveCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
