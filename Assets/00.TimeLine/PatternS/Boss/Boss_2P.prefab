@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 2381705118307018176}
   - component: {fileID: 107452263771420238}
   - component: {fileID: 8181335251703291780}
+  - component: {fileID: 6941542521183837033}
   m_Layer: 0
   m_Name: Boss_2
   m_TagString: Untagged
@@ -685,6 +686,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onlyPlayPowerAttack: 1
   impulseForce: 0.6
+--- !u!114 &6941542521183837033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370151114523664972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2e908c5dcc14c42915e377ce46d74b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patorl: {fileID: 11400000, guid: fc3081e2c5a425049a8b1e4241f290ec, type: 2}
 --- !u!1 &511187930886759429
 GameObject:
   m_ObjectHideFlags: 0

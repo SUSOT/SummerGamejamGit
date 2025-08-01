@@ -15,6 +15,7 @@ public class TitleUI : MonoBehaviour
     [SerializeField] private float inputCooldown = 0.2f;
     [SerializeField] private string loadScene;
     [SerializeField] private Image selectImage;
+    [SerializeField] private Image lockImage;
     private float _inputTime;
     private int _currentIndex = 0;
 
@@ -27,6 +28,14 @@ public class TitleUI : MonoBehaviour
         inputSO.OnUIOnSubmitPressed += HandleSubmit;
     }
 
+    private void OnEnable()
+    {
+        if (DemoLoadScene.instance.IsNomarlClear)
+        {
+            Destroy(lockImage.gameObject);
+        }
+    }
+
     private void HandleSubmit()
     {
         switch (images[_currentIndex].type)
@@ -34,6 +43,16 @@ public class TitleUI : MonoBehaviour
             case ImageTypeEnum.START:
                 inputSO.EnablePlayerCnt();
                 DemoLoadScene.instance.LoadScene(loadScene);
+                break;
+            case ImageTypeEnum.Infinite:
+                if (DemoLoadScene.instance.IsNomarlClear)
+                {
+                    DemoLoadScene.instance.LoadScene("InfiniteScene");
+                }
+                else
+                {
+                    return;
+                }
                 break;
             case ImageTypeEnum.SETTING:
                 SettingManager.Instance.IsOpen = true;

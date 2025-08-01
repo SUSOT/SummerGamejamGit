@@ -7,9 +7,19 @@ namespace GondrLib.ObjectPool.Runtime
     public class PoolManagerMono : MonoBehaviour, IDependencyProvider
     {
         [SerializeField] private PoolManagerSO poolManager;
+        public static PoolManagerMono Instacne;
 
         private void Awake()
         {
+            if(Instacne == null)
+            {
+                Instacne = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             poolManager.Initialize(transform);
         }
 
