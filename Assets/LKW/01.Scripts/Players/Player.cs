@@ -24,7 +24,6 @@ namespace Players
         public AnimParamSO MOVE_XParam;
         public AnimParamSO MOVE_YParam;
         
-        [SerializeField] private LayerMask projectileLayer;
         [SerializeField] private GameEventChannelSO playerChannel;
         [SerializeField] private ParticleSystem deadParticle;
         [SerializeField] public ParticleSystem trailParticle;
@@ -68,6 +67,11 @@ namespace Players
         private void Update()
         {
             _stateMachine.UpdateStateMachine();
+
+            if (Input.GetKeyDown(KeyCode.PageUp))
+            {
+                gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
+            }
         }
         
         private void HandleDashKeyPress()
