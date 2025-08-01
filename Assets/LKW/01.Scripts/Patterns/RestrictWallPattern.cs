@@ -29,9 +29,6 @@ namespace LKW._01.Scripts.Patterns
         
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Q))
-                Execute();
-            
             if (Time.time - spawnTime >= lifeTime && isActive == true)
             {
                 isActive = false;

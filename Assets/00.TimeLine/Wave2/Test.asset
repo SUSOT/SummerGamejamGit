@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fc57ddd43947f5bae0d3d997ca9612, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  patterns: []
+  patterns:
+  - {fileID: 11400000, guid: 1a245fb9d3d00bc43939ead72403c43a, type: 2}
+  - {fileID: 11400000, guid: 9955d85395c2f034988d8a2da5679076, type: 2}
+  - {fileID: 11400000, guid: 0b6222ab8265abe4aab7c51011de7835, type: 2}

@@ -1,6 +1,5 @@
 using System.Collections;
-using Animation;
-using DG.Tweening;
+using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using KHG.Bullets;
 using UnityEngine;
@@ -9,107 +8,29 @@ namespace LKW._01.Scripts.Patterns
 {
     public class Pattern2_3 : TimeLinePattern
     {
+        [SerializeField] private Transform[] spawnPoints;
+        
         [SerializeField] private PoolManagerSO poolManager;
-        [SerializeField] private PoolingItemSO bigLaserItem;
-        [SerializeField] private SommonerBullet sBullet;
-
-        WaitForSeconds wait = new WaitForSeconds(0.6f);
-
+        [SerializeField] private PoolingItemSO laserItem;
+        
+        WaitForSeconds wait = new WaitForSeconds(1.5f);
+        
         public override void Execute()
         {
-            sBullet.StopAllCoroutines();
-            
-            sBullet.transform.DOMoveY(0, 2).OnComplete(() 
-                => StartCoroutine(SpawnCoroutine()));
-
+            StartCoroutine(SpawnCoroutine());
         }
 
-    private IEnumerator SpawnCoroutine()
-    {
-        sBullet.StartSpawn();
-        
-        SpawnLaser(new Vector3(-28, 10, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(12, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, -6, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-20, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, 4, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(0, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, 8, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-16, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, -10, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(20, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, 0, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-8, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, 6, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(8, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, -4, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-4, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, -2, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(16, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, 10, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-12, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, 0, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(4, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, -8, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-20, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, 12, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(0, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, 6, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-24, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, -6, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(12, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, 2, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-16, 18, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(-28, 8, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(6, 28, 0), false);
-        yield return wait;
-        SpawnLaser(new Vector3(28, -12, 0), true);
-        yield return wait;
-        SpawnLaser(new Vector3(-8, 18, 0), false);
-        
-        sBullet.StopAllCoroutines();
-        sBullet.gameObject.SetActive(false);
-    }
-        private void SpawnLaser(Vector3 point, bool isHorizontal)
+        private IEnumerator SpawnCoroutine()
         {
-            BigLaser laser = poolManager.Pop(bigLaserItem) as BigLaser;
-            laser.transform.position = point;
-
-            if (!isHorizontal)
-                laser.rotation = 90f;
+            yield return new WaitForSeconds(6f);
+            for (int i = 0; i <16; i++)
+            {
+                LaserBullet laser = poolManager.Pop(laserItem) as LaserBullet;
+                laser.transform.position =
+                    new Vector3(Random.Range(spawnPoints[0].position.x, spawnPoints[1].position.x),0, 0);
+                laser.rotation = 90;
+                yield return wait;
+            }
         }
     }
 }
