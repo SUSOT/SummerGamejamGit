@@ -1738,7 +1738,7 @@ GameObject:
   - component: {fileID: 4734055337517493485}
   - component: {fileID: 7450118344771258995}
   - component: {fileID: 6242375410080621473}
-  - component: {fileID: 2077022423500468590}
+  - component: {fileID: 750346980250519128}
   m_Layer: 0
   m_Name: Boss_1
   m_TagString: Untagged
@@ -1873,7 +1873,7 @@ MonoBehaviour:
   Speed: 15
   Scale: 1.7
   BulletRotation: 15
---- !u!114 &2077022423500468590
+--- !u!114 &750346980250519128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1885,6 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2e908c5dcc14c42915e377ce46d74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patorl: {fileID: 11400000, guid: fc3081e2c5a425049a8b1e4241f290ec, type: 2}
 --- !u!1 &996130880313813139
 GameObject:
   m_ObjectHideFlags: 0
