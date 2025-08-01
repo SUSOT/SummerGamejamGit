@@ -115,3 +115,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraChannel: {fileID: 11400000, guid: e0a3debcf14fc2f45a2236593b789174, type: 2}
   vCam: {fileID: 6307888418768141328}
+  transitionDuration: 2
