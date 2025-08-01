@@ -1,3 +1,4 @@
+using System;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
@@ -14,6 +15,11 @@ namespace LCM._01.Scripts.Bullets
             if (_rigidbody == null) return;
             
             _rigidbody.linearVelocity = MoveDirection.normalized * MoveSpeed;
+        }
+
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         public override void SetUpPool(Pool pool)
