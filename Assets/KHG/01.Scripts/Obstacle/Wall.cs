@@ -2,26 +2,48 @@ using DG.Tweening;
 using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace KHG.Obstacles
 {
     public class WallGen : Bullet
     {
+        [SerializeField] private GameObject wallObj;
         [SerializeField] private SpriteRenderer _warnRenderer;
+
+        public UnityEvent OnWallDeployed;
         public float WarnTime = 1.5f;
-        private Vector3 originSize;
 
         private Pool _wallPool;
 
         private void Start()
         {
-            originSize = transform.localScale;
-            transform.localScale = Vector3.zero;
+            wallObj.SetActive(false);
+            _warnRenderer.gameObject.SetActive(false);
+            SetWall();
         }
 
         public void SetWall()
         {
-            _warnRenderer.DOFade(0.5f, 0.3f).SetLoops(3,LoopType.Yoyo);
+            _warnRenderer.gameObject.SetActive(true);
+            Sequence _seq = DOTween.Sequence();
+            for (int i = 0; i < 2; i++)
+            {
+                _seq.Append(_warnRenderer.DOFade(0.2f, WarnTime / 12));
+                _seq.Append(_warnRenderer.DOFade(0, WarnTime / 12));
+            }
+            _seq.Append(_warnRenderer.DOFade(0.2f, WarnTime / 12));
+            _seq.Append(_warnRenderer.DOFade(0, WarnTime / 12)).OnComplete(() =>
+            {
+                wallObj.SetActive(true);
+                _warnRenderer.gameObject.SetActive(false);
+                wallObj.transform.DOScale(Vector3.one, 0.2f).OnComplete(() => OnWallDeployed?.Invoke());
+            });
+        }
+        public void DestroyWall()
+        {
+            if (_wallPool != null) _wallPool.Push(this);
+            else Destroy(gameObject);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
