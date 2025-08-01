@@ -274,7 +274,8 @@ GameObject:
   - component: {fileID: 7161205478638313182}
   - component: {fileID: -5169737273080336207}
   - component: {fileID: 6401858210472598309}
-  m_Layer: 0
+  - component: {fileID: 7905124934964717680}
+  m_Layer: 9
   m_Name: TriangleBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,9 +418,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 10000
+  m_LinearDamping: 1000
+  m_AngularDamping: 1000
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -432,6 +433,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7905124934964717680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640047647580359304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dbce4635b51044e940dd10ba769bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5101902063781546458
 GameObject:
   m_ObjectHideFlags: 0
