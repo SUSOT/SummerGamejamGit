@@ -5,6 +5,7 @@ using LCM._01.Scripts.Bullets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Pattern5 : TimeLinePattern
@@ -47,8 +48,11 @@ public class Pattern5 : TimeLinePattern
     {
         TriangleCannon tc = _poolManager.Pop<TriangleCannon>(triangle);
         tc.transform.position = new Vector3(0, 30, 0);
-        tc.MovePosition = Vector2.zero;
         tc.FireDuration = 0.4f;
+        tc.transform.DOMove(Vector3.zero, 3f).OnComplete(() =>
+        {
+            tc.StartInfiniteRotation();
+        });
 
         yield return new WaitForSeconds(1.2f);
 

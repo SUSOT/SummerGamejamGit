@@ -65,10 +65,14 @@ MonoBehaviour:
   bossPrefab: {fileID: 4640047647580359304, guid: a63844de724499a4aa3bcf043f8d4b4a, type: 3}
   warningWall: {fileID: 679484349740496139, guid: 82869d31ab029754cbdf419c9afc7244, type: 3}
   wall: {fileID: 979043584605689915, guid: e6113525034683343adef703de4af214, type: 3}
+  thorn: {fileID: 9149824596812821180, guid: e96b3f583dded9d46a2f32a74733dae4, type: 3}
+  triangleWave: {fileID: 2184210959460436838, guid: 6db13d8fd36f9a3468f24f8efd6222d9, type: 3}
   normal: {fileID: 11400000, guid: c001457216a59c849af5d52f57328c6b, type: 2}
   laser: {fileID: 11400000, guid: a397da91a1016084eba4ff86d1cb195c, type: 2}
   wallBullet: {fileID: 11400000, guid: 07e3097f351dcc948b01babe0c1bea97, type: 2}
   bomb: {fileID: 11400000, guid: d472e9bc4431cc34ba400b6a75a92136, type: 2}
+  cross: {fileID: 11400000, guid: b1b575d93c2d0f5408066a94f154e4e3, type: 2}
+  triangleCannon: {fileID: 11400000, guid: 54623d8b6aa39854c8f80d9c0d264efd, type: 2}
 --- !u!114 &8438032393185077801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseDefinition:
     ImpulseChannel: 1
-    ImpulseShape: 2
+    ImpulseShape: 3
     CustomImpulseShape:
       serializedVersion: 2
       m_Curve: []
@@ -135,4 +139,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onlyPlayPowerAttack: 1
-  impulseForce: 0.6
+  impulseForce: 1
