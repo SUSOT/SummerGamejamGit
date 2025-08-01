@@ -1,3 +1,4 @@
+using System;
 using GondrLib.ObjectPool.Runtime;
 using UnityEngine;
 
@@ -10,6 +11,11 @@ namespace LCM._01.Scripts.Bullets
         private Rigidbody2D _rigidbody;
         [field:SerializeField] public float moveSpeed { get; set; }
         [field: SerializeField] public float rotationSpeed { get; set; }
+
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
 
         public override void SetUpPool(Pool pool)
         {

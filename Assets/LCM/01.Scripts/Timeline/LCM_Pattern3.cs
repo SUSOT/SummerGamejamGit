@@ -31,6 +31,7 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private float previewTime;
         
         private Vector2[] spawnedPositions = new Vector2[20];
+        private WallGen[] wallGens = new WallGen[20];
         
         private void OnEnable()
         {
@@ -56,6 +57,7 @@ namespace LCM._01.Scripts.Timeline
     
                 float xOffset = (i - 1) * 20f;
                 sb.transform.position = new Vector3(xOffset, -20f, 0f);
+                sb.MoveSpeed = 7f;
             }
 
             yield return new WaitForSeconds(3f);
@@ -77,7 +79,7 @@ namespace LCM._01.Scripts.Timeline
                 
                     for (int j = 0; j < i; j++)
                     {
-                        if (Vector2.Distance(newPosition, spawnedPositions[j]) < 2f) 
+                        if (Vector2.Distance(newPosition, spawnedPositions[j]) < 3f) 
                         {
                             validPosition = false;
                             break;
@@ -87,9 +89,18 @@ namespace LCM._01.Scripts.Timeline
                 } while (!validPosition);
                 
                 wg.transform.position = newPosition;
+                wallGens[i] = wg;
                 spawnedPositions[i] = newPosition;
                 yield return new WaitForSeconds(0.2f);
             }
+            
+            for (int i = 0; i < 20; ++i)
+            {
+                wallGens[i].DestroyWall();
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(1f);
 
             for (int i = 0; i < 6; ++i)
             {

@@ -36,6 +36,7 @@ namespace LCM._01.Scripts.Bullets
 
         public override void ResetItem()
         {
+            StopAllCoroutines();
             _rigidbody.linearVelocity = Vector2.zero;
             transform.rotation = Quaternion.identity;
             _isTargeting = true;
