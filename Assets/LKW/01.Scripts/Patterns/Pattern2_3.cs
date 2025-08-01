@@ -36,11 +36,14 @@ namespace LKW._01.Scripts.Patterns
                     wheelBullet.MoveSpeed = 5f;
                     wheelBullet.RotationSpeed = 4f;
                 }
-                
-                LaserBullet laser = poolManager.Pop(laserItem) as LaserBullet;
-                laser.transform.position =
-                    new Vector3(Random.Range(spawnPoints[0].position.x, spawnPoints[1].position.x),0, 0);
-                laser.rotation = 90;
+
+                for (int j = 0; j < 2; j++)
+                {
+                    LaserBullet laser = poolManager.Pop(laserItem) as LaserBullet;
+                    laser.transform.position =
+                        new Vector3(Random.Range(spawnPoints[0].position.x, spawnPoints[1].position.x),0, 0);
+                    laser.rotation = 90;
+                }
                 yield return wait;
             }
         }

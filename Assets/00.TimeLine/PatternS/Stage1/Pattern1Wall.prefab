@@ -50,6 +50,6 @@ MonoBehaviour:
   isNegative: 0
   wallHeight: 30
   wallWidth: 35
-  previewTime: 4
+  previewTime: 3
   lifeTime: 17
   initPos: {x: 27.5, y: 0}
