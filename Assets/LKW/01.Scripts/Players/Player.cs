@@ -25,7 +25,6 @@ namespace Players
         public AnimParamSO MOVE_YParam;
         
         [SerializeField] private GameEventChannelSO playerChannel;
-        [SerializeField] private ParticleSystem deadParticle;
         [SerializeField] public ParticleSystem trailParticle;
         [SerializeField] public ParticleSystem dashParticle;
         [SerializeField] public PoolingItemSO dashCirce;
@@ -68,9 +67,17 @@ namespace Players
         {
             _stateMachine.UpdateStateMachine();
 
-            if (Input.GetKeyDown(KeyCode.PageUp))
+            if (Input.GetKeyDown(KeyCode.Home))
             {
                 gameObject.layer = LayerMask.NameToLayer("IgnoreBody");
+            }
+            else if (Input.GetKey(KeyCode.PageUp))
+            {
+                Time.timeScale = 5;
+            }
+            else if (Input.GetKey(KeyCode.PageDown))
+            {
+                Time.timeScale = 1;
             }
         }
         
@@ -94,8 +101,6 @@ namespace Players
             {
                 gameOverEvent?.Invoke();
                 playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
-                deadParticle.transform.position = transform.position;
-                deadParticle.Play();
                 gameObject.SetActive(false);
             }
         }
