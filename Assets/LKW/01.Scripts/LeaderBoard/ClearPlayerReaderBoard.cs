@@ -11,6 +11,8 @@ public class ClearPlayerReaderBoard : MonoBehaviour
     public TMP_InputField playerNameInput;
     public TMP_Text leaderboardText;
 
+    [SerializeField] private Transform rankBoardTrm;
+
     private string leaderboardId = "gamejam_Leaderboard"; // Unity Dashboard에서 만든 리더보드 ID
 
     private int temp = 1;
