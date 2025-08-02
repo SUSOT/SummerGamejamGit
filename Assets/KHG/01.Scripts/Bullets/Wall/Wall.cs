@@ -1,5 +1,4 @@
 using DG.Tweening;
-using GondrLib.ObjectPool.Runtime;
 using LCM._01.Scripts;
 using System.Collections;
 using UnityEngine;
@@ -79,6 +78,7 @@ namespace KHG.Obstacles
         {
             wallObj.SetActive(false);
             _warnRenderer.gameObject.SetActive(false);
+            wallObj.GetComponent<SpriteRenderer>().DOFade(1, 0f);
         }
     }
 }

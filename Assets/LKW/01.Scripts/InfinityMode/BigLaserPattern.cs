@@ -26,6 +26,7 @@ namespace LKW._01.Scripts.InfinityMode
 
     private IEnumerator SpawnCoroutine(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
+            Debug.Log("큰레이저");
         sBullet.gameObject.SetActive(true);
         sBullet.StartSpawn();
         

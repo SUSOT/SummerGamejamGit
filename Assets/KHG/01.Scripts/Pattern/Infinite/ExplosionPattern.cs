@@ -3,7 +3,6 @@ using GondrLib.ObjectPool.Runtime;
 using KHG.Bullets;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class ExplosionPattern : InfinitePattern
@@ -20,15 +19,16 @@ public class ExplosionPattern : InfinitePattern
     }
     public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
-        StartCoroutine(NailAttack(PatternList, _activePatterns));
+        StartCoroutine(ExplodePattern(PatternList, _activePatterns));
     }
     public override void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
         base.ExecuteNextPattern(PatternList, _activePatterns);
     }
 
-    private IEnumerator NailAttack(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
+    private IEnumerator ExplodePattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
+        Debug.Log("��ź");
         _curTime = scoreManager.GetCurrentTime();
         int repeatCnt = (int)(_curTime / 2) + 3;
         for (int i = 1; i <= repeatCnt; i++)

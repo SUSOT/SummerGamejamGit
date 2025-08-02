@@ -26,6 +26,7 @@ namespace LKW._01.Scripts.InfinityMode
         public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
             StartCoroutine(SpawnCoroutine(PatternList,_activePatterns,1));
+            Debug.Log("일반 레이저");
         }
         
         private IEnumerator SpawnCoroutine(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns, float time)
