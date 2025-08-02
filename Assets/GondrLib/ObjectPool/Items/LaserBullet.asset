@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: LaserBullet
   prefab: {fileID: 536465149609459148, guid: 2fb4d7e254e4f294ab6ce4ec01780719, type: 3}
-  initCount: 60
+  initCount: 15

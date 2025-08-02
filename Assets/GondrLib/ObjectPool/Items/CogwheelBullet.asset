@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: CogwheelBullet
   prefab: {fileID: 6930974107941871531, guid: f22690df28a2379448b43e093a49e47d, type: 3}
-  initCount: 60
+  initCount: 15

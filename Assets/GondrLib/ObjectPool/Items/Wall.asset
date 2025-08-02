@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: Wall
   prefab: {fileID: 4623612265210421083, guid: 4e721be047a0fae419b3f77e8e07c2e4, type: 3}
-  initCount: 60
+  initCount: 15
