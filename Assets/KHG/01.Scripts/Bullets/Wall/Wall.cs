@@ -79,6 +79,7 @@ namespace KHG.Obstacles
         {
             wallObj.SetActive(false);
             _warnRenderer.gameObject.SetActive(false);
+            wallObj.GetComponent<SpriteRenderer>().DOFade(1, 0f);
         }
     }
 }

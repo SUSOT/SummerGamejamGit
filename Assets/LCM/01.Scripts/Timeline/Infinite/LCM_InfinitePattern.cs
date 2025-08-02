@@ -56,6 +56,7 @@ namespace LCM._01.Scripts.Timeline.Infinite
 
         public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
+            Debug.Log("인피니트 패턴");
             StartCoroutine(Spawn(PatternList, _activePatterns));
         }
 

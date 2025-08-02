@@ -21,6 +21,7 @@ namespace LKW._01.Scripts.InfinityMode
         public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
             StartCoroutine(WavePattern(PatternList, _activePatterns));
+            Debug.Log("normal wave");
         }
         
         
