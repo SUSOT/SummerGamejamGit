@@ -49,9 +49,9 @@ MonoBehaviour:
   sommoner: {fileID: 11400000, guid: a29001dbba9c79746ac3c8bb834bd82f, type: 2}
   wall: {fileID: 11400000, guid: b812c6634a618264db0b1dce70a8df84, type: 2}
   explode: {fileID: 11400000, guid: 9fd8ab9b07251e647acb412b1b96f5c8, type: 2}
-  initPos: {x: 0, y: -14}
-  isHorizontal: 1
+  initPos: {x: 0, y: -20}
+  isHorizontal: 0
   isNegative: 0
-  wallHeight: 5
-  wallWidth: 60
+  wallHeight: 60
+  wallWidth: 20
   previewTime: 3

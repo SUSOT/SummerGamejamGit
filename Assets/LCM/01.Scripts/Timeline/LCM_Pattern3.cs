@@ -47,7 +47,7 @@ namespace LCM._01.Scripts.Timeline
         {
             Wall wall = _poolManagerSO.Pop(wallItem) as Wall;
             
-            wall.Init(initPos, isHorizontal, isNegative, wallHeight, wallWidth, previewTime);
+            wall.Init(initPos, isHorizontal, isNegative, wallHeight, wallWidth,previewTime);
             
             wall.SetWall();
             yield return new WaitForSeconds(3f);
@@ -139,6 +139,8 @@ namespace LCM._01.Scripts.Timeline
                 tb.moveable = true;
                 yield return new WaitForSeconds(1f);
             }
+
+            _poolManager.Push(wall);
         }
     }
 }
