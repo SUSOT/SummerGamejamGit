@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: NailBullet
   prefab: {fileID: 4633808320587341329, guid: 4cb79dfe912b8f4429b2d8c922341842, type: 3}
-  initCount: 8
+  initCount: 60

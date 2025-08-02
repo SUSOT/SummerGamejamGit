@@ -1,6 +1,7 @@
 using DG.Tweening;
 using EasyTransition;
 using Entities;
+using GondrLib.ObjectPool.Runtime;
 using Players;
 using System;
 using System.Collections;
@@ -110,6 +111,8 @@ public class Patorl : MonoBehaviour
             DemoLoadScene.instance.IsNomarlClear = true;
             PlayerPrefs.SetFloat("Clear", 1);
         }
+        PoolManagerMono.Instacne.AllPush();
+        PoolManagerMono.Instacne.poolManager.Initialize(PoolManagerMono.Instacne.transform);
         DemoLoadScene.instance.LoadScene(nextScene);
         playerCollider.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y);
         

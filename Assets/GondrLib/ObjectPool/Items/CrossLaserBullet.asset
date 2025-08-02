@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: CrossLaserBullet
   prefab: {fileID: 5791985946176678713, guid: e2cd707108a21044fab52f6f763e8358, type: 3}
-  initCount: 4
+  initCount: 60
