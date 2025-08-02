@@ -6,7 +6,7 @@ namespace GondrLib.ObjectPool.Runtime
     [Provide]
     public class PoolManagerMono : MonoBehaviour, IDependencyProvider
     {
-        [SerializeField] private PoolManagerSO poolManager;
+        [SerializeField] public PoolManagerSO poolManager;
         public static PoolManagerMono Instacne;
 
         private void Awake()

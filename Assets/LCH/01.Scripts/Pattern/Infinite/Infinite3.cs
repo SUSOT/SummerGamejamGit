@@ -38,7 +38,7 @@ public class Infinite3 : InfinitePattern
         for (int i = 0; i < SpawnCount; i++)
         {
             CogwheelBullet cogwheel = _poolManager.Pop<CogwheelBullet>(cog);
-            cogwheel.transform.position = new Vector2(25, 0);
+            cogwheel.transform.position = new Vector2(15, 0);
             cogwheel.MoveSpeed = moveSpeed;
             cogwheel.RotationSpeed = 10f;
             cogwheel.MoveDirection = Vector2.left;

@@ -31,10 +31,7 @@ namespace EasyTransition
         
         public void LoadScene(string _sceneName)
         {
-            if(PoolManagerMono.Instacne != null)
-            {
-                PoolManagerMono.Instacne.AllPush();
-            }
+            
             TransitionManager.instance.Transition(_sceneName, transition, startDelay);
             SceneCheck.RaiseEvent(SceneChangeEvents.SceneChangeCheck.Init(_sceneName));
         }   
