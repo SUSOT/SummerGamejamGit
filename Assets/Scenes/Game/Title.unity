@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneCheck: {fileID: 11400000, guid: 19085ebf169bb61499d2dcddd13c328b, type: 2}
-  IsNomarlClear: 1
+  IsNomarlClear: 0
   transition: {fileID: 11400000, guid: 9710edcf009d00943af961dd2a7ca7d3, type: 2}
   startDelay: 0
 --- !u!4 &1098039336
