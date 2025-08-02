@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: BigLaser
   prefab: {fileID: 6172519334226507850, guid: ad49020a8c3bf85448c3c0a693c99551, type: 3}
-  initCount: 10
+  initCount: 60

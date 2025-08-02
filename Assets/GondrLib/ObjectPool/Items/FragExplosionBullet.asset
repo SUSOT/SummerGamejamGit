@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: FragExplosionBullet
   prefab: {fileID: 7804136926197067646, guid: fa2b6fcff1dbeaa4aba5661674c84e52, type: 3}
-  initCount: 10
+  initCount: 60
