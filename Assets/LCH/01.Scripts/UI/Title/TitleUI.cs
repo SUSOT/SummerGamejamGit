@@ -27,6 +27,7 @@ public class TitleUI : MonoBehaviour
         images[_currentIndex].SelectImage();
         inputSO.OnUINavigation += HandleMoveSelect;
         inputSO.OnUIOnSubmitPressed += HandleSubmit;
+
     }
 
     private void Start()

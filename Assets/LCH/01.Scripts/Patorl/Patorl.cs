@@ -108,6 +108,7 @@ public class Patorl : MonoBehaviour
         if (nextScene == "Stage3")
         {
             DemoLoadScene.instance.IsNomarlClear = true;
+            PlayerPrefs.SetFloat("Clear", 1);
         }
         DemoLoadScene.instance.LoadScene(nextScene);
         playerCollider.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y);
