@@ -17,7 +17,6 @@ public class NailPattern : InfinitePattern
     private void OnEnable()
     {
         Injector.Instance.InjectRuntime(this);
-        _curTime = scoreManager.GetCurrentTime();
     }
     public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
@@ -30,12 +29,18 @@ public class NailPattern : InfinitePattern
 
     private IEnumerator NailAttack(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
-        for (int i = 0; i < (_curTime / 3) + 2; i++)
+        _curTime = scoreManager.GetCurrentTime();
+        int repeatCnt = (int)(_curTime / 3) + 2;
+        for (int i = 1; i <= repeatCnt; i++)
         {
-            NailBullet bullet = poolManager.Pop(poolType) as NailBullet;
-            bullet.SetSpawnValues(transform.position, new Vector3(0, 0, 360 / i),50);
-            yield return new WaitForSeconds(1 / _curTime);
+            ExplodeBullet bullet = poolManager.Pop(poolType) as ExplodeBullet;
+            bullet.transform.position = Vector3.zero;
+            bullet.targetPosition = Vector3.zero + new Vector3(Random.Range(-10,10),Random.Range(-5,5));
+
+            float waitTime = _curTime == 0 ? 2 : 1 / _curTime * 2 + 0.5f;
+            yield return new WaitForSeconds(waitTime);
         }
+        yield return new WaitForSeconds(2f);
         ExecuteNextPattern(PatternList,_activePatterns);
     }
 }

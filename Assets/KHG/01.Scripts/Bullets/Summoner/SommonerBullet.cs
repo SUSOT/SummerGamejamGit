@@ -15,7 +15,11 @@ namespace KHG.Bullets
 
         public UnityEvent OnSpawnEvent;
 
-        public float ChildSpawnCount => _generator.BulletCount;
+        public int ChildSpawnCount
+        {
+            get => _generator.BulletCount;
+            set => _generator.BulletCount = value;
+        }
         public bool AutoAngle => _generator.AutoAngle;
         public float ChildSpawnAngle => _generator.GenerateAngle;
 

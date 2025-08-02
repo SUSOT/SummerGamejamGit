@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bbb9eabf47d31749a30609145d15130, type: 3}
-  m_Name: Inf_NailPattern1
+  m_Name: Inf_SummonPattern_1
   m_EditorClassIdentifier: 
-  Pattern: {fileID: 1407971636464046197, guid: 89249c8243b01444fa2b94bf49b1dd23, type: 3}
+  Pattern: {fileID: 7802000899400709536, guid: f234cb7922ce155488baec9fe2e70145, type: 3}
