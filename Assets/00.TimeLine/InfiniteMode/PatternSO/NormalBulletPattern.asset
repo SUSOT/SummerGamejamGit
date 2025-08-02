@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112457522294a7e4fab8e6dad4218c50, type: 3}
-  m_Name: Test 1
+  m_Script: {fileID: 11500000, guid: 9bbb9eabf47d31749a30609145d15130, type: 3}
+  m_Name: NormalBulletPattern
   m_EditorClassIdentifier: 
-  patterns:
-  - {fileID: 11400000, guid: aa95583ea6c191b4586c334e995f5308, type: 2}
+  Pattern: {fileID: 7761743528322682526, guid: f4a79e50b504fa54ca390ddc6871e19f, type: 3}

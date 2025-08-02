@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbb9eabf47d31749a30609145d15130, type: 3}
   m_Name: LaserPattern
   m_EditorClassIdentifier: 
-  Pattern: {fileID: 1407971636464046197, guid: 89249c8243b01444fa2b94bf49b1dd23, type: 3}
+  Pattern: {fileID: 9052509080832933956, guid: 94ce3c51e67d9a549a7e517d9260dc12, type: 3}

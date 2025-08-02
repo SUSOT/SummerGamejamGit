@@ -535,11 +535,11 @@ PrefabInstance:
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 476933088}
+      objectReference: {fileID: 1483716650}
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1483716650}
+      objectReference: {fileID: 476933088}
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -550,19 +550,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CountEnd
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
-      propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ReadBoarOpne
       objectReference: {fileID: 0}
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
+      propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CountEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InfiniteScoreManager, Assembly-CSharp
+      value: RedarBoadr, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: RedarBoadr, Assembly-CSharp
+      value: InfiniteScoreManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4334928539586836986, guid: d32616c0ebdeb064799e0bfb3161e5ea, type: 3}
       propertyPath: gameOverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1056,6 +1056,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1483716650}
   m_SourcePrefab: {fileID: 100100000, guid: 67386164e879e9e40b8c64c2b2b515c9, type: 3}
+--- !u!1 &1362738204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 370808911084450191, guid: 67386164e879e9e40b8c64c2b2b515c9, type: 3}
+  m_PrefabInstance: {fileID: 1362738203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1456603356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040a2fd2c9638cd4cba032c2bfc7f3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readBoadrBackground: {fileID: 0}
+  readBoadrBackground: {fileID: 1362738204}
 --- !u!1001 &1694851536
 PrefabInstance:
   m_ObjectHideFlags: 0

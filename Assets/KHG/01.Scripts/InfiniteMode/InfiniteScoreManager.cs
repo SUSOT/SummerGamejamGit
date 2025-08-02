@@ -48,7 +48,7 @@ public class InfiniteScoreManager : MonoBehaviour, IDependencyProvider
         timeText.text = Mathf.FloorToInt(time).ToString("F0");
     }
 
-    public void SaveScore(int score) //ÀÓ½Ã
+    public void SaveScore(int score) //ìž„ì‹œ
     {
         int bestScore = LoadScore();
         if (score > bestScore)
@@ -58,7 +58,7 @@ public class InfiniteScoreManager : MonoBehaviour, IDependencyProvider
         }
     }
 
-    public int LoadScore() //ÀÓ½Ã
+    public int LoadScore() //ìž„ì‹œ
     {
         return PlayerPrefs.GetInt(SaveKey, 0);
     }

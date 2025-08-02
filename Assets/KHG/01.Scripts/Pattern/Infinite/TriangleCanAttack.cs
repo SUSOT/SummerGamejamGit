@@ -3,18 +3,15 @@ using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
 using KHG.Bullets;
 using LCM._01.Scripts.Bullets;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfinitePattern2 :InfinitePattern
+public class TriangleCanAttack : InfinitePattern
 {
-
+    [Inject] private InfiniteScoreManager scoreManager;
     [SerializeField] private PoolingItemSO triangle;
     [SerializeField] private PoolingItemSO boomBullet;
-    [SerializeField] private PoolingItemSO wallItem;
-    [SerializeField] private PoolingItemSO wallItem2;
     [SerializeField] private int spawnCount;
     private List<Vector2> spawnPos = new List<Vector2>
     {
@@ -41,23 +38,8 @@ public class InfinitePattern2 :InfinitePattern
         Injector.Instance.InjectRuntime(this);
     }
 
-    public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
+    private IEnumerator Spawn(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
-        StartCoroutine(Spawn(PatternList,_activePatterns));
-    }
-
-    private IEnumerator Spawn(InfinitePatternListSO patternList, List<InfinitePattern> activePatterns)
-    {
-
-        Wall wall = _poolManager.Pop<Wall>(wallItem);
-        Wall wall2 = _poolManager.Pop<Wall>(wallItem2);
-        wall.Init(new Vector2(33, 0), true, false, 30, 35, 4f);
-        wall2.Init(new Vector2(-33, 0), true, false, 30, 35, 4f);
-        wall.SetWall();
-        wall2.SetWall();
-
-        yield return new WaitForSeconds(4f);
-
         TriangleCannon tc = _poolManager.Pop<TriangleCannon>(triangle);
         tc.transform.position = new Vector3(0, 30, 0);
         tc.FireDuration = 0.4f;
@@ -85,10 +67,14 @@ public class InfinitePattern2 :InfinitePattern
 
             yield return new WaitForSeconds(1f);
         }
+        yield return new WaitForSeconds(1f);
+        ExecuteNextPattern(PatternList, _activePatterns);
+    }
 
-        ExecuteNextPattern(patternList, activePatterns);
-        _poolManager.Push(wall2);
-        _poolManager.Push(wall);
+    public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
+    {
+        StartCoroutine(Spawn(PatternList, _activePatterns));
+        spawnCount = (int)scoreManager.GetCurrentTime()/2 + 2;
     }
 
     public override void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)

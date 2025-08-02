@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bbb9eabf47d31749a30609145d15130, type: 3}
-  m_Name: Inf_SummonPattern_1
+  m_Name: Pattern3
   m_EditorClassIdentifier: 
-  Pattern: {fileID: 7802000899400709536, guid: f234cb7922ce155488baec9fe2e70145, type: 3}
+  Pattern: {fileID: 1538405145884281493, guid: 07c19382646200d4d8541248383f3323, type: 3}
