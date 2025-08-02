@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +11,16 @@ public class InfinitePatternStarter : MonoBehaviour
 
     private void OnEnable()
     {
+        StartCoroutine(StartExecute());   
+    }
+
+    private IEnumerator StartExecute()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
         if (listSO == null)
         {
             Debug.LogError("listSO가 할당되지 않았습니다.");
-            return;
+            yield return null;
         }
 
         copiedSO = Instantiate(listSO);
@@ -21,7 +28,7 @@ public class InfinitePatternStarter : MonoBehaviour
         if (copiedSO == null)
         {
             Debug.LogError("listSO 복사 실패");
-            return;
+            yield return null;
         }
 
         _activePatterns = copiedSO.Init(transform, _activePatterns);
@@ -29,14 +36,14 @@ public class InfinitePatternStarter : MonoBehaviour
         if (_activePatterns == null || _activePatterns.Count == 0)
         {
             Debug.LogError("패턴 리스트가 비어있거나 초기화 실패");
-            return;
+            yield return null;
         }
 
         InfinitePattern selectedPattern = copiedSO.GetActiveRandomPattern(_activePatterns);
-        if (selectedPattern == null)
+        if (copiedSO == null || _activePatterns == null)
         {
-            Debug.LogError("랜덤 패턴 선택 실패");
-            return;
+            Debug.LogError("리스트 어ㅗㅄ음");
+            yield return null;
         }
 
         selectedPattern.Execute(copiedSO, _activePatterns);
