@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LCM_Test
   m_EditorClassIdentifier: 
   patterns:
-  - {fileID: 11400000, guid: 241a4d746abc5d54aa00feeb1e7bcbce, type: 2}
+  - {fileID: 11400000, guid: 7445ec24cbcdf5e4b84a1af35df3514e, type: 2}
