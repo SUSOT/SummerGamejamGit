@@ -52,6 +52,7 @@ public class TitleUI : MonoBehaviour
                 case ImageTypeEnum.Infinite:
                     if (DemoLoadScene.instance.IsNomarlClear)
                     {
+                        inputSO.EnablePlayerCnt();
                         DemoLoadScene.instance.LoadScene("InfiniteScene");
                     }
                     else

@@ -20,7 +20,6 @@ public class SettingManager : MonoBehaviour
     [SerializeField] private Button mainMenuBnt;
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider bgmSlider;
-    [SerializeField] private Slider sfxSlider;
     [SerializeField] private AudioMixer audioMixer;
 
     private bool _isEsc = false;
@@ -109,13 +108,6 @@ public class SettingManager : MonoBehaviour
             PlayerPrefs.Save();
         });
 
-        sfxSlider.onValueChanged.AddListener(value =>
-        {
-            ApplyVolume("SFX", value);
-            PlayerPrefs.SetFloat(SFX_VOLUME_KEY, value);
-            PlayerPrefs.Save();
-        });
-
         LoadSavedVolumes();
         UpdateCurrentSlider();
     }
@@ -147,21 +139,16 @@ public class SettingManager : MonoBehaviour
         bgmSlider.SetValueWithoutNotify(bgmVol);
         ApplyVolume("BGM", bgmVol);
 
-        float sfxVol = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, DEFAULT_VOLUME);
-        sfxSlider.SetValueWithoutNotify(sfxVol);
-        ApplyVolume("SFX", sfxVol);
-
-        Debug.Log($"볼륨 로드 완료 - Master: {masterVol}, BGM: {bgmVol}, SFX: {sfxVol}");
+        Debug.Log($"볼륨 로드 완료 - Master: {masterVol}, BGM: {bgmVol}");
     }
 
     private void SaveAllSettings()
     {
         PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, masterSlider.value);
         PlayerPrefs.SetFloat(BGM_VOLUME_KEY, bgmSlider.value);
-        PlayerPrefs.SetFloat(SFX_VOLUME_KEY, sfxSlider.value);
         PlayerPrefs.Save();
 
-        Debug.Log($"설정 저장 완료 - Master: {masterSlider.value}, BGM: {bgmSlider.value}, SFX: {sfxSlider.value}");
+        Debug.Log($"설정 저장 완료 - Master: {masterSlider.value}, BGM: {bgmSlider.value}");
     }
 
     private void UpdateCurrentSlider()
