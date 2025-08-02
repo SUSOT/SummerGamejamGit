@@ -9,6 +9,8 @@ namespace LCM._01.Scripts.Bullets
         private Rigidbody2D _rigidbody;
         [field: SerializeField] public Vector2 MoveDirection { get; set; }
         [field: SerializeField] public float MoveSpeed { get; set; }
+        
+        private Pool _myPool;
 
         private void Awake()
         {
@@ -24,7 +26,7 @@ namespace LCM._01.Scripts.Bullets
 
         public override void SetUpPool(Pool pool)
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
+            _myPool = pool;
         }
 
         public override void ResetItem()

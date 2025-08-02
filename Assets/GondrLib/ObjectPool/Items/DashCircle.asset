@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: DashCircle
   prefab: {fileID: 5491021625145846693, guid: b3c6468c11b6437408a93d2dcb331c0e, type: 3}
-  initCount: 60
+  initCount: 15

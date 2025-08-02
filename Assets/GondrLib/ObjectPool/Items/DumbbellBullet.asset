@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: DumbbellBullet
   prefab: {fileID: 2579359021286647432, guid: b9571c3093646d84d9a16eb73cfb84fc, type: 3}
-  initCount: 60
+  initCount: 15
