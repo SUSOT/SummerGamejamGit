@@ -41,6 +41,8 @@ namespace Players
 
         private Material _material;
         
+        private bool _isDead;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -104,8 +106,10 @@ namespace Players
             float fill = (float)Health / maxHealth;
             _material.SetFloat(fillAmountHash, fill);
 
-            if (Health <= 0)
+            if (Health <= 0 && !_isDead)
             {
+                _isDead = true;
+                
                 gameOverEvent?.Invoke();
                 playerChannel.RaiseEvent(PlayerEvents.PlayerHitEvent);
             }

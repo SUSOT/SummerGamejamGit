@@ -18,6 +18,7 @@ public class ClearPlayerReaderBoard : MonoBehaviour
     [SerializeField] private GameObject rankBoxPrefab;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Image ReaderBoard;
+    [SerializeField] private Image RegisterPannel;
     
 
     private string leaderboardId = "gamejam_Leaderboard";
@@ -69,12 +70,11 @@ public class ClearPlayerReaderBoard : MonoBehaviour
             await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, clearTime);
             Debug.Log($"점수 등록 완료: {playerName}");
             await RefreshLeaderboard();
-            gameObject.transform.DOScale(0, 0.5f).OnComplete(()=>
+            RegisterPannel.transform.DOScale(0, 0.5f).OnComplete(()=>
             {
                 ReaderBoard.transform.DOScale(1, 0.8f);
-                DOVirtual.DelayedCall(3f, () => DemoLoadScene.instance.LoadScene("Title"));
+                
             });
-            
             
         }
         catch (System.Exception e)
@@ -83,13 +83,18 @@ public class ClearPlayerReaderBoard : MonoBehaviour
         }
     }
 
+    public void ToTile()
+    {
+        DemoLoadScene.instance.LoadScene("Title");
+    }
+    
     public async Task RefreshLeaderboard()
     {
         int number = 1;
         
         for (int i = boxParent.childCount - 1; i >= 0; i--)
         {
-            Destroy(transform.GetChild(i).gameObject);
+            Destroy(boxParent.GetChild(i).gameObject);
         }
         
         leaderboardText.text = "로딩 중...";

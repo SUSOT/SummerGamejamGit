@@ -5,6 +5,8 @@ using GondrLib.Dependencies;
 [Provide]
 public class InfiniteScoreManager : MonoBehaviour, IDependencyProvider
 {
+    [SerializeField] private ClearPlayerReaderBoard readerBoard;
+    
     public TextMeshProUGUI timeText;
 
     private float startTime;
@@ -66,5 +68,10 @@ public class InfiniteScoreManager : MonoBehaviour, IDependencyProvider
     public float GetCurrentTime()
     {
         return isCounting ? Time.time - startTime : 0f;
+    }
+
+    public void SetReaderBoard()
+    {
+        readerBoard.SetClearTime((int)(Time.time - startTime));
     }
 }

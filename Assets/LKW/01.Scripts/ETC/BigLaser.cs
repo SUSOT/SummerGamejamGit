@@ -19,10 +19,6 @@ namespace Animation
             set => transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, value);
         }
         
-        protected override void OnTriggerEnter2D(Collider2D other)
-        {
-            base.OnTriggerEnter2D(other);
-        }
         public override void SetUpPool(Pool pool)
         {
         }
