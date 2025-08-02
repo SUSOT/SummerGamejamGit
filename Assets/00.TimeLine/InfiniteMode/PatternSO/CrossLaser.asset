@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bbb9eabf47d31749a30609145d15130, type: 3}
-  m_Name: LaserPattern
+  m_Name: CrossLaser
   m_EditorClassIdentifier: 
-  Pattern: {fileID: 9052509080832933956, guid: 94ce3c51e67d9a549a7e517d9260dc12, type: 3}
+  Pattern: {fileID: 3278311704354924590, guid: 61a88ac0c3154064ab37df0017b3c8a9, type: 3}

@@ -13,55 +13,54 @@ namespace LCM._01.Scripts.Timeline.Infinite
         [Inject] private InfiniteScoreManager _scoreManager;
 
         [SerializeField] private PoolingItemSO crossLaser;
-        
-        [SerializeField] private float baseSpawnInterval = 2f; 
-        [SerializeField] private float minSpawnInterval = 0.5f; 
-        [SerializeField] private float spawnPositionRange = 5f; 
-                
+
+        [SerializeField] private float spawnPositionRange = 5f;
+
         private void OnEnable()
         {
             Injector.Instance.InjectRuntime(this);
         }
 
-        private IEnumerator Spawn()
+        private IEnumerator Spawn(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
-            while (true)
+            float currentTime = _scoreManager.GetCurrentTime();
+
+            int spawnCount = 1 + Mathf.FloorToInt(currentTime / 30f);
+
+            for (int i = 0; i < 5; i++)
             {
-                float currentTime = _scoreManager.GetCurrentTime();
-                
-                int spawnCount = 1 + Mathf.FloorToInt(currentTime / 30f);
-                
-                for (int i = 0; i < spawnCount; i++)
+                for (int j = 0; j < spawnCount; j++)
                 {
                     CrossLaserBullet laserObj = _poolManager.Pop<CrossLaserBullet>(crossLaser);
-                    
+
                     if (laserObj != null)
                     {
                         Vector3 spawnPosition = GetRandomSpawnPosition();
                         laserObj.transform.position = spawnPosition;
                     }
-                    
-                    yield return new WaitForSeconds(0.1f);
                 }
-                
-                float spawnInterval = Mathf.Max(minSpawnInterval, baseSpawnInterval - (currentTime / 60f));
-                yield return new WaitForSeconds(spawnInterval);
+
+                yield return new WaitForSeconds(2f);
             }
+
+            ExecuteNextPattern(PatternList, _activePatterns);
         }
-        
+
         private Vector3 GetRandomSpawnPosition()
         {
             float randomX = Random.Range(-spawnPositionRange, spawnPositionRange);
             float randomY = Random.Range(-spawnPositionRange, spawnPositionRange);
-            
+
             return new Vector3(randomX, randomY, 0f);
         }
+
         public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
-            StartCoroutine(Spawn());
+            StartCoroutine(Spawn(PatternList, _activePatterns));
         }
-        
-        public override void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
+
+        public override void ExecuteNextPattern(InfinitePatternListSO PatternList,
+            List<InfinitePattern> _activePatterns)
         {
             base.ExecuteNextPattern(PatternList, _activePatterns);
         }

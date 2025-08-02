@@ -36,7 +36,7 @@ public class Pattern6 : TimeLinePattern
             cogwheel.MoveSpeed = moveSpeed;
             cogwheel.RotationSpeed = 10f;
             cogwheel.MoveDirection = Vector2.right;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2.6f);
             for(int j = 0; j <  spawnPoints.Count; j++)
             {
                 _currentSpawn = j;
