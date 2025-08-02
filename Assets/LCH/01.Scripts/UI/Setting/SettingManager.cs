@@ -200,7 +200,6 @@ public class SettingManager : MonoBehaviour
     public void GoTitleScene()
     {
         SaveAllSettings();
-        PoolManagerMono.Instacne.AllPush();
         DemoLoadScene.instance.LoadScene("Title");
     }
 

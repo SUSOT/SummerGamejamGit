@@ -13,17 +13,7 @@ namespace EasyTransition
 
         private void Awake()
         {
-            if (PlayerPrefs.HasKey("Clear"))
-            {
-                if(PlayerPrefs.GetFloat("Clear") == 1)
-                {
-                    IsNomarlClear =true;
-                }
-                else
-                {
-                    IsNomarlClear = false;
-                }
-            }
+           
 
             if (instance == null)
             {

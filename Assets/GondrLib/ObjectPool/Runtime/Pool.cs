@@ -64,7 +64,5 @@ public class Pool
             item.GameObject.SetActive(false);
             _pool.Push(item);
         }
-
-        _activeList.Clear();
     }
 }
