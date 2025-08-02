@@ -25,10 +25,10 @@ namespace LKW._01.Scripts.InfinityMode
 
         public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
-            
+            StartCoroutine(SpawnCoroutine(PatternList,_activePatterns,1));
         }
         
-        private IEnumerator SpawnCoroutine()
+        private IEnumerator SpawnCoroutine(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns, float time)
         {
             for (int i = 0; i < 40; i++)
             {
@@ -73,6 +73,13 @@ namespace LKW._01.Scripts.InfinityMode
             
                 yield return new WaitForSeconds(0.5f);
             }
+            
+            ExecuteNextPattern(PatternList, _activePatterns);
+        }
+        
+        public override void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
+        {
+            base.ExecuteNextPattern(PatternList, _activePatterns);
         }
     }
 }
