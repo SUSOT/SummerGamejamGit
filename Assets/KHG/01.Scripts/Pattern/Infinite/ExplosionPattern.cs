@@ -3,7 +3,6 @@ using GondrLib.ObjectPool.Runtime;
 using KHG.Bullets;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class ExplosionPattern : InfinitePattern
@@ -29,7 +28,7 @@ public class ExplosionPattern : InfinitePattern
 
     private IEnumerator ExplodePattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
-        Debug.Log("ÆøÅº");
+        Debug.Log("ï¿½ï¿½Åº");
         _curTime = scoreManager.GetCurrentTime();
         int repeatCnt = (int)(_curTime / 2) + 3;
         for (int i = 1; i <= repeatCnt; i++)
