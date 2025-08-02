@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using GondrLib.Dependencies;
 using GondrLib.ObjectPool.Runtime;
+using KHG.Bullets;
 using KHG.Obstacles;
-using LCM._01.Scripts.Bullets;
 using UnityEngine;
 
 namespace LCM._01.Scripts.Timeline.Infinite
 {
-    public class LCM_InfinitePattern2 : InfinitePattern
+    public class LCM_InfinitePattern3 : InfinitePattern
     {
         [Inject] private PoolManagerMono _poolManager;
         [Inject] private InfiniteScoreManager _scoreManager;
 
-        [SerializeField] private PoolingItemSO wallgen;
+        [SerializeField] private PoolingItemSO frag;
 
         private void OnEnable()
         {
@@ -28,34 +28,29 @@ namespace LCM._01.Scripts.Timeline.Infinite
         private IEnumerator Spawn(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
         {
             float currentTime = _scoreManager.GetCurrentTime();
-            int extraRounds = Mathf.FloorToInt(currentTime / 20f) * 5;
-            int totalRounds = 10 + extraRounds;
 
-            for (int i = 0; i < totalRounds; i++)
+            // 처음 3 + 경과 시간 25초마다 1개 증가
+            int spawnCount = 3 + Mathf.FloorToInt(currentTime / 25f);
+
+            for (int i = 0; i < spawnCount; i++)
             {
-                WallGen wallObj = _poolManager.Pop<WallGen>(wallgen);
-                if (wallObj != null)
+                ExplodeBullet bullet = _poolManager.Pop<ExplodeBullet>(frag);
+                if (bullet != null)
                 {
-                    float randomX = Random.Range(-24f, 24f);
-                    float randomY = Random.Range(-12f, 12f);
-                    wallObj.transform.position = new Vector3(randomX, randomY, 0f);
+                    bullet.transform.position = new Vector3(0f, -30f, 0f);
 
-                    // 2초 뒤에 DestroyWall 실행
-                    StartCoroutine(DestroyWallAfterDelay(wallObj, 4f));
+                    float targetX = Random.Range(-24f, 24f);
+                    float targetY = Random.Range(-12f, 12f);
+                    bullet.targetPosition = new Vector3(targetX, targetY, 0f);
+
+                    bullet.moveable = true;
                 }
 
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.3f);
             }
 
             ExecuteNextPattern(PatternList, _activePatterns);
         }
-
-        private IEnumerator DestroyWallAfterDelay(WallGen wall, float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            wall.DestroyWall(); // WallGen 클래스 내 DestroyWall 메서드 호출
-        }
-
 
         public override void ExecuteNextPattern(InfinitePatternListSO PatternList,
             List<InfinitePattern> _activePatterns)
