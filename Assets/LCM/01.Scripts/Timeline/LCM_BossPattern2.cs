@@ -89,7 +89,7 @@ namespace LCM._01.Scripts.Timeline
             cam = FindFirstObjectByType<CinemachineCamera>().gameObject;
             yield return new DOTweenCYInstruction.WaitForCompletion(cam.transform
                 .DORotate(new Vector3(0, 0, 180), 3f, RotateMode.FastBeyond360)
-                .SetEase(Ease.InOutSine)
+                .SetEase(Ease.InOutCubic)
                 .SetRelative(true));
 
 
@@ -229,12 +229,12 @@ namespace LCM._01.Scripts.Timeline
                 _boss.transform.DOMove(new Vector3(0f, 0f, 0f), 3f).SetEase(Ease.OutQuad)
             );
 
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < 4; ++i)
             {
 
 
                 yield return new DOTweenCYInstruction.WaitForCompletion(
-                    _boss.transform.DOScale(20f, 0.2f)
+                    _boss.transform.DOScale(17f, 0.2f)
                         .SetEase(Ease.OutBack)
                         .SetLoops(2, LoopType.Yoyo)
                 );
@@ -253,7 +253,7 @@ namespace LCM._01.Scripts.Timeline
                     waveInstance.transform.localScale = Vector3.one * currentScale;
                     if (Mathf.Approximately(currentScale, 27f))
                     {
-                        for (int j = 0; j < 3; ++j)
+                        for (int j = 0; j < 4; ++j)
                         {
                             ExplodeBullet eb = _poolManager.Pop<ExplodeBullet>(flagBomb);
                             eb.moveable = true;
@@ -274,26 +274,184 @@ namespace LCM._01.Scripts.Timeline
                 Destroy(waveInstance);
             }
 
-            for (int i = 0; i < 30; ++i)
+            yield return new WaitForSeconds(0.5f);
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(0,30f,0), 1f).SetEase(Ease.OutQuad));
+
+            for (int i = 0; i < 10; ++i)
             {
                 for (int j = 0; j < 4; ++j)
                 {
-                    LaserBullet lb = _poolManager.Pop<LaserBullet>(laser);
-                    float posX = Random.Range(-20f, 20f);
-                    float posY = Random.Range(-10f, 10f);
-                    lb.transform.position = new Vector2(posX, posY);
                     if (j < 2)
                     {
+                        LaserBullet lb = _poolManager.Pop<LaserBullet>(laser);
+                        float posY = Random.Range(-14.5f, 14.5f);
+                        lb.transform.position = new Vector2(0, posY);
                         lb.transform.rotation = Quaternion.identity;
                     }
                     else
                     {
+                        LaserBullet lb = _poolManager.Pop<LaserBullet>(laser);
+                        float posX = Random.Range(-26f, 26f);
+                        lb.transform.position = new Vector2(posX, 0);
                         lb.transform.rotation = Quaternion.Euler(0, 0, 90f);
                     }
                 }
 
+                yield return new WaitForSeconds(1f);
+            }
+
+            yield return new WaitForSeconds(5f);
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(Vector3.zero, 1f).SetEase(Ease.OutQuad));
+            
+            
+            // 이제 보스 최종공격
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                _boss.transform.DOMove(new Vector3(0f, -9f, 0f), 0.5f).SetEase(Ease.InQuad)
+            );
+            OnShakeCamera?.Invoke();
+
+            for (int x = 7; x <= 27; x += 2)
+            {
+                var barR = Instantiate(bar, new Vector3(x, -21f, 0f), Quaternion.identity);
+                barR.transform.DOMoveY(-9f, 0.2f).SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                        barR.transform.DOMoveY(-21f, 0.2f).SetEase(Ease.InQuad).OnComplete(() => Destroy(barR)));
+                var barL = Instantiate(bar, new Vector3(-x, -21f, 0f), Quaternion.identity);
+                barL.transform.DOMoveY(-9f, 0.2f).SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                        barL.transform.DOMoveY(-21f, 0.2f).SetEase(Ease.InQuad).OnComplete(() => Destroy(barL)));
+
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(2f);
+            
+            var spawnedWall1 = Instantiate(wall, new Vector3(0f, -45f, 0f), Quaternion.identity);
+
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                DOTween.Sequence()
+                    .Join(_boss.transform.DOMove(new Vector3(0f, -2f, 0f), 4f).SetEase(Ease.OutQuad))
+                    .Join(spawnedWall1.transform.DOMove(new Vector3(0f, -38f, 0f), 4f).SetEase(Ease.OutQuad)) // 시작 빠르고 끝 느린 OutQuad
+            );
+            
+            
+            
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                _boss.transform.DOMove(new Vector3(0f, 9f, 0f), 0.5f).SetEase(Ease.InQuad)
+            );
+            OnShakeCamera?.Invoke();
+
+            for (int x = 7; x <= 27; x += 2)
+            {
+                var barR = Instantiate(bar, new Vector3(x, 21f, 0f), Quaternion.identity);
+                barR.transform.DOMoveY(9f, 0.2f).SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                        barR.transform.DOMoveY(21f, 0.2f).SetEase(Ease.InQuad).OnComplete(() => Destroy(barR)));
+                var barL = Instantiate(bar, new Vector3(-x, 21f, 0f), Quaternion.identity);
+                barL.transform.DOMoveY(9f, 0.2f).SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                        barL.transform.DOMoveY(21f, 0.2f).SetEase(Ease.InQuad).OnComplete(() => Destroy(barL)));
+
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(2f);
+            
+            var spawnedWall2 = Instantiate(wall, new Vector3(0f, 45f, 0f), Quaternion.identity);
+
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                DOTween.Sequence()
+                    .Join(_boss.transform.DOMove(new Vector3(0f, 2f, 0f), 4f).SetEase(Ease.OutQuad))
+                    .Join(spawnedWall2.transform.DOMove(new Vector3(0f, 38f, 0f), 4f).SetEase(Ease.OutQuad)) // 시작 빠르고 끝 느린 OutQuad
+            );
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(Vector3.zero, 0.5f).SetEase(Ease.OutQuad));
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(1f,0,0), 0.2f).SetEase(Ease.OutQuad));
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(-17.5f,0,0), 0.4f).SetEase(Ease.OutQuad));
+            yield return new WaitForSeconds(0.5f);
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(-18.5f,0,0), 0.2f).SetEase(Ease.OutQuad));
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(17.5f,0,0), 0.8f).SetEase(Ease.OutQuad));
+            yield return new WaitForSeconds(0.5f);
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(18.5f,0,0), 0.2f).SetEase(Ease.OutQuad));
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(Vector3.zero, 0.4f).SetEase(Ease.OutQuad));
+            yield return new WaitForSeconds(0.5f);
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(_boss.transform.DOMove(new Vector3(0,-30,0),1f).SetEase(Ease.OutQuad));
+            
+            float y1 = 0f;
+
+            var leftStart1  = new Vector3(-43f, y1, 0f);
+            var rightStart1 = new Vector3( 43f, y1, 0f);
+
+            var leftStick1  = Instantiate(stick, leftStart1,  Quaternion.identity);
+            var rightStick1 = Instantiate(stick, rightStart1, Quaternion.identity);
+
+            var leftMid1  = new Vector3(-40f, y1, 0f);
+            var rightMid1 = new Vector3( 40f, y1, 0f);
+            var leftEnd1  = new Vector3(-15f, y1, 0f);
+            var rightEnd1 = new Vector3( 15f, y1, 0f);
+
+            DOTween.Sequence()
+                .Append(leftStick1.transform.DOMove(leftMid1, 0.6f).SetEase(Ease.InOutSine))
+                .Join(rightStick1.transform.DOMove(rightMid1, 0.6f).SetEase(Ease.InOutSine))
+                .AppendInterval(0.7f)
+                .Append(leftStick1.transform.DOShakePosition(0.3f, strength: 0.2f, vibrato: 10).SetEase(Ease.Linear))
+                .Join(rightStick1.transform.DOShakePosition(0.3f, strength: 0.2f, vibrato: 10).SetEase(Ease.Linear))
+                .AppendInterval(0.2f)
+                .Append(leftStick1.transform.DOMove(leftEnd1, 0.2f).SetEase(Ease.InOutQuad))
+                .Join(rightStick1.transform.DOMove(rightEnd1, 0.2f).SetEase(Ease.InOutQuad))
+                .AppendCallback(() => OnShakeCamera?.Invoke())
+                .AppendInterval(1f)
+                .Append(leftStick1.transform.DOMove(leftStart1, 3f).SetEase(Ease.InOutSine))
+                .Join(rightStick1.transform.DOMove(rightStart1, 3f).SetEase(Ease.InOutSine))
+                .OnComplete(() => {
+                    Destroy(leftStick1);
+                    Destroy(rightStick1);
+                });
+
+            yield return new WaitForSeconds(6f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                LaserBullet lb = _poolManager.Pop<LaserBullet>(laser);
+                float posX = Mathf.Lerp(-25f, 25f, (float)i / (10 - 1));
+                lb.transform.position = new Vector2(posX, 0);
+                lb.transform.rotation = Quaternion.Euler(0, 0, 90f);
+    
                 yield return new WaitForSeconds(0.3f);
             }
+
+            yield return new WaitForSeconds(3f);
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                DOTween.Sequence()
+                    .Join(spawnedWall1.transform.DOMove(new Vector3(0f, -45f, 0f), 2f).SetEase(Ease.InOutSine))
+                    .Join(spawnedWall2.transform.DOMove(new Vector3(0f, 45f, 0f), 2f).SetEase(Ease.InOutSine))
+                    .OnComplete(() => {
+                        Destroy(spawnedWall1);
+                        Destroy(spawnedWall2);
+                    })
+            );
+            yield return new WaitForSeconds(2f);
+            
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                DOTween.Sequence()
+                    .Join(_boss.transform.DOMove(Vector3.zero, 2f).SetEase(Ease.InOutSine))
+                    .Join(_boss.transform.DORotate(new Vector3(0f, 0f, 1080f), 2f, RotateMode.FastBeyond360).SetEase(Ease.Linear))
+            );
+
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                _boss.transform.DOMoveY(-9f, 0.5f).SetEase(Ease.InQuad)
+            );
+            OnShakeCamera?.Invoke();
+
+            yield return new DOTweenCYInstruction.WaitForCompletion(
+                _boss.transform.DOMoveY(-30f, 4f).SetEase(Ease.InOutSine)
+            );
         }
     }
 }
