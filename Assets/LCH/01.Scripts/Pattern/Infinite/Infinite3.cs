@@ -11,7 +11,7 @@ public class Infinite3 : InfinitePattern
     [SerializeField] private PoolingItemSO cog;
     [SerializeField] private PoolingItemSO laser;
     [SerializeField] private PoolingItemSO wallItem;
-    [SerializeField] private int SpawnCount;
+    [SerializeField] private int SpawnCount = 5;
     [SerializeField] private List<Vector3> spawnPoints;
     [SerializeField] private float moveSpeed = 3.5f;
     [SerializeField] private int currentPatternTime;
@@ -19,7 +19,7 @@ public class Infinite3 : InfinitePattern
 
     [Inject] private PoolManagerMono _poolManager;
 
-    private void OnEnable()
+    private void Start()
     {
         Injector.Instance.InjectRuntime(this);
     }
@@ -38,10 +38,10 @@ public class Infinite3 : InfinitePattern
         for (int i = 0; i < SpawnCount; i++)
         {
             CogwheelBullet cogwheel = _poolManager.Pop<CogwheelBullet>(cog);
-            cogwheel.transform.position = new Vector2(-40, 0);
+            cogwheel.transform.position = new Vector2(15, 0);
             cogwheel.MoveSpeed = moveSpeed;
             cogwheel.RotationSpeed = 10f;
-            cogwheel.MoveDirection = Vector2.right;
+            cogwheel.MoveDirection = Vector2.left;
             yield return new WaitForSeconds(2.6f);
             for (int j = 0; j < spawnPoints.Count; j++)
             {
