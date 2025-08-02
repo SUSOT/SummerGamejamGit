@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KHG/00.Scene/GameoverScene.unity
     guid: 803af67bd4915ad49b77e0abda28d100
+  - enabled: 1
+    path: Assets/Scenes/Game/InfiniteScene.unity
+    guid: 60206870cb9ee7a47ab00982711a4852
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

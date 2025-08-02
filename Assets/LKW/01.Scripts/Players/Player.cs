@@ -53,6 +53,11 @@ namespace Players
             _stateMachine.ChangeState("IDLE");
         }
 
+        private void OnEnable()
+        {
+            Injector.Instance.InjectRuntime(this);
+        }
+
         protected override void AfterInitialize()
         {
             base.AfterInitialize();
