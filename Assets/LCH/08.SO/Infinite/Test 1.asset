@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112457522294a7e4fab8e6dad4218c50, type: 3}
   m_Name: Test 1
   m_EditorClassIdentifier: 
-  patterns: []
+  patterns:
+  - {fileID: 11400000, guid: c0ce95ab9cd0a6f4aae3157dda1ff831, type: 2}

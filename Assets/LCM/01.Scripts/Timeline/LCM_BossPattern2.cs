@@ -23,6 +23,7 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private GameObject stick;
         [SerializeField] private GameObject wall;
         [SerializeField] private GameObject wave;
+        [SerializeField] private GameEventChannelSO channel;
         private GameObject cam;
         private GameObject _boss;
         [SerializeField] private PoolingItemSO wallgen;
@@ -452,6 +453,8 @@ namespace LCM._01.Scripts.Timeline
             yield return new DOTweenCYInstruction.WaitForCompletion(
                 _boss.transform.DOMoveY(-30f, 4f).SetEase(Ease.InOutSine)
             );
+
+            channel.RaiseEvent(PatorlOpenEvents.PatorlEvent);
         }
     }
 }

@@ -30,17 +30,20 @@ public class InfinitePattern1 : InfinitePattern
     private IEnumerator Spawn()
     {
         Wall wall = _poolManager.Pop<Wall>(wallItem);
-        wall.Init(new Vector2(0,-20),false,false,30,55,4f);
+        wall.Init(new Vector2(0,-20),false,true,55,33,4f);
+        wall.SetWall();
         yield return new WaitForSeconds(4f);
 
         for(int i = 0; i <2; i++)
         {
-            for(int j =0; j< 8; j++)
+            for(int j =0; j< 13; j++)
             {
                 CircleWorm worm = _poolManager.Pop<CircleWorm>(wormItem);
-                worm.transform.position = new Vector2(Random.Range(-23f,-23f),Random.Range(23f,-23f));
-                worm.rotationSpeed = 10;
-                yield return new WaitForSeconds(0.3f);
+                float x = Random.Range(-23f, 23f);
+                float r = Random.Range(0f, 5f);
+                worm.rotationSpeed = r;
+                worm.transform.position = new Vector2(x,-23);
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }
