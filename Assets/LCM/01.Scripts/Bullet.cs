@@ -7,6 +7,7 @@ namespace LCM._01.Scripts
     public abstract class Bullet : MonoBehaviour, IPoolable
     {
         [Inject] protected PoolManagerMono _poolManager;
+        [SerializeField] private bool _isPooling = true;
 
         protected virtual void OnEnable()
         {
@@ -17,8 +18,15 @@ namespace LCM._01.Scripts
         {
             if (other.gameObject.CompareTag("BulletDestroyZone"))
             {
-                print("push");
-                _poolManager.Push(this);
+                if (!_isPooling)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    print("push");
+                    _poolManager.Push(this);
+                }
             }
             ApplyDamage(other);
         }
