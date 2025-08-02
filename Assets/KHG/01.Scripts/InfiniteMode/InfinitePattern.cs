@@ -1,16 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class InfinitePattern : MonoBehaviour
+public abstract class InfinitePattern : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    //public InfinitePatternListSO PatternList; 매개변수로 줘볼까
+    public abstract void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns);
+    public virtual void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PatternList.GetActiveRandomPattern(_activePatterns).Execute(PatternList, _activePatterns);
     }
 }

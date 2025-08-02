@@ -1,7 +1,9 @@
 using UnityEngine;
 using TMPro;
+using GondrLib.Dependencies;
 
-public class InfiniteScoreManager : MonoBehaviour
+[Provide]
+public class InfiniteScoreManager : MonoBehaviour, IDependencyProvider
 {
     public TextMeshProUGUI timeText;
 
