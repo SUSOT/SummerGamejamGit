@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bbb9eabf47d31749a30609145d15130, type: 3}
-  m_Name: Inf_TestPattern
+  m_Name: Inf_ExplosionPattern_1
   m_EditorClassIdentifier: 
-  Pattern: {fileID: 1407971636464046197, guid: 30a271def33552647bcbae74dcb2ebb2, type: 3}
+  Pattern: {fileID: -4162646708953503829, guid: ae41f52895ca6e146a1c89ff4f50e313, type: 3}

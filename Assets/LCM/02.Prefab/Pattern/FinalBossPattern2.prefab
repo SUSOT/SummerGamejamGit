@@ -67,6 +67,7 @@ MonoBehaviour:
   stick: {fileID: 6397768297290910767, guid: 3e0d0a4598fd39542b7f366e8aa0d267, type: 3}
   wall: {fileID: 979043584605689915, guid: e6113525034683343adef703de4af214, type: 3}
   wave: {fileID: 3434116905956132371, guid: efa679f727685e048ab7d00cde6c23f3, type: 3}
+  channel: {fileID: 11400000, guid: 442a9ed33747126479d155ac9c6fb7cf, type: 2}
   wallgen: {fileID: 11400000, guid: b812c6634a618264db0b1dce70a8df84, type: 2}
   dumbbell: {fileID: 11400000, guid: 176ff2cdc53c982478f8c4780c708d17, type: 2}
   laser: {fileID: 11400000, guid: a397da91a1016084eba4ff86d1cb195c, type: 2}

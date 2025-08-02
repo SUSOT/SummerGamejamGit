@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: InfPatternList
   m_EditorClassIdentifier: 
   patterns:
-  - {fileID: 11400000, guid: 1420e883ca2b7044bb468c3566a409d6, type: 2}
-  - {fileID: 11400000, guid: dc7299fb826352a42b29c07a9f8d1085, type: 2}
+  - {fileID: 11400000, guid: d4b222d52dff2ad4c8e12bb191c3af46, type: 2}
+  - {fileID: 11400000, guid: 89d055f4b3189634c84cfaf85b4c4c58, type: 2}
+  - {fileID: 11400000, guid: d0c1bf1ff24dd0b4cb1999889a634f68, type: 2}

@@ -23,6 +23,8 @@ namespace LCM._01.Scripts.Timeline
         [SerializeField] private GameObject wall;
         [SerializeField] private GameObject thorn;
         [SerializeField] private GameObject triangleWave;
+        [SerializeField] private AudioClip clip;
+        [SerializeField] private GameEventChannelSO channel;
         private GameObject cam;
         [SerializeField] private PoolingItemSO normal;
         [SerializeField] private PoolingItemSO laser;
@@ -44,6 +46,7 @@ namespace LCM._01.Scripts.Timeline
 
         private IEnumerator PatternCoroutine()
         {
+            channel.RaiseEvent(AudioEvents.AudioChangeEvent.Initializer(AudioType.BGM, clip, true));
             var warn = Instantiate(warning, Vector3.zero, Quaternion.identity);
             
             warn.transform.localScale = Vector3.zero;
