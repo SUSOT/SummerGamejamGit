@@ -35,13 +35,13 @@ public class SummonerPattern : InfinitePattern
         {
             print("»ý¼º");
             SommonerBullet bullet = poolManager.Pop(poolType) as SommonerBullet;
-            bullet.transform.position = transform.position + new Vector3(Random.Range(-7f,7f), Random.Range(-5f, 5f), 0);
+            bullet.transform.position = Vector3.zero + new Vector3(Random.Range(-25f,25f), -20, 0);
             bullet.MoveSpeed = 15f;
-            bullet.transform.rotation = Quaternion.Euler(0,0,Random.Range(-180,180));
+            bullet.transform.rotation = Quaternion.LookRotation(Vector3.zero);
             bullet.ChildSpawnCount = (int)_curTime / 2 + 2;
-            bullet.MoveSpeed = 0;
-            yield return new WaitForSeconds(1 / _curTime);
+            bullet.MoveSpeed = 10;
         }
+        yield return new WaitForSeconds(1f);
 
         ExecuteNextPattern(PatternList, _activePatterns);
     }
