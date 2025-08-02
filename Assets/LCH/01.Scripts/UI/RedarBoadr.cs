@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class RedarBoadr : MonoBehaviour
 {
-    [SerializeField] private Image readBoadrBackground;
+    [SerializeField] private GameObject readBoadrBackground;
 
     public void ReadBoarOpne()
     {
