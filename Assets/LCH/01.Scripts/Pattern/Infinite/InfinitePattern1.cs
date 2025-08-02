@@ -42,7 +42,7 @@ public class InfinitePattern1 : InfinitePattern
                 float x = Random.Range(-23f, 23f);
                 float r = Random.Range(0f, 5f);
                 worm.rotationSpeed = r;
-                worm.transform.position = new Vector2(x,-15);
+                worm.transform.position = new Vector2(x,-7);
                 yield return new WaitForSeconds(0.5f);
             }
         }
