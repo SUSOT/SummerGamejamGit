@@ -7,6 +7,8 @@ using Unity.Services.Leaderboards;
 using System.Threading.Tasks;
 using LKW._01.Scripts.LeaderBoard;
 using UnityEngine.Serialization;
+using DG.Tweening;
+using EasyTransition;
 
 public class ClearPlayerReaderBoard : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class ClearPlayerReaderBoard : MonoBehaviour
     [SerializeField] private Transform boxParent;
     [SerializeField] private GameObject rankBoxPrefab;
     [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private Image ReaderBoard;
     
 
     private string leaderboardId = "gamejam_Leaderboard";
@@ -66,6 +69,13 @@ public class ClearPlayerReaderBoard : MonoBehaviour
             await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, clearTime);
             Debug.Log($"점수 등록 완료: {playerName}");
             await RefreshLeaderboard();
+            gameObject.transform.DOScale(0, 0.5f).OnComplete(()=>
+            {
+                ReaderBoard.transform.DOScale(1, 0.8f);
+                DOVirtual.DelayedCall(3f, () => DemoLoadScene.instance.LoadScene("Title"));
+            });
+            
+            
         }
         catch (System.Exception e)
         {
