@@ -67,7 +67,6 @@ public class CameraFocus : MonoBehaviour
         vCam.transform.position = endPos;
         vCam.Lens.OrthographicSize = targetSize;
 
-        poolManagerMono.AllPush();
         Time.timeScale = 1f;
         SceneManager.LoadScene("GameoverScene");
     }

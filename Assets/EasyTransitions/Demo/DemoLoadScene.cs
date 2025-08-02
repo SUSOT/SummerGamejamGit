@@ -13,17 +13,7 @@ namespace EasyTransition
 
         private void Awake()
         {
-            if (PlayerPrefs.HasKey("Clear"))
-            {
-                if(PlayerPrefs.GetFloat("Clear") == 1)
-                {
-                    IsNomarlClear =true;
-                }
-                else
-                {
-                    IsNomarlClear = false;
-                }
-            }
+           
 
             if (instance == null)
             {
@@ -41,10 +31,6 @@ namespace EasyTransition
         
         public void LoadScene(string _sceneName)
         {
-            if(PoolManagerMono.Instacne != null)
-            {
-                PoolManagerMono.Instacne.AllPush();
-            }
             TransitionManager.instance.Transition(_sceneName, transition, startDelay);
             SceneCheck.RaiseEvent(SceneChangeEvents.SceneChangeCheck.Init(_sceneName));
         }   

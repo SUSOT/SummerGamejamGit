@@ -8,7 +8,6 @@ public class PatorlOpen : MonoBehaviour
 
    public void PatorlOpenEvet()
     {
-        PoolManagerMono.Instacne.AllPush();
         patorl.RaiseEvent(PatorlOpenEvents.PatorlEvent);
     }
 }
