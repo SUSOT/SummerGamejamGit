@@ -24,10 +24,10 @@ public class InfinitePattern1 : InfinitePattern
     }
     public override void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
-        StartCoroutine(Spawn());
+        StartCoroutine(Spawn(PatternList,_activePatterns));
     }
 
-    private IEnumerator Spawn()
+    private IEnumerator Spawn(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
         Wall wall = _poolManager.Pop<Wall>(wallItem);
         wall.Init(new Vector2(0,-20),false,true,55,33,4f);
@@ -42,10 +42,13 @@ public class InfinitePattern1 : InfinitePattern
                 float x = Random.Range(-23f, 23f);
                 float r = Random.Range(0f, 5f);
                 worm.rotationSpeed = r;
-                worm.transform.position = new Vector2(x,-23);
+                worm.transform.position = new Vector2(x,-15);
                 yield return new WaitForSeconds(0.5f);
             }
         }
+
+        _poolManager.Push(wall);
+        ExecuteNextPattern(PatternList,_activePatterns);
     }
 
     public override void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
