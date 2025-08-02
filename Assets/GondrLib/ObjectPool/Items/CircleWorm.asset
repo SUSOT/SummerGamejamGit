@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: CircleWorm
   prefab: {fileID: 8856579244491195586, guid: 37dd9967505002e49903341f58861cf7, type: 3}
-  initCount: 5
+  initCount: 60

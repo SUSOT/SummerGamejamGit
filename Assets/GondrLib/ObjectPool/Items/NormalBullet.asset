@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: NormalBullet
   prefab: {fileID: 2959930951891833905, guid: 497a7ab3948714f49b3bdc95b2e7ec63, type: 3}
-  initCount: 30
+  initCount: 60

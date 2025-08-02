@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: WallBullet
   prefab: {fileID: 6799729449784232012, guid: d5c5178fcec7a264498ec6e88fd4c80e, type: 3}
-  initCount: 10
+  initCount: 60

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: TriangleCannon
   prefab: {fileID: 8111602503394388695, guid: 47d0980b4fcb60248ab99e5a6ca5cf17, type: 3}
-  initCount: 3
+  initCount: 60
