@@ -28,7 +28,7 @@ public class TestPattern : InfinitePattern
         {
             float duration = time - scoreManager.GetCurrentTime() / 100;
             yield return new WaitForSeconds(duration);
-            print($"{patternName} ½ÇÇà! : {i},°£°Ý:{duration}");
+            print($"{patternName} ì‹¤í–‰! : {i},ê°„ê²©:{duration}");
         }
         ExecuteNextPattern(PatternList, _activePatterns);
     }

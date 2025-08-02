@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class InfinitePattern : MonoBehaviour
 {
-    //public InfinitePatternListSO PatternList; ¸Å°³º¯¼ö·Î Áàº¼±î
+    //public InfinitePatternListSO PatternList; ë§¤ê°œë³€ìˆ˜ë¡œ ì¤˜ë³¼ê¹Œ
     public abstract void Execute(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns);
     public virtual void ExecuteNextPattern(InfinitePatternListSO PatternList, List<InfinitePattern> _activePatterns)
     {
