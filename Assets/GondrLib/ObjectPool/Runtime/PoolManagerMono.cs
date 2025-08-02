@@ -32,5 +32,10 @@ namespace GondrLib.ObjectPool.Runtime
         {
             poolManager.Push(target);
         }
+
+        public void AllPush()
+        {
+            poolManager.PushAll();
+        }
     }
 }
