@@ -20,6 +20,7 @@ public class InfinitePatternListSO : ScriptableObject
         {
             if(played.Count >= _activePatterns.Count) played.Clear();
             index = Random.Range(0, _activePatterns.Count);
+            Debug.Log($"{played.Count} played patterns");
         }
         return _activePatterns[index];
     }
