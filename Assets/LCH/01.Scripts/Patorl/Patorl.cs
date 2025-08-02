@@ -89,8 +89,7 @@ public class Patorl : MonoBehaviour
                 if (hit.collider != null)
                 {
                     hasTriggeredPortal = true;
-                    EntityMover mover = hit.collider.gameObject.GetComponentInChildren<EntityMover>();
-                    mover.CanManualMove = false;
+                   
                     StartCoroutine(ExecutePortalSequence(hit.collider));
                     yield break;
                 }
@@ -104,13 +103,17 @@ public class Patorl : MonoBehaviour
     {
         playerCollider.transform.SetParent(transform);
         playerCollider.gameObject.transform.position = new Vector2(transform.position.x,transform.position.y);
-
-        if(nextScene == "Stage3")
+        EntityMover mover = playerCollider.gameObject.GetComponentInChildren<EntityMover>();
+        mover.CanManualMove = false;
+        if (nextScene == "Stage3")
         {
             DemoLoadScene.instance.IsNomarlClear = true;
         }
         DemoLoadScene.instance.LoadScene(nextScene);
+        playerCollider.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y);
+        
         yield return new WaitForSeconds(0.3f);
+        playerCollider.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y);
         var sequence = DOTween.Sequence();
         sequence.Append(transform.DOScale(0, 0.5f));
         sequence.Join(transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360));
@@ -137,11 +140,11 @@ public class Patorl : MonoBehaviour
 
                 if (isOverlapping && !wasOverlapping)
                 {
-                    transform.DOScale(4f, 0.4f);
+                    transform.DOScale(4f, 0.2f);
                 }
                 else if (!isOverlapping && wasOverlapping)
                 {
-                    transform.DOScale(2f, 0.4f);
+                    transform.DOScale(2f, 0.2f);
                 }
 
                 wasOverlapping = isOverlapping;

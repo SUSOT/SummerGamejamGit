@@ -372,7 +372,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 80812028}
-  - component: {fileID: 80812029}
   m_Layer: 5
   m_Name: SettingUI
   m_TagString: Untagged
@@ -402,23 +401,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &80812029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80812027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388156eea4336984b833ce4d1a60c9cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterSlider: {fileID: 762806972}
-  bgmSlider: {fileID: 1906445386}
-  sfxSlider: {fileID: 1500262084}
-  mixer: {fileID: 24100000, guid: 4fc70516f6673454d9bd6f6937ea8926, type: 2}
-  setting: {fileID: 11400000, guid: 610d51680b685a54b981740f78e551b6, type: 2}
 --- !u!1 &108180444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,7 +2114,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioSetting, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &793262290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,7 +4992,10 @@ MonoBehaviour:
   - {fileID: 1500262083}
   selectImage: {fileID: 1947551282}
   mainMenuBnt: {fileID: 1344829531}
-  audioSetting: {fileID: 80812029}
+  masterSlider: {fileID: 762806972}
+  bgmSlider: {fileID: 1906445386}
+  sfxSlider: {fileID: 1500262084}
+  audioMixer: {fileID: 24100000, guid: 4fc70516f6673454d9bd6f6937ea8926, type: 2}
 --- !u!1 &1500262082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,7 +5087,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioSetting, Assembly-CSharp
+        m_MethodName: SetSfxVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1534455298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,7 +5920,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioSetting, Assembly-CSharp
+        m_MethodName: SetBgmVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1947551280
 GameObject:
   m_ObjectHideFlags: 0
