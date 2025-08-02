@@ -44,11 +44,6 @@ public class AudioManager : MonoBehaviour
 
     private void BGMChange(AudioClip clip)
     {
-        bgmSource.DOPitch(0, 0.8f).OnComplete(()=>
-        {
-            DOVirtual.DelayedCall(0.3f, () => bgmSource.DOPitch(1, 0.8f));
-            
-        });
         bgmSource.clip = clip;
         bgmSource.Play();
     } 
