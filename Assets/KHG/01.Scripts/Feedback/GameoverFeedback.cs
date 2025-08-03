@@ -15,7 +15,6 @@ public class GameoverFeedback : Feedback
 
         if (cameraChannel == null) return;
         CameraFocusEvent evt = CameraEvent.CameraFocusEvent;
-        PoolManagerMono.Instacne.AllPush();
         evt.target = player;
         cameraChannel.RaiseEvent(evt);
         Time.timeScale = 0;
