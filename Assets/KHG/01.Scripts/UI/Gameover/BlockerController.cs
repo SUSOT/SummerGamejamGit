@@ -17,6 +17,7 @@ namespace KHG.UI
             blocker2.gameObject.SetActive(true);
             Sequence _seq = DOTween.Sequence();
 
+            _seq.AppendInterval(2f);
             _seq.Append(blocker1.DOScaleY(1024, 2f));
             _seq.Join(blocker1.DOAnchorPosY(540, 3f)).SetEase(Ease.OutExpo);
             _seq.Join(blocker2.DOScaleY(1024, 2f));
