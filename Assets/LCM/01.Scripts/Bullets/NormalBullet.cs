@@ -19,7 +19,7 @@ namespace LCM._01.Scripts.Bullets
 
         public override void SetUpPool(Pool pool)
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
+            
         }
 
         public override void ResetItem()
@@ -27,6 +27,7 @@ namespace LCM._01.Scripts.Bullets
             _rigidbody.linearVelocity = Vector2.zero;
             _rigidbody.angularVelocity = 0f;
             transform.rotation = Quaternion.identity;
+            transform.localScale = new Vector3(2, 2, 2);
             moveSpeed = 0f;
         }
 
