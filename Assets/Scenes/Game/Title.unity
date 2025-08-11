@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9b7a554f0e29b4d840a6a4ca88b852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  type: 4
   selectColor: {r: 1, g: 1, b: 1, a: 1}
   textTmp: {fileID: 1199947125}
   outline: {fileID: 1349928680}
